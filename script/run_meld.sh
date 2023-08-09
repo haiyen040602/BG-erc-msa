@@ -20,6 +20,7 @@ python ../code/main.py --task meld \
             --n_runs 1 \
             --clear_model \
             --save_best \
+            --pseudo \
             --data_gene_extract \
             --data_gene_extract_epochs 10 \
             --init_tag english \

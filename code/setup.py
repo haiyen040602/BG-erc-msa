@@ -65,7 +65,7 @@ def init_args():
     parser.add_argument("--init_tag", default=None, type=str, help="[english]")
 
     # data genenration
-    parser.add_argument("--data_gene", action='store_false', help="enable data generation")
+    parser.add_argument("--data_gene", action='store_true', help="enable data generation")
     parser.add_argument("--data_gene_epochs", default=0, type=int, help="epoch of generation model training")
     parser.add_argument("--data_gene_extract", action='store_true', help="enable text-to-label stage")
     parser.add_argument("--data_gene_extract_epochs", default=0, type=int, help="epoch of extract model training")
@@ -73,10 +73,10 @@ def init_args():
     parser.add_argument("--data_gene_none_word_num", default=1, type=int, help="rand word added to generate diverse none examples")
     parser.add_argument("--data_gene_extract_none_remove_ratio", default=0, type=float, help="remove none training sample for extract model training")
     parser.add_argument("--data_gene_same_model", action='store_true', help="extract & gene model share the same model")
-    parser.add_argument("--data_gene_wt_constrained", action='store_false', help="turn off constrained decoding during gene generation")
+    parser.add_argument("--data_gene_wt_constrained", action='store_true', help="turn off constrained decoding during gene generation")
     parser.add_argument("--use_same_model", action='store_true', help="all stages use the same model")
-    parser.add_argument("--model_filter", action='store_false', help="use extract model inference for filtering")
-    parser.add_argument("--model_filter_skip_none", action='store_false', help="keep the sample if extract model output none")
+    parser.add_argument("--model_filter", action='store_true', help="use extract model inference for filtering")
+    parser.add_argument("--model_filter_skip_none", action='store_true', help="keep the sample if extract model output none")
 
     # decode
     parser.add_argument("--data_gene_decode", default=None, type=str, help="[greedy, top_p, beam]")

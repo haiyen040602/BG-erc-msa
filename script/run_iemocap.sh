@@ -20,10 +20,13 @@ python ../code/main.py --task iemocap \
             --n_runs 1 \
             --clear_model \
             --save_best \
+            --pseudo \
             --data_gene_extract \
             --data_gene_extract_epochs 10 \
+            --data_gene_epochs 10 \
             --init_tag english \
             --do_train \
             --do_eval \
             --use_same_model \
+            --model_filter \
             --train_by_pair \
