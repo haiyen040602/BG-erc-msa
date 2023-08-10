@@ -285,8 +285,8 @@ def save_inputs_and_targets(path, inputs, targets):
 
 def get_dataset(args, task, data_type, tokenizer):
     inputs, targets = get_inputs_and_targets(args, task, data_type)
-    for i in range(3):
-        print("Input ", i, ": ", inputs[i])
-        print("Output ", i, ": ", targets[i])
+    # for i in range(3):
+    #     print("Input ", i, ": ", inputs[i])
+    #     print("Output ", i, ": ", targets[i])
     dataset = ABSADataset(args, tokenizer, inputs=inputs, targets=targets, name=f"{data_type}_{task}")
     return dataset

@@ -236,8 +236,12 @@ def pseudo_label(args, tokenizer, model, train_dataset):
     target_dataset = get_dataset(args, task=args.task, data_type="target-unlabel", tokenizer=tokenizer)
     target_pseudo_inputs, target_pseudo_outputs, _ = infer(
         args, target_dataset, model, tokenizer, name=f"target_pseudo_{args.task}",
-        is_constrained=True, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
+        is_constrained=False, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
     )
+
+    for i in range(3):
+        print("Input of pseudo inference: ", i, target_pseudo_inputs[i])
+        print("Output of pseudo inference: ", i, target_pseudo_outputs[i])
 
     if args.pseudo_skip_none:
         target_pseudo_inputs, target_pseudo_outputs = pseudo_filter_none(target_pseudo_inputs, target_pseudo_outputs)
