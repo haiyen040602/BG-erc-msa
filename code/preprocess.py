@@ -112,11 +112,22 @@ def prepare_raw_data(args):
     task_map = {
         "moseii": ('moseii',  "../data/cross_domain/moseii"),
         "meld": ('meld',  "../data/cross_domain/meld"),
-        "iemocap": ('iemocap', "../data/cross_domain/iemocap")
+        "iemocap": ('iemocap', "../data/cross_domain/iemocap"), 
+    }
+
+    task_map_small = {
+        "moseii": ('moseii',  "../data/cross_domain_small/moseii"),
+        "meld": ('meld',  "../data/cross_domain_small/meld"),
+        "iemocap": ('iemocap', "../data/cross_domain_small/iemocap"),
+        "meld_context": ('meld_context',  "../data/cross_domain_small/meld_context"),
+        "iemocap_context": ('iemocap_context', "../data/cross_domain_small/iemocap_context"),
     }
    
     if args.task in task_map and args.dataset == "cross_domain":
         mode, dataset_dir = task_map[args.task]
+        return process_task(preprocess, mode, dataset_dir, args.data_gene, args.pseudo)
+    elif args.task in task_map and args.dataset == "cross_domain_small":
+        mode, dataset_dir = task_map_small[args.task]
         return process_task(preprocess, mode, dataset_dir, args.data_gene, args.pseudo)
     else:
         raise NotImplementedError

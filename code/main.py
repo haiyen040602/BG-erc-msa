@@ -234,7 +234,7 @@ def main(args):
                 score_dict_test, pred_dict_test = evaluate(args, tokenizer, test_dataset, model, args.paradigm, args.task, test_sents, "test",
                                                         is_constrained=is_constrained, eval_set_count_dict=test_count_dict, silent=True)
 
-                if args.dataset == "cross_domain":
+                if "cross_domain" in args.dataset:
                     best_condition = score_dict_dev["raw_scores"][args.source_domain]['f1']
                 if best_condition > best_f1:
                     best_f1 = best_condition

@@ -252,7 +252,8 @@ def pseudo_label(args, tokenizer, model, train_dataset):
 
     # 2. inference on target unlabel
     target_dataset = get_dataset(args, task=args.task, data_type="target-unlabel", tokenizer=tokenizer)
-    is_constrained = False if args.data_extract_wt_constrained else True
+    is_constrained = True if args.data_extract_wt_constrained else False
+    print ('Pseudo Labels Extraction with constrained decoding: ', is_constrained)
     target_pseudo_inputs, target_pseudo_outputs, _ = infer(
         args, target_dataset, model, tokenizer, name=f"target_pseudo_{args.task}",
         is_constrained=is_constrained, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
@@ -301,7 +302,8 @@ def extract_model(args, tokenizer, model, extract_task):
     # 2. infer on target domain
     target_extract_dataset = get_dataset(args, task=extract_task, data_type="target-unlabel", tokenizer=tokenizer)
 
-    is_constrained = False if args.data_gene_wt_constrained else True
+    is_constrained = True if args.data_gene_wt_constrained else False
+    print("Data extraction with constrained decoding: ", is_constrained)
 
     target_extract_inputs, target_extract_outputs, _ = infer(
         args, target_extract_dataset, model, tokenizer,
@@ -358,7 +360,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     if args.data_gene_decode:
         decode_dict.update(specific_dict[args.data_gene_decode])
 
-    is_constrained = False if args.data_gene_wt_constrained else True
+    is_constrained = True if args.data_gene_wt_constrained else False
+    print("Data Generation with constrained decoding: ", is_constrained)
     target_gene_aug_inputs, target_gene_aug_outputs, _ = infer(
         args, target_gene_dataset, model, tokenizer, name="target_gene",
         is_constrained=is_constrained, constrained_vocab=target_domain_words, **decode_dict
@@ -399,6 +402,7 @@ def prepare_gene_vocab(args):
     # Create a set to avoid duplicates and improve performance
     target_domain_words = set(" ".join(target_inputs).split())
     # Extend with tag tokens
+
     target_domain_words.update(prepare_tag_tokens(args))
     logger.info(f"{len(target_domain_words)} target domain words")
     target_domain_words = list(target_domain_words)

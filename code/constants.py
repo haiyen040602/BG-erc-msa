@@ -38,13 +38,21 @@ MELD_LABELS = ['<meld>', 'joy', 'sadness', 'fear', 'anger', 'surprise', 'disgust
 IEMOCAP_LABELS = ['<iemocap>', 'joy', 'sadness', 'angry', 'neutral', 'excited', 'frustrated']
 
 MELD_TRANSFER_PAIRS = {
-    "meld": ["iemocap", "moseii"]
+    "meld": ["iemocap", "iemocap_context", "moseii"]
+}
+
+MELD_CONTEXT_TRANSFER_PAIRS = {
+    "meld_context": ["iemocap", "iemocap_context", "moseii"]
 }
 
 MOSEII_TRANSFER_PAIRS = {
-    "moseii": ["meld"]
+    "moseii": ["meld", "meld_context", "iemocap", "iemocap_context"]
 }
 
 IEMOCAP_TRANSFER_PAIRS = {
-    "iemocap": ["meld", "moseii"]
+    "iemocap": ["meld", "meld_context", "moseii"]
+}
+
+IEMOCAP_CONTEXT_TRANSFER_PAIRS = {
+    "iemocap_context": ["meld", "meld_context", "moseii"]
 }

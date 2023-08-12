@@ -124,14 +124,16 @@ def prepare_seeds(seed=42, n_runs=1):
 def prepare_pairs(args):
     # Define the mapping between tasks, datasets, and pairs
     task_dataset_pairs = {
-        "moseii": {"cross_domain": MOSEII_TRANSFER_PAIRS},
-        "meld": {"cross_domain": MELD_TRANSFER_PAIRS},
-        "iemocap": {"cross_domain": IEMOCAP_TRANSFER_PAIRS}
+        "moseii": {"cross_domain_small": MOSEII_TRANSFER_PAIRS},
+        "meld": {"cross_domain_small": MELD_TRANSFER_PAIRS},
+        "iemocap": {"cross_domain_small": IEMOCAP_TRANSFER_PAIRS},
+        "meld_context": {"cross_domain_small": MELD_CONTEXT_TRANSFER_PAIRS},
+        "iemocap_context": {"cross_domain_small": IEMOCAP_CONTEXT_TRANSFER_PAIRS}
     }
 
     # Check if the task and dataset combination is valid and retrieve the corresponding pair
     pair_dict = task_dataset_pairs.get(args.task, {}).get(args.dataset)
-
+    print(pair_dict)
     if pair_dict is None:
         raise NotImplementedError("The task and/or dataset is not implemented.")
 

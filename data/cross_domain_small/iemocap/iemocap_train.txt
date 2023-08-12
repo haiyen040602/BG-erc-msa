@@ -1,0 +1,1200 @@
+Excuse me. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Is there a problem? ####<iemocap>neutral
+Well what's the problem?  Let me change it. ####<iemocap>neutral
+What?  I'm getting an ID.  This is why I'm here.  My wallet was stolen. ####<iemocap>frustrated
+How am I supposed to get an ID without an ID?  How does a person get an ID in the first place? ####<iemocap>frustrated
+I'm here to get an ID. ####<iemocap>frustrated
+Like what?  Like a birth certificate? ####<iemocap>frustrated
+Yes but my wallet was stolen, I don't have anything.  I don't have any credit cards, I don't have my ID.  Don't you have things on file here? ####<iemocap>frustrated
+That's out of control. ####<iemocap>angry
+How long have you been working here? ####<iemocap>frustrated
+Clearly.  You know, do you have like a supervisor or something? ####<iemocap>neutral
+That would - I would appreciate that.  Yeah. ####<iemocap>frustrated
+Do you have your forms? ####<iemocap>frustrated
+Let me see them. ####<iemocap>frustrated
+Who told you to get in this line? ####<iemocap>frustrated
+Okay. But I didn't tell you to get in this line if you are filling out this particular form. ####<iemocap>frustrated
+This form is a Z.X.four. ####<iemocap>frustrated
+You can't--  This is not the line for Z.X.four.  If you're going to fill out the Z.X.four, you need to have a different form of ID. ####<iemocap>frustrated
+No. I need another set of ID to prove this is actually you. ####<iemocap>frustrated
+I don't know.  But I need an ID to pass this form along.  I can't just send it along without an ID. ####<iemocap>frustrated
+No.  I need another ID, a separate one. ####<iemocap>frustrated
+A birth certificate, a passport...a student ID; didn't you go to school?  Anything? ####<iemocap>frustrated
+Yeah.  We keep it on file, but we need an ID to access that file. ####<iemocap>frustrated
+I don't understand why this is so complicated for people when they get here.  It's just a simple form.  I just need an ID. ####<iemocap>angry
+Yeah.  Do you want to see my supervisor?  Huh? Yeah.  Do you want to see my supervisor?  Fine.  I'll be right back. ####<iemocap>angry
+Did you get the mail? So you saw my letter? ####<iemocap>sadness
+Yeah.  I know. ####<iemocap>sadness
+I don't know.  I put in that. request too. They didn't... ####<iemocap>sadness
+I guess, you know, everybody has to make sacrifices. ####<iemocap>neutral
+There's people that have given more though, you know? ####<iemocap>sadness
+I know. ####<iemocap>sadness
+There's babies over there, though, that need mothers. ####<iemocap>neutral
+Just, you know, kicking myself. ####<iemocap>sadness
+things just aren't what they seem. ####<iemocap>sadness
+If not me then, who? ####<iemocap>sadness
+You'll videotape everything, yeah? ####<iemocap>sadness
+Maybe you can send it to me, like stream it, yeah? ####<iemocap>sadness
+Last month--  Yeah. ####<iemocap>sadness
+I have to find sitters. ####<iemocap>neutral
+We've got friends, that's why we moved here, huh?  Because there is a day care down the street. ####<iemocap>sadness
+And your mother is close by. ####<iemocap>neutral
+I'll send you lots of letters. ####<iemocap>sadness
+And I want lots and lots and lots of pictures. ####<iemocap>sadness
+I don't understand.  You've already done so much, I don't know why do you have to go back. ####<iemocap>sadness
+I just don't see how they can make you leave when you have a new baby - we have a new kid. ####<iemocap>frustrated
+I don't know how you can be okay with this?  I don't know why you're not-- you're fine with it. ####<iemocap>sadness
+I know. ####<iemocap>frustrated
+I just don't see why it has to be you. ####<iemocap>sadness
+What am I going to do? Huh? ####<iemocap>sadness
+Yeah. ####<iemocap>sadness
+Don't you guys have access to computers over there. ####<iemocap>neutral
+I just don't know how I'm going to do it without you. ####<iemocap>sadness
+I can't raise a baby by myself.  How? ####<iemocap>sadness
+I know. ####<iemocap>neutral
+It's just not fair. ####<iemocap>frustrated
+Well Vegas was awesome. ####<iemocap>joy
+And, um, I got married. ####<iemocap>joy
+Yeah.  In the old town part. ####<iemocap>joy
+Um- Yes.  It was very romantic. ####<iemocap>joy
+It was at the slot machines. ####<iemocap>joy
+Uhuh, uhuh.  He won big and he-and he realized that the only thing that would make it better was me as his bride. ####<iemocap>joy
+Yeah.  Well.  You know, because he's leaving the next day. ####<iemocap>joy
+But we're going to have a honeymoon cruise. ####<iemocap>joy
+Oh.  I hadn't even thought about that. ####<iemocap>joy
+Oh.  Totally. ####<iemocap>joy
+I guess I'll-  I guess I'll have an internet husband.[LAUGHTER] ####<iemocap>joy
+Yeah, so [LAUGHTER] He's calling me now ####<iemocap>excited
+He likes to keep tabs, you know. ####<iemocap>joy
+Uh, I think seven hundred and fifty dollars. ####<iemocap>neutral
+Penny slots. That's what he plays. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Yeah.  We played Wheel of Fortune pennies.  It's like a giant thing with like- ####<iemocap>joy
+Fifty bucks. Mmhmm. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Well so now we're married. We have cat children. ####<iemocap>joy
+We renamed Brenda, Lumber Janet. ####<iemocap>joy
+She needs a new name each state that we go into. [LAUGHTER] ####<iemocap>joy
+So what's up?  What's new? ####<iemocap>neutral
+Yeah.  I heard. ####<iemocap>neutral
+Shut up.  No- in Vegas? ####<iemocap>neutral
+Who did you marry? ####<iemocap>excited
+He turned to you and was like... ####<iemocap>neutral
+[LAUGHTER] That's really romantic. ####<iemocap>joy
+Yeah. ####<iemocap>neutral
+Does that mean that you're going to get citizenship, too, in- in England or whatever? ####<iemocap>neutral
+Yeah.  But he'll have like a long visa.  Can you go visit then for a long time? ####<iemocap>neutral
+Like you need another one of those.[LAUGHTER] ####<iemocap>joy
+Is that your phone? ####<iemocap>joy
+He loves you. ####<iemocap>joy
+How much did he win at the slot? ####<iemocap>neutral
+Really? Penny slots? ####<iemocap>neutral
+Wow. ####<iemocap>neutral
+I'm a big fan of the Wheel of Fortune quarters. But it just costs so much.  I don't know. ####<iemocap>neutral
+But the pennies always get you because you end up spending like, you know, fifty bucks. ####<iemocap>neutral
+like, wait, but it's just pennies.  You're like, wait a minute I'm on to you. ####<iemocap>neutral
+Awesome. ####<iemocap>excited
+[LAUGHTER] Cat babies. ####<iemocap>joy
+That's fair enough. ####<iemocap>neutral
+Uh, what?  Craig's List?  Oh the internet thing? ####<iemocap>neutral
+I don't know.  Isn't that-- that's all like escort services and things like that. ####<iemocap>neutral
+I don't know.  I mean I've been looking for so long that I just figured that--  I mean, I think things like Monster are a lot more reliable than just some random free board. ####<iemocap>frustrated
+He just... ####<iemocap>neutral
+you know what?  I heard about that job.  I applied for that. ####<iemocap>neutral
+Yeah.  I saw a posting at the theatre. ####<iemocap>frustrated
+Yeah. ####<iemocap>neutral
+I just- I mean I call people up and I tell them what I'm good at. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+I'm there in front of them.  I'm telling them what I'm good at. ####<iemocap>frustrated
+Why?  It's a piece of paper. ####<iemocap>frustrated
+I just don't want this paper trail, you know.  I just don't want things following me around, like-. ####<iemocap>frustrated
+It's just-- You know, I've had this problem before.  You're not the first person to tell me that I need a resume but... ####<iemocap>frustrated
+That's baloney, that's baloney. ####<iemocap>frustrated
+Please. ####<iemocap>frustrated
+you think that you're better than me because I don't have a car? ####<iemocap>frustrated
+You know, you're riding the bus, too. ####<iemocap>frustrated
+Why?  What choice? ####<iemocap>frustrated
+You're saving the environment. mmhmm ####<iemocap>frustrated
+Interesting.  That's fantastic. ####<iemocap>frustrated
+I'm not frustrated. ####<iemocap>angry
+Who do you think you are? ####<iemocap>angry
+You are so high and mighty.  I just-- ####<iemocap>angry
+Oh.  I'm saving the environment. I'm riding this car because I- I want to. ####<iemocap>angry
+The bus, I'm riding the bus because I want to. ####<iemocap>angry
+I can not-- you are not here by choice.  Nobody would ride this bus by choice. ####<iemocap>angry
+Have you tried, uh, Craig's List? ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+No.  There's regular jobs on there. ####<iemocap>neutral
+Uh huh. ####<iemocap>neutral
+I'm just saying I have a friend that got a good job on it so I was just recommending it. ####<iemocap>neutral
+He's like a manager for a theatre. ####<iemocap>neutral
+He's like a house manager. Yeah.  It's a good job. ####<iemocap>neutral
+You did? ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+You've been looking for a job for a long time; that was a long time ago.  Right? ####<iemocap>neutral
+Hmm. ####<iemocap>neutral
+I don't know.  He had a really good resume I guess and-- ####<iemocap>neutral
+Yeah.  Do you have a resume? ####<iemocap>neutral
+It's kind of helpful when getting a job. ####<iemocap>neutral
+Well maybe we should sit down some time and you can just tell me all the stuff that you have done and I'll write it out. ####<iemocap>neutral
+No.  You can- or you can just bring it in person.  But they need, generally, something to see, you know, what kind of what that you've done, what kind of-- ####<iemocap>neutral
+Yeah.  But the piece of paper helps, too. ####<iemocap>neutral
+No.  But it has an outline, you know. ####<iemocap>neutral
+I know.  Okay.  Well, um. Maybe-- ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Okay, yeah.  I would imagine. ####<iemocap>neutral
+Well, sometimes you have to do things that you don't necessarily like to do to have a job. But the job affords you money, you won't have to be taking the bus right now. ####<iemocap>neutral
+maybe get a car. ####<iemocap>neutral
+I just, you know, think you should try a little harder maybe. ####<iemocap>neutral
+I didn't say that. ####<iemocap>neutral
+I am riding the bus, but by choice. ####<iemocap>neutral
+To save the environment, carpool. ####<iemocap>neutral
+Yes.  One less car at a time. ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+You know, you don't have to take out your frustration on me, you know, just because... ####<iemocap>frustrated
+...you can't get a job and refuse to have a resume. ####<iemocap>frustrated
+I don't think I'm anyone. ####<iemocap>neutral
+I- I-I didn't-- okay. ####<iemocap>neutral
+What? Oh.  So now you're... ####<iemocap>frustrated
+you know what?  You don't have to take your anger and your hurt out on me. ####<iemocap>frustrated
+Hi. ####<iemocap>frustrated
+Yeah. This is the fourth line that I have been in. ####<iemocap>frustrated
+I need my bag. ####<iemocap>frustrated
+I flew in over three hours ago, I've been in four different lines. ####<iemocap>frustrated
+I waited the entire baggage- I waited for the whole baggage carousel four times.  They told me to go to the next one.  I waited through that for three planes and now I'm here. ####<iemocap>frustrated
+Nash. ####<iemocap>frustrated
+Yes. ####<iemocap>frustrated
+Flight seven fourteen. ####<iemocap>angry
+Am I going to be getting, like, free tickets, free mileage. When can I expect my bag here? ####<iemocap>angry
+Is this a joke? ####<iemocap>angry
+Are there candid cameras?  Is this that movie? There's that show, right?  Airplane, airline. ####<iemocap>angry
+You're kidding me, this is a joke. ####<iemocap>angry
+Do you have any idea-- fifty dollars?  That's supposed to replace everything that I have?  Do you understand how much I have packed in there? Not only does it have sentimental value; it can't be replaced like that.  It was incredibly expensive. ####<iemocap>angry
+We flew in from Paris.  I've been shopping for three weeks. ####<iemocap>angry
+I don't care what you're freaking sign says.  Somebody- Somebody needs to replace everything I've got there and give me money for my inconvenience. ####<iemocap>angry
+Do you understand who my husband is? ####<iemocap>angry
+If you're- if you're- if you're looking for a lawsuit, baby, you've found it. ####<iemocap>angry
+Oh-Oh.  It's a gift.  You're-You're helping me out here? ####<iemocap>angry
+You are cruising for a bruising.  You are in so much trouble. ####<iemocap>angry
+Who's in charge?  Who is the president of Jet Blue? ####<iemocap>angry
+Because I probably know him. ####<iemocap>angry
+Yeah. ####<iemocap>angry
+I don't want money, I want my clothes. ####<iemocap>angry
+What's your name? ####<iemocap>angry
+Okay.  I'll do that. ####<iemocap>angry
+I don't think you have done everything you could do because I don't have my bag here yet. ####<iemocap>angry
+A letter? I'll make a personal phone call. ####<iemocap>angry
+Hi.  Thanks for waiting. ####<iemocap>neutral
+Can I help you? ####<iemocap>joy
+Uh huh. ####<iemocap>joy
+Okay. ####<iemocap>neutral
+Okay. ####<iemocap>neutral
+Okay.  Great.  I'm really sorry that you had to do that.  What's your last name?  Let's start there. ####<iemocap>neutral
+Okay. ####<iemocap>neutral
+all right- okay.  And you lost your bag? Is that- that the issue? ####<iemocap>neutral
+Uh-huh. ####<iemocap>neutral
+Yeah. Yeah, I don't see- I don't see any-- ####<iemocap>neutral
+I don't see any record of it, and I-usually when I don't see a record of it, that means um- ####<iemocap>neutral
+we've mistakenly lost your baggage.  We're very sorry.  On behalf of Jet Blue I would like to apologize for any inconvenience.  I am allowed to issue you a fifty dollar gift card which you can use any future flights you want to take with us.  I'm very sorry, once again... ####<iemocap>neutral
+for such an inconvenience and your bag, but ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+No, no. ####<iemocap>neutral
+No, no.  This is real. ####<iemocap>neutral
+No.  I'm just giving you money, the bag is gone.  If it's not here, I'm really sorry there is nothing I can do because... ####<iemocap>neutral
+this is the only track record that we have and if it's not listed here then it's probably not anywhere. ####<iemocap>neutral
+Yes. ####<iemocap>neutral
+I know. ####<iemocap>neutral
+Okay. Calm- ####<iemocap>neutral
+Actually, we are not necessarily liable to give you- to even give you this fifty dollars so... it's actually- it's actually really ####<iemocap>neutral
+We are actually not even allowed--  you know, like we don't have to give you this fifty dollars.  We don't have to do that. ####<iemocap>neutral
+It's a gift. ####<iemocap>neutral
+You know, the airlines can not be held responsible for every bag of luggage that comes through here. ####<iemocap>neutral
+With the amount of-- ####<iemocap>neutral
+Um, actually, I don't know. I don't know. Oh really? ####<iemocap>neutral
+Well then maybe you can just call him and he can give you more money.  But right now all I can do-- ####<iemocap>neutral
+Right now all I can do is just give you this fifty dollars, I'm really sorry. ####<iemocap>neutral
+Oh.  My name is Sean. Hi. ####<iemocap>neutral
+Badge number?  Uh, no.  You can just take my employee number I guess. ####<iemocap>neutral
+Why?  Have I done something wrong?  Have I given you bad service?  I feel like I have done the best I could. ####<iemocap>neutral
+If you want, you can write a letter.  I can give you the address. Yes.  An angry-- ####<iemocap>neutral
+Or you can make a phone call.  But I think a letter might be a little more-- in my impression, letters have more... ####<iemocap>neutral
+No. ####<iemocap>sadness
+That's sweet. ####<iemocap>neutral
+Thank you. ####<iemocap>neutral
+I went to see her headstone a week or two ago. ####<iemocap>sadness
+I used to go to cemeteries a lot before she died.  I just, you know, I felt like they were urban oasis, you know, there is always this green in the city. ####<iemocap>sadness
+So I was like wandering around before.  It takes forever to find her headstone; I always lose it. You know. ####<iemocap>sadness
+So I was looking at this other one and there was like a piece of candy there and I thought that I would take the candy and put it on her headstone.  And- ####<iemocap>sadness
+this woman came up and, you know, it was hers. It was her person that was there. ####<iemocap>neutral
+Yeah.  And she was like, that's pathetic, I hope you enjoy it. ####<iemocap>sadness
+And I, you know, I mean, I said I was sorry and I brought it back to her kind of and I like put it on the ground and she was like, no, it's fine.  She was like, I would rather have her back, honestly. ####<iemocap>sadness
+I don't know.  It just, like, I felt so bad because I shouldn't have done it.  I don't know.  Whatever. ####<iemocap>sadness
+I don't know. ####<iemocap>sadness
+At the cemetery? ####<iemocap>sadness
+couple hours. ####<iemocap>sadness
+I brought- I brought Chuck with me. He went to Redlands, yeah, for the day.  We ran through the sprinklers. ####<iemocap>neutral
+Yeah.  It's huge.  Redlands is an old city so they have lots and lots of stones. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+It's weird.  Whenever I go back to town, I think of her.  I mean, it's like ... I mean we grew up together and she died when we were twenty one.  And yeah.  She had cancer, she had two brain tumors. ####<iemocap>sadness
+My best friend Heather.  She's got a- we have a- we built this like little--  There's a park, Prospect Park.  And there is like a garden section of it that we set up for her. ####<iemocap>sadness
+She used to have these poetry parties on Memorial Day. ####<iemocap>sadness
+Umm. Yeah. ####<iemocap>sadness
+And the last time before she died, I remember she couldn't really stand, umm... ####<iemocap>sadness
+But I mean she could, but it was- so it was kind of sitting at her feet holding her up and she had these poems she had memorized.  And I remember looking up, she had curly red hair and there was this palm tree right behind her and it was like a crown growing right out of her head.  It was cool. ####<iemocap>sadness
+Some, I guess.  She memorized this one, John Dunn, it's called, Death Be Not Proud. and- ####<iemocap>sadness
+There's another one, I can't remember. ####<iemocap>neutral
+I remember, too, when we were--  she died at U.C.L.A.  She had brain surgery and there was not much hope to begin with, but I gave blood for her surgery, her mom and I before, so we dropped her off in the waiting room and then we were giving blood and came back.  And she, in her wheelchair, like can hardly do anything, reciting her poetry for these people like in the waiting room.  All she needs is a God damn audience.  You know? ####<iemocap>sadness
+I'm sorry, Joy. ####<iemocap>sadness
+Is there anything I can get you?  Do you want me to take care of anything for you or...? ####<iemocap>neutral
+...pick up anything? ####<iemocap>neutral
+You know you are welcome to stay at my house if you want to just check out for a couple days and hang out. ####<iemocap>sadness
+Hmm. ####<iemocap>neutral
+Oh.  She was there? ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+Yeah. ####<iemocap>sadness
+How long were you there for? ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+Oh really? ####<iemocap>neutral
+You ran through the sprinklers in the cemetery? ####<iemocap>neutral
+Is it a big cemetery? ####<iemocap>neutral
+Oh, so they're like really old too, really old ones? ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+So she wrote a lot of poetry? ####<iemocap>neutral
+Yes.  There's a big envelope it says, you're in. I know. ####<iemocap>excited
+I'm really excited.  Yeah. I don't know how I'm going to pay for anything, but... I also- Yeah.  Loans, too, yeah. I applied, though, for a bunch of grants and scholarships so I'm still waiting to hear on that. ####<iemocap>excited
+Oh- I know, I know, I know, I know. ####<iemocap>excited
+I don't know.  I spend so much time commuting as it is, I'd rather. ####<iemocap>excited
+I know. We should throw a party. ####<iemocap>excited
+Yeah.  I'm not sure. ####<iemocap>excited
+Umm...P.h.D. [LAUGHTER] ####<iemocap>excited
+So I get to mold young minds. Mrs.?  That's my mother. ####<iemocap>excited
+I would be like- Oh. Right, right, right. ####<iemocap>excited
+I know. I made such a mess of it, the entire time.  The last three things I've done, I've ruined everything, I think. Mm-hmm.  Yeah. ####<iemocap>excited
+Did you get the letter? ####<iemocap>excited
+Yeah. That is so awesome. ####<iemocap>excited
+Oh my God. What are you going to do? [LAUGHTER] ####<iemocap>excited
+Oh-Yeah, I bet you're really excited. Oh.  That's what loans are for?  Right? Exactly. ####<iemocap>excited
+Oh.  Good, good.  That's awesome. Are you going to stay around here?  Or are you going to like get a different neighborhood- you going to move to a different neighborhood? ####<iemocap>excited
+This is so- I am so happy that you're going to stay.  You're not going to...We should totally throw a party. ####<iemocap>excited
+A rapper party ho. Yeah. Okay. ####<iemocap>excited
+I am just- Yeah.  I'm sticking around, I'm just doing my thing.  I'm living here.  I'm so glad you're going to stay, I'm so glad you're going to be here. Yeah. Woo. ####<iemocap>excited
+Yeah.  Big time. ####<iemocap>excited
+Mmhmm. Mmhmm. Yay. So what major?  What are you doing? ####<iemocap>excited
+Is this a Masters or a P.h.D.?  Or can you...? Nice ####<iemocap>neutral
+That's good.  Don't you have to like teach a class, too, when you do that? ####<iemocap>neutral
+Teacher. Mrs. Nash, I have a question. ####<iemocap>excited
+You have to get married.  Well you are married to Chuck.  You're Mrs. Nash.  Not to be confused with Mrs. Dash which is the popular seasoning. ####<iemocap>excited
+Yay...School's fun. ####<iemocap>excited
+Of course, right.  That's where the real money is, being a student. ####<iemocap>neutral
+That's how you get the big bucks.  Are you messing with the chair? Don't ruin it. ####<iemocap>joy
+What's he going to say? ####<iemocap>frustrated
+How could he see it?  I was the first one up; he was still in bed. ####<iemocap>neutral
+He's dreaming of him again, walking around. ####<iemocap>neutral
+What do you want to do?  Argue with him? ####<iemocap>frustrated
+You can't say that to him. ####<iemocap>frustrated
+Where's the proof?  Do you have any proof? ####<iemocap>frustrated
+To you it is, to me it is, but to your father, you can talk yourself until you are blue in the face.  But there is no grave and there is no body, so where are you? ####<iemocap>frustrated
+Why? ####<iemocap>frustrated
+Well I got an idea, but what's your story? ####<iemocap>neutral
+From your father's point of view, he is not dead and- Chris he still thinks he's still alive.  The girl is Larry's girl. ####<iemocap>frustrated
+Now you can go on from there if you know where to go, but I'm telling you, I don't know where to go. ####<iemocap>frustrated
+You're a considerate fellow, there's nothing wrong in that. ####<iemocap>frustrated
+I just don't see why.  Have you asked Annie yet? ####<iemocap>frustrated
+Well how do you know she's going to marry you?  Maybe she feels the same way your father does. ####<iemocap>frustrated
+The trouble is you don't see enough women.  You never did. ####<iemocap>frustrated
+Why does it have to be Annie? ####<iemocap>frustrated
+Oh that's a great reason.  It's no reason at all. ####<iemocap>frustrated
+You haven't seen her since you went away to war, it's been five years. ####<iemocap>frustrated
+I don't want a diagram. ####<iemocap>frustrated
+He thinks he's coming back Chris. ####<iemocap>frustrated
+You marry that girl, you are pronouncing him dead... ####<iemocap>frustrated
+...and then what's that going to do to your father?  Do you know?  I don't. ####<iemocap>frustrated
+Just give it some more thought. ####<iemocap>neutral
+What the hell is this? ####<iemocap>angry
+You have a business here.  What the hell is this? ####<iemocap>angry
+Oh.  Must you be inspired? ####<iemocap>angry
+You mean to tell me that you would leave the business over this? ####<iemocap>frustrated
+Well you don't want to think like that. ####<iemocap>frustrated
+All right.  But you don't want to think like that because what the hell are we working for, Chris?  It's all for you.  This whole shooting match is for you. ####<iemocap>angry
+Just don't think like that. ####<iemocap>angry
+I don't understand you, do I? ####<iemocap>frustrated
+I can see that. ####<iemocap>frustrated
+He saw it. ####<iemocap>neutral
+He was out here when it broke. ####<iemocap>neutral
+Four o clock this morning.  I heard a crack and I woke up and looked out.  He was standing right over there when it cracked. ####<iemocap>neutral
+I don't know. ####<iemocap>neutral
+I guess he is. ####<iemocap>neutral
+I don't know the meaning of it.  But I know one thing, Mom, you've made a terrible mistake with father. ####<iemocap>frustrated
+You know Larry is not coming back and I know it.  Why do we allow him to go on thinking that we believe with him? ####<iemocap>neutral
+I don't want to argue but it's time he realized that nobody believes Larry is alive. ####<iemocap>frustrated
+You know?  Why shouldn't he walk the nights thinking of him, dreaming of him?   Do we contradict him?  Do we say, we don't have any hope anymore?  That we haven't had any hope for years now? ####<iemocap>frustrated
+We've got to say it to him. ####<iemocap>neutral
+For God's sake, three years?  Nobody comes back after three years; that's insane. ####<iemocap>frustrated
+Sit down, Mom.  I want to talk to you. ####<iemocap>neutral
+All right, all right, all right.  You know why I asked Annie here, right? ####<iemocap>frustrated
+You know. ####<iemocap>neutral
+I'm going to ask her to marry me. ####<iemocap>neutral
+You know it's not just my business. ####<iemocap>neutral
+So all right then, I'll just go ahead with it? ####<iemocap>neutral
+Then it's not just my business. ####<iemocap>frustrated
+You know sometimes you infuriate me.  you know that?  Isn't it your business if I tell father and he throws a fit about it?  God, you have such a talent for ignoring things. ####<iemocap>angry
+She's not Larry's girl. ####<iemocap>frustrated
+I don't know why it is, but every time I reach out for something I have to pull back because I am afraid other people will suffer. My whole bloody life, time after time. ####<iemocap>frustrated
+To hell with that. ####<iemocap>frustrated
+I wanted to get this settled first. ####<iemocap>neutral
+Well if she does, then that's it.  That's the end of it.  From her letters, though, I think she's pretty much forgotten him. ####<iemocap>neutral
+And then we'll thrash it out with father.  Okay Mom?  Don't avoid me. ####<iemocap>neutral
+So what.  I'm not fast with women. ####<iemocap>frustrated
+Because it is. ####<iemocap>frustrated
+I don't know. ####<iemocap>frustrated
+I can't help it, I know her best.  I was brought up next door to her, you know?  These years when I think of someone for my wife, I think of Annie. ####<iemocap>frustrated
+Mom, what do you want?  A diagram? ####<iemocap>frustrated
+All right, then, Mom. [BREATHING] ####<iemocap>frustrated
+I've given it three years of thought.  And I'd hope that if I waited, father would forget about Larry and then we could just have a regular wedding and everyone would be happy. ####<iemocap>frustrated
+But if I can't do that here, I may have to go somewhere else. ####<iemocap>frustrated
+I'll get out.  I'll get married and I'll move somewhere else, maybe New York. ####<iemocap>neutral
+I've been a good son for too long, a good sucker. ####<iemocap>frustrated
+The business?  The business doesn't inspire me. ####<iemocap>frustrated
+Yes.  I like it for an hour a day.  I don't care if I have to grub for money all day long, when I come home I want it happy. ####<iemocap>frustrated
+I want some kids, I want a family, I want somebody that I can give myself to and Annie is in the center of that.  Now it's just where to find it. ####<iemocap>frustrated
+On this, I would. ####<iemocap>neutral
+Then help me stay here. ####<iemocap>neutral
+I know that.  Then just help me stay here. ####<iemocap>frustrated
+Well I am thinking like that. ####<iemocap>frustrated
+No.  You don't.  I'm a pretty tough guy. ####<iemocap>frustrated
+He's not going to marry her. ####<iemocap>angry
+It's got that about it. ####<iemocap>angry
+What is going on here, Joe? ####<iemocap>angry
+She is not his girl.  She knows she's not. ####<iemocap>angry
+Then why is she still single?  New York is full of men, why is she still single?  Probably a hundred people told her she's foolish, but she waited. ####<iemocap>angry
+Because she knows what I know, that's why.  She's faithful as a rock.  In my darkest moments, I think of her waiting and I know that I'm right. ####<iemocap>angry
+Nobody in this house dares take away her faith, Joe.  You know strangers might, but not his father, not his brother. ####<iemocap>angry
+I want you to-- I want you to act like he is coming back, both of you.  Don't think I haven't noticed you since Chris invited her here. ####<iemocap>angry
+I won't stand for any nonsense. ####<iemocap>angry
+Because if he's not coming back, I'll kill myself.  Oh laugh, laugh all you like but why does this happen the very night he comes back.  She goes to sleep in his room and his memorial breaks in pieces.  Look at it, Joe, look. ####<iemocap>angry
+Just believe with me, Joe. Only last week a man came back in Detroit missing longer than Larry.  Believe with me. You, above all, have got to believe. Just believe. ####<iemocap>angry
+I can't help it. ####<iemocap>frustrated
+Well maybe...maybe he just wanted to see her. ####<iemocap>neutral
+[BREATHING] You don't look at me like that.  He didn't tell me anything more than he told you. ####<iemocap>frustrated
+How do you know he's even thinking about it? ####<iemocap>neutral
+Now listen. ####<iemocap>frustrated
+You can't read her mind. ####<iemocap>frustrated
+How do you know why she waited? ####<iemocap>neutral
+Hey look, it's a nice day, huh?  Why are we arguing? ####<iemocap>frustrated
+What do you want me to do? What do you want? ####<iemocap>frustrated
+Kate. ####<iemocap>frustrated
+[BREATHING] ####<iemocap>frustrated
+Calm yourself. ####<iemocap>frustrated
+Okay. Calm yourself. ####<iemocap>frustrated
+I know. All right, all right. All right. Okay.  Calm yourself. What does that mean, me above all? ####<iemocap>frustrated
+What have I got to hide?  What the hell is the matter with you, Kate? ####<iemocap>angry
+You're the only one who still loves his parents. ####<iemocap>neutral
+It's not so bad; it's a good thing. ####<iemocap>neutral
+[BREATHING] You know, it's lovely here.  The air is sweet. ####<iemocap>neutral
+I'm not sorry, no. But I'm...I can't stay. ####<iemocap>neutral
+For one thing, your mother much as told me to go. ####<iemocap>neutral
+And then, you.  You've been kind of... ####<iemocap>neutral
+Sort of embarrassed ever since I got here. ####<iemocap>neutral
+I knew they would. ####<iemocap>neutral
+Well sure, from your mother's point of view.  Why else would I come? ####<iemocap>neutral
+I, umm. I guess, I guess that's kind of why I came. ####<iemocap>neutral
+[BREATHING] ####<iemocap>joy
+[LAUGHTER] ####<iemocap>joy
+[LAUGHTER] ####<iemocap>joy
+No. No ####<iemocap>joy
+Chris, I've been ready a long, long, time. ####<iemocap>neutral
+I almost got married two years ago. ####<iemocap>neutral
+You started to write me. ####<iemocap>neutral
+Every day since. ####<iemocap>joy
+beating around the bush. ####<iemocap>joy
+I will never forgive you.  All I'd done was sit around wondering if I was crazy waiting so long, wondering if you were thinking about me. ####<iemocap>joy
+Not like that you're not. ####<iemocap>joy
+Like Larry's brother.  Do it like you, Chris. ####<iemocap>neutral
+Yeah, sure. ####<iemocap>neutral
+How many? ####<iemocap>neutral
+Aw, geez. ####<iemocap>sadness
+Mmhmm. ####<iemocap>neutral
+What would I do with a fortune? ####<iemocap>joy
+I know.  It kind of went out of style, didn't it? ####<iemocap>neutral
+You're not sorry you came. ####<iemocap>neutral
+Well. ####<iemocap>neutral
+What? ####<iemocap>neutral
+Well I was kind of planning of sneaking up on you over the course of a week or so.  They just take it for granted that we're all set. ####<iemocap>neutral
+I love you. Annie, I love you. ####<iemocap>joy
+I don't really have any imagination, that's all I know how to say. ####<iemocap>joy
+Am I embarrassing you? Are you - See, I didn't want to do it here with this yard, on this porch.  I wanted it to be somewhere new, some place fresh for both of us. ####<iemocap>joy
+You felt something that far back? ####<iemocap>neutral
+Why didn't you let me know? ####<iemocap>joy
+Give me a... ####<iemocap>joy
+Give me a kiss. ####<iemocap>joy
+Oh Annie, we are going to live now.  I am going to make you so happy. ####<iemocap>joy
+I kissed you. ####<iemocap>joy
+Hey, let's drive some place.  Huh?  Let's get out of here. ####<iemocap>sadness
+No it's nothing like that. It's- ####<iemocap>sadness
+Yeah.  I suppose I have been. But it's going from me. ####<iemocap>sadness
+I don't even know how to start. ####<iemocap>sadness
+It's just all mixed up with so many other things, you know?  You know overseas I was in command of a company? ####<iemocap>sadness
+Well I lost them. ####<iemocap>sadness
+Pretty much all. ####<iemocap>sadness
+You can't just toss off a thing like that because they weren't just men. You know? ####<iemocap>sadness
+Like for instance, there was this one time it had been raining for several days and this kid he just came up to me and he gave me his last pair of dry socks.  He just put them in my pocket.  That's a little thing, you know, but that's what kind of guys I had. ####<iemocap>sadness
+They didn't die, they killed themselves for each other.  I mean that, exactly.  Just a little more selfish and they would all be here today. ####<iemocap>sadness
+To bring that on to the earth again, you know, is like some kind of monument and I thought I would just make a difference to them. ####<iemocap>sadness
+But then I came home and it was incredible, you know?  The whole thing was just kind of this random bus accident.  You know, I went back to the rat race again, I went to work. ####<iemocap>sadness
+And I didn't want any of it. I guess that included you. ####<iemocap>sadness
+I just want you to know Annie. ####<iemocap>neutral
+Fine. ####<iemocap>neutral
+[BREATHING] ####<iemocap>frustrated
+What flashlight? ####<iemocap>neutral
+That's not your flashlight. ####<iemocap>neutral
+You keep saying my flashlight like it's just yours. ####<iemocap>angry
+How's that supposed to make me feel? ####<iemocap>angry
+Yeah. ####<iemocap>neutral
+[LAUGHTER] ####<iemocap>joy
+I'm cold. ####<iemocap>sadness
+Well, then let's go. ####<iemocap>frustrated
+Not particularly. ####<iemocap>neutral
+Pass what up?  I mean these fish swim out of the ocean, they flop around on the beach, they swim away and then they die. ####<iemocap>frustrated
+Oh Augie ####<iemocap>frustrated
+Yeah. ####<iemocap>frustrated
+Hmm.  We didn't see them the year before either. ####<iemocap>frustrated
+That's the wind. ####<iemocap>neutral
+About what? ####<iemocap>neutral
+Okay.  Is that, is that-- ####<iemocap>excited
+The flashlight, the silver one.  There's only one, isn't there? ####<iemocap>neutral
+Whose is it? ####<iemocap>neutral
+Oh...well. Yeah, of course. ####<iemocap>neutral
+No. ####<iemocap>neutral
+Of course, our flashlight.  What's yours is mine.  Me flashlight es su flashlight. ####<iemocap>neutral
+Naturally.  God, how could we not think to bring it?  I hope the moon stays out, though. ####<iemocap>frustrated
+Do they always run during a full moon?  I don't remember.  Was it full last year? ####<iemocap>neutral
+Huh.  Are you cold?  Do you want my jacket?  No?  you know, we should have brought the blanket?  Our blanket. ####<iemocap>neutral
+Aw.  Do you know, I should have brought a six pack, too.  A six pack, that would be just the ticket right about now.  Huh? ####<iemocap>neutral
+God, I'm so excited, I'm like a kid.  I can't believe I got out of the house with my fly zipped up. ####<iemocap>excited
+Do you want my jacket? ####<iemocap>frustrated
+Right. ####<iemocap>neutral
+Wait, that's my point, too. ####<iemocap>neutral
+No, no.  Okay.  That's not my point.  My point is there is no point in coming down here if we just turn around and go home.  Don't you want to see it? ####<iemocap>frustrated
+Why not? ####<iemocap>neutral
+Honey, this is like a natural phenomenon. I mean... People in Kansas would have to get plane reservations and get hotel rooms to see this.  It's just forty minutes away for us; it's too good to pass up. ####<iemocap>neutral
+Yeah.  But this..this moment on the beach is like the highlight of their little lives.  All that flopping around is laying eggs or what to do - spawning or mating or whatever. ####<iemocap>neutral
+This is a big night for these little guys.  It's like life's last orgy. ####<iemocap>neutral
+Yeah they do. ####<iemocap>frustrated
+There's like mystery here, there's magic.  It's like a little bit of the unexplainable.  I just can't see how you're not interested. ####<iemocap>neutral
+For real? ####<iemocap>neutral
+God, I don't get it.  you know the first time we came here, you said it was the best night of your life? ####<iemocap>neutral
+And last year, I remember distinctly you said, you were so excited to get here that you don't remember you stubbed your toe until we were in the car. ####<iemocap>neutral
+Ahh...we weren't in a good spot. ####<iemocap>neutral
+We just weren't in a good spot.  I'm telling you, this is a much better spot.  I have instincts for these things. ####<iemocap>neutral
+Look there, see?  What's that?  No, that's - that's just seaweed. ####<iemocap>excited
+God, this is great.  Think about this.  I know you are not interested, but just think about this. ####<iemocap>joy
+Just all at once, they turned and they formed this line as long as the California coast.  And some instinctual little firecracker went off in their bodies and they all just turned as one and started swimming. ####<iemocap>excited
+It's single mindedness with no mind.  It is urgency that is just pure urge. ####<iemocap>excited
+So what do you think? ####<iemocap>joy
+About all of that, about all I was talking about. ####<iemocap>joy
+That's the wind. ####<iemocap>neutral
+About what? ####<iemocap>neutral
+Don't ask me that.  I hate it when you ask me that, you always ask me that.  It's insulting. ####<iemocap>angry
+We just have different ideas of what this night is supposed to look like. ####<iemocap>frustrated
+For God- Grow up, Augie.  The fish are not going to arrive. ####<iemocap>angry
+Because they never do.  Have they...Have they ever? ####<iemocap>angry
+Twice is every time we have tried; that's ever. ####<iemocap>angry
+I feel like my whole life is going to be spent standing on this beach with my eyes wide open and my hands clasped expectantly waiting for fish to show up.  And the fish never show up. ####<iemocap>frustrated
+You don't understand anything I am saying. ####<iemocap>frustrated
+I feel like I'm always just standing here waiting.  I feel like this night is going to be the night, but it never is. ####<iemocap>sadness
+For God's sake, this is not about fish. ####<iemocap>angry
+Do you remember the first year we came here?  It was like four years after we got married. ####<iemocap>neutral
+You whispered the sweetest, most intimate things to me right into my ear so I could feel them as much as hear them.  And I remember thinking, this is it.  You know, finally, I am as happy as I'm supposed to be. ####<iemocap>joy
+dancing barefoot in the sand. ####<iemocap>frustrated
+I'd rather not remember some things.  I'd rather not hope for some things. ####<iemocap>sadness
+No. ####<iemocap>neutral
+No, no. Nothing. ####<iemocap>frustrated
+No. ####<iemocap>neutral
+No. ####<iemocap>frustrated
+[BREATHING] ####<iemocap>frustrated
+This? What is this?  This is nothing.  This isn't even anything. ####<iemocap>frustrated
+I mean this is a lot of things, but it's just... ####<iemocap>frustrated
+Do you understand what I am saying? ####<iemocap>frustrated
+I know you are Augie, I know. ####<iemocap>sadness
+I know you meant this to be special, I know that you wanted it to be right, but I just can't help thinking that, I can't help wishing that I was somewhere else. ####<iemocap>sadness
+I didn't say that. ####<iemocap>sadness
+Don't be ridiculous.  Anything that- anything I am doing, I'd rather be doing it with you. ####<iemocap>neutral
+Yeah.  Don't you know that? ####<iemocap>neutral
+You're the one who probably wishes he was with somebody else.  Somebody who doesn't take things so seriously, who could enjoy herself. ####<iemocap>sadness
+So maybe we are in the wrong spot, but we are with the right person. ####<iemocap>neutral
+Hmm.  I noticed that, it's pretty. Big old white moon. ####<iemocap>joy
+Augie, you bought refreshments. ####<iemocap>joy
+I guess we don't need glasses. ####<iemocap>joy
+I'm beginning to think this might be the right spot after all. ####<iemocap>joy
+Augie, I'm sorry. ####<iemocap>sadness
+Or not. ####<iemocap>neutral
+Look at this, all of the hairs are standing up on my arm. ####<iemocap>excited
+Well, so, what do you think? ####<iemocap>excited
+About what I was saying. ####<iemocap>neutral
+Not just me, look at all of these people. ####<iemocap>frustrated
+Carla, can I ask you something?  Now, don't take this the wrong way, but are you on your period? ####<iemocap>neutral
+Well then, what's bugging you? ####<iemocap>frustrated
+There is nothing to it; we come down here, the fish arrive, they flop around, they do their fish thing.  We go ooh, ah, look at the fish and we go home. ####<iemocap>frustrated
+Why not? ####<iemocap>frustrated
+We've missed them twice. ####<iemocap>frustrated
+They'll show up this time. ####<iemocap>frustrated
+No. Of course not. ####<iemocap>frustrated
+It's just fish, it's nothing to get traumatized over. ####<iemocap>frustrated
+Okay.  I'm trying to work this backwards and pinpoint the exact moment where we took a turn for the worst here. ####<iemocap>frustrated
+Okay.  So you were fine during that phone call from Marge and then dinner was okay.  And doing the dishes was fine and then I was going to take a shower and you're watching the news and you said the grunions are running tonight, do you want to go?  And I said, sure great, let's go. ####<iemocap>neutral
+Okay.  So I am putting out the pets, getting the car out of the garage. ####<iemocap>neutral
+It's when we were driving past that Knickerbocker Liquor Locker, you said, let's get some champagne.  I said no, time's a wasting or something like that. ####<iemocap>neutral
+That's what it is?  Right?  You want this to be like the other time, right? ####<iemocap>frustrated
+Sure.  All right.  Okay. ####<iemocap>neutral
+Listen, do you want to dance? ####<iemocap>neutral
+Do you want me to go get some champagne? ####<iemocap>neutral
+Do you want to take off your shoes? ####<iemocap>joy
+Do you want to get married again? ####<iemocap>joy
+What?  What?  Do you want a divorce? ####<iemocap>neutral
+No I'm just like you.  I thought it was going to be all roses and peaches and the bills would just pay themselves.  And we'll have three, fat rosy cheeked children.  Huh, baby, the joke's on us.  Because you know what you get? ####<iemocap>frustrated
+Do you know what you get?  You get this. ####<iemocap>frustrated
+Yes it is. ####<iemocap>neutral
+[BREATHING] ####<iemocap>frustrated
+I'm doing the best I can. ####<iemocap>frustrated
+Maybe if you were with someone else, too. ####<iemocap>sadness
+I just- I know I don't make you happy. ####<iemocap>sadness
+Yeah? ####<iemocap>neutral
+You know, actually now that you mention it, no I don't. ####<iemocap>neutral
+I don't know, it seemed like such a good spot to me. ####<iemocap>frustrated
+We have a great view of the moon from here, though, huh? ####<iemocap>neutral
+[BREATHING] ####<iemocap>neutral
+And look what I got here. ####<iemocap>joy
+[BREATHING] ####<iemocap>joy
+Do you want to go home?  Are you cold? ####<iemocap>neutral
+Shh.  If we're very quiet, the fish might come. ####<iemocap>neutral
+Or not. ####<iemocap>joy
+Is it them? ####<iemocap>neutral
+Freda is the only one who knows we are here.  She wouldn't ring up. ####<iemocap>neutral
+It had to happen sooner or later.  What are we going to do? ####<iemocap>neutral
+[LAUGHTER] That sent shivers up my spine. ####<iemocap>joy
+We'll behave exquisitely. ####<iemocap>excited
+I think I shall do a curtsy. ####<iemocap>excited
+Yes.  Meaning just that. ####<iemocap>joy
+Don't laugh at me.  I'm being serious. ####<iemocap>joy
+Who's they? ####<iemocap>excited
+[LAUGHTER] ####<iemocap>joy
+Oh Elliott, worms don't pop. ####<iemocap>joy
+Aw.  Thank you, darling.  The same applies to you too, except that if you so much as look at another woman I'll kill you. ####<iemocap>joy
+Oh Charles, that was his name.  He did wiggle so beautifully. ####<iemocap>excited
+The manager came in, he found us rolling about the floor, biting and scratching like panthers. [LAUGHTER]  How utterly, utterly ridiculous. ####<iemocap>joy
+[LAUGHTER] And very much sillier. ####<iemocap>joy
+Good God. ####<iemocap>neutral
+I wonder. ####<iemocap>neutral
+It must be them then. ####<iemocap>neutral
+[BREATHING] ####<iemocap>neutral
+I don't care then. ####<iemocap>excited
+No.  Wrong number. [LAUGHTER] ####<iemocap>joy
+What shall we do if they suddenly walk in on us.[LAUGHTER] ####<iemocap>joy
+With perfect poise. ####<iemocap>joy
+It's strange; things that ought to matter dreadfully, they just don't matter at all when one's happy.  Do they? ####<iemocap>joy
+Well what does it all mean?  That's what I ask myself in my quest for ultimate truth.  Dear God, what does it all mean? ####<iemocap>joy
+Who knows? ####<iemocap>joy
+Yes.  Yes with all of his might. ####<iemocap>excited
+Let's be superficial, and just pity those poor philosophers, huh?  Let's blow trumpets and squeakers and enjoy the party for as long as we can, you know, like small, idiotic school children. ####<iemocap>excited
+Oh Come and kiss me darling before your body rots and worms pop out of your eye sockets. ####<iemocap>joy
+Oh See, I don't care what you do, see.  You can paint yourself green and run naked through the Place Vendome and run off with all of the men of the world.  I shan't say a word, just as long as you love me best. ####<iemocap>joy
+It was a terrible thing.  I hated it. ####<iemocap>neutral
+That was a rouser, wasn't it? ####<iemocap>joy
+[LAUGHTER] I'll never forget his face. [LAUGHTER] ####<iemocap>joy
+[LAUGHTER] We were very much younger then. ####<iemocap>joy
+And very much sillier. ####<iemocap>joy
+Oh.  You knew there was nothing in that. ####<iemocap>joy
+Presents?  It was only a trivial, little brooch. ####<iemocap>joy
+I did not.  You worked that whole thing up in your jealous imagination. ####<iemocap>neutral
+Well, what of it? ####<iemocap>neutral
+Oh dear.  I'm bored with this conversation. ####<iemocap>frustrated
+Don't be stupid. ####<iemocap>angry
+What? ####<iemocap>angry
+No.  I am just making myself fascinating for you. ####<iemocap>angry
+Oh.  It's a woman's duty to allure the man. ####<iemocap>angry
+No it isn't. ####<iemocap>angry
+You shut up. ####<iemocap>angry
+They sting. I don't care.  Do you understand?  I don't care if they bark and they roll about like hoops. ####<iemocap>angry
+Yes I did, quite a lot. ####<iemocap>angry
+Mind your own business. ####<iemocap>angry
+You're quite insufferable, I expect it's because you are drunk. ####<iemocap>angry
+You've always had a weak head. ####<iemocap>angry
+On the contrary, a child of two can get violently drunk on only one glass of brandy. ####<iemocap>angry
+Oh shut up. ####<iemocap>angry
+Shut up. ####<iemocap>angry
+Not very funny, darling.  Why don't you have some more brandy. ####<iemocap>angry
+Why? ####<iemocap>neutral
+There are no people upstairs; it's a photographer's studio. ####<iemocap>neutral
+They are away in Tunis. ####<iemocap>neutral
+Fine if you insist on being boorish and idiotic. ####<iemocap>angry
+You are far too temperamental, try to control yourself. ####<iemocap>angry
+I won't.  Let go, let go of me. Listen, listen?  I'm sick and tired of listening to you, you sadistic bully. ####<iemocap>angry
+Oh shut up.  Let go.  I hate you, I hate you.  Do you hear?  You are a conceited and overbearing and utterly impossible. ####<iemocap>angry
+This is the end.  Do you hear me?  Finally and forever. ####<iemocap>angry
+Oh.  Yes I am. ####<iemocap>angry
+Yes I am.   Stop it. Stop it.  Let go of me. Oh.  You're a cruel fiend.  I loathe and I hate you. Marry you again?  Never, never, never. I hope you die in torment, you brute beast cad. ####<iemocap>angry
+However I believe the real cause of that row was Peter Burden. ####<iemocap>neutral
+I knew nothing of the sort.  You took presents from him. ####<iemocap>neutral
+You went out of your way to torture me over Peter Burden. ####<iemocap>neutral
+Well, you let him kiss you, huh?  You said you did. ####<iemocap>frustrated
+What about me? ####<iemocap>angry
+So am I.  I'm bored stiff. [GARBAGE]  Do you want some brandy? ####<iemocap>frustrated
+I'll have a little, I think. ####<iemocap>neutral
+No particular reason.  Anyhow, they are very small ones. ####<iemocap>neutral
+You can hardly call three glasses of liquor a whole evening long, going on and on and on. ####<iemocap>frustrated
+Oh.  Don't be so grand.  Just because you don't happen to want one at the moment. ####<iemocap>frustrated
+Really, Amanda. ####<iemocap>angry
+Nothing. ####<iemocap>frustrated
+you going out somewhere, dear? ####<iemocap>neutral
+Well as a matter of fact, yes, that's perfectly true. ####<iemocap>neutral
+Yes it is. ####<iemocap>neutral
+Oh really.  It's a pity you didn't have any brandy, it would have made you a little less disagreeable. ####<iemocap>angry
+Snap, snap, snap.  You know you are like a little adder. ####<iemocap>angry
+Nonsense.  They have a bag of venom behind their fangs and they snap. They snap. ####<iemocap>angry
+Did you see much of Peter Burden after our divorce? ####<iemocap>angry
+And I suppose you let him kiss you a good deal more than, too. Yes.  I suppose you guys had a riotous time, huh?  All out, no restraint at all.  Well, you never really had much anyhow. ####<iemocap>angry
+I think I am not in the least bit drunk. ####<iemocap>angry
+I think I mentioned once before that I've had three minute liquor glasses the whole evening long.  A child of two cannot get drunk on that. ####<iemocap>angry
+That's very interesting Amanda. How about a child of four?  Or a child of six?  Or a child of nine? We can get a good little conversation going on about this, you know, intemperate tots. ####<iemocap>angry
+Look, you better turn that off. I don't want to wake up the people upstairs. ####<iemocap>angry
+Well then you'll wake up the people downstairs. ####<iemocap>angry
+This is no time of year for Tunis. ####<iemocap>neutral
+I will do no such thing. ####<iemocap>angry
+Will you turn that off, it's driving me mad. ####<iemocap>angry
+Turn it off. ####<iemocap>angry
+Amanda, listen, listen. ####<iemocap>angry
+Oh.  That's very amusing indeed. ####<iemocap>angry
+You are a vile, ill-tempered, loose living, wicked little beast and I never want to see you again as long as I live. ####<iemocap>angry
+You're not going like this. ####<iemocap>angry
+You're not. ####<iemocap>angry
+Shut up. Shut up. God, I wouldn't marry you again if you came crawling back to me on a bended knee.  You are a vile, ill-tempered, mean little wench and I never want to see you again as long as I live. ####<iemocap>angry
+Next. ####<iemocap>angry
+My window is open. ####<iemocap>angry
+What are you... what's...What are you applying for? ####<iemocap>frustrated
+No, I need your ID to give you a second ID. ####<iemocap>angry
+It's really simple if you have a problem with it... Maybe you should-- ####<iemocap>angry
+You have a birth certificate? ####<iemocap>frustrated
+What do you expect me to do? ####<iemocap>angry
+Probably. ####<iemocap>angry
+I am..I don't..I don't understand what you want.  A driver's license or a California ID. ####<iemocap>frustrated
+Don't raise your voice with me. ####<iemocap>angry
+Don't talk to me like I'm a child. ####<iemocap>angry
+Do you know how long I've been working here? How long have you lived in California? ####<iemocap>angry
+Maybe you never been to the D.M.V. before, maybe you should get back in line.  You know what?  sit in line again and if you get my number ask for different one. ####<iemocap>angry
+Uh huh.  I didn't come here get in yelling match either. ####<iemocap>neutral
+They don't pay me enough to deal people like you. ####<iemocap>neutral
+Yes, me. Okay, okay here we go. ####<iemocap>frustrated
+Okay, so filled out all these forms  -- ####<iemocap>frustrated
+and I have This form of ID here so... ####<iemocap>frustrated
+Yes, Jones. ####<iemocap>neutral
+I'm just applying for another ID. ####<iemocap>frustrated
+Yes.  I'm supposed to have three forms of ID for this.  It's a long story, I'm supposed to have three forms of ID for this other job I really don't get into but I need another... ####<iemocap>frustrated
+I have it right here, yes. ####<iemocap>frustrated
+But that's... ####<iemocap>frustrated
+That's why I'm here, that's why I was waiting in this line.  I need to get another form of ID. ####<iemocap>frustrated
+No, I don't have a passport. ####<iemocap>neutral
+I don't where it is though, I don't have with me.  Can I get it from somewhere?  I mean... ####<iemocap>frustrated
+I probably have to go wait another line to get my birth certificate don't I? ####<iemocap>frustrated
+You're very helpful.  What's your name? ####<iemocap>frustrated
+So can you help me or not? ####<iemocap>frustrated
+Okay. [BREATHING] ####<iemocap>frustrated
+I need California ID. ####<iemocap>frustrated
+On top of these other two forms of ID which I already have. ####<iemocap>frustrated
+No, I don't have driver's license. ####<iemocap>frustrated
+Did you even look at the form?  I filled it out all these questions-- ####<iemocap>angry
+Okay. ####<iemocap>frustrated
+If it makes you stop acting like a child. ####<iemocap>frustrated
+I am not...I'm not getting to back that line. ####<iemocap>angry
+Okay, okay let's keep our voices down, okay?  I didn't come here to get in yelling match. ####<iemocap>frustrated
+I did not come in here to get in a yelling match with you, all right? ####<iemocap>frustrated
+Just try and help me. ####<iemocap>frustrated
+Why? ####<iemocap>angry
+Why, because I'm sick of talking to you. ####<iemocap>angry
+'Cause you're obviously not talking to me, you're just yelling at me, berating me and telling me I can't fill out forms right. ####<iemocap>angry
+Oh, no honey. And you're going to miss the Christmas card too. It's a shame. It's going to be a good, nice picture. ####<iemocap>frustrated
+What's happening? ####<iemocap>neutral
+Are you kidding me? ####<iemocap>neutral
+How... ####<iemocap>frustrated
+How can they do that? ####<iemocap>frustrated
+They said you're home for at least four years. ####<iemocap>frustrated
+[BREATHING] ####<iemocap>frustrated
+That's not fair. ####<iemocap>frustrated
+[BREATHING] ####<iemocap>frustrated
+I don't even know what to tell you. ####<iemocap>sadness
+What about the birthday party? ####<iemocap>sadness
+You're going with the same ones? ####<iemocap>sadness
+It's not the same though. ####<iemocap>sadness
+Mm hmm.  We'll build a bunker and never come out. ####<iemocap>sadness
+Don't say that. ####<iemocap>sadness
+Hey, Joy come in here. ####<iemocap>neutral
+I have to go back. ####<iemocap>sadness
+I just got a letter I have to go back. ####<iemocap>sadness
+First thing tomorrow morning. ####<iemocap>sadness
+I guess they can do it, ####<iemocap>frustrated
+The National Guard is I guess really spread thin and then everyone has to go.  We all have to go back, my whole companies going back. ####<iemocap>sadness
+So yeah, we leave tomorrow... ####<iemocap>sadness
+...we're all shipping out. ####<iemocap>sadness
+I just got I feel like I'm in shock actually. ####<iemocap>sadness
+I don't know. ####<iemocap>sadness
+I guess you're just going to have to have it without me. ####<iemocap>sadness
+Hey listen, it's going to be okay though, all right? ####<iemocap>sadness
+You're going to be fine. ####<iemocap>sadness
+I'm going to be fine too, okay? ####<iemocap>sadness
+I know I have a good... I have a really good group of guys with me. ####<iemocap>sadness
+We're going to be okay. ####<iemocap>sadness
+Do promise me you're going to take a lot of pictures. ####<iemocap>sadness
+I know. ####<iemocap>sadness
+I just wish there was something I could do. ####<iemocap>sadness
+Run away? ####<iemocap>sadness
+I really don't want to go, I don't want to go... ####<iemocap>sadness
+I love you. ####<iemocap>sadness
+[BREATHING] ####<iemocap>neutral
+Why? ####<iemocap>excited
+Is she on the run? ####<iemocap>excited
+Oh, she just needs to marry you. ####<iemocap>excited
+That's incredible. That's awesome. Where's she from?  Maybe you can get a dual citizenship. ####<iemocap>excited
+That's so cool. Uh huh. ####<iemocap>excited
+[LAUGHTER] Why did she pick you? Where were you? ####<iemocap>excited
+You were at a party? And she's like hey. You seem unattached she's like. ####<iemocap>excited
+That's unbelievable... Yeah. ####<iemocap>excited
+Well I've known people who have done this before. Yeah.  You just- it's really fun actually 'cause you have like a fake engagement party and all your friends come over and like... ####<iemocap>excited
+Yeah. Yeah. And then yeah, and then you know like you could like you could do like like sock her for a lot of money ####<iemocap>excited
+Like make her rent the apartment that you two have to live together in, you know. And you won't pay any rent or you pay like, a hundred bucks a month or something. ####<iemocap>excited
+Yeah. ####<iemocap>excited
+Dude, you lucked out. ####<iemocap>excited
+Yeah.  My colors are blush and beige what is it, do you know? ####<iemocap>excited
+Oh I don't know. [LAUGHTER] ####<iemocap>excited
+I don't know get it in cash. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+How exciting. You should have a wedding on the beach. ####<iemocap>excited
+Yeah, at night. ####<iemocap>excited
+Oh yeah, absolutely, absolutely. ####<iemocap>neutral
+How exciting.  You should make her bring all your friends too. ####<iemocap>excited
+[GARBAGE] She's got to be loaded.  fifty thousand dollars.  That's incredible. ####<iemocap>excited
+Incredible. ####<iemocap>excited
+you're a lucky, lucky, lucky man. ####<iemocap>excited
+Oh, totally. Yeah. ####<iemocap>excited
+The craziest thing just happened to me. ####<iemocap>excited
+This girl; she just offered me fifty thousand dollars to marry her. ####<iemocap>excited
+Well, she's not a citizen so she wants to get a visa. ####<iemocap>neutral
+No, no, no, no, no, no she just... she's not a citizen but she wants her visa, yeah. She's going to pay me fifty thousand dollars to marry her and stay married to her for two years. ####<iemocap>excited
+That's like twenty five thousand dollar a year for doing nothing. Isn't that awesome? ####<iemocap>excited
+She's actually from England, I think.  Well she- she spoke English but she had an accent. I didn't even ask. ####<iemocap>neutral
+Fifty thousand dollars. Fifty thousand dollars. I was just out... I just... she's - well, she's a friend of friend but like... ####<iemocap>excited
+Yeah.  Can you believe that? Yeah, she's like hey, I'm like sure I'll do it, I don't care. Yeah. I'm like fifty thousand dollars, I'd totally do it for fifty thousand dollars. But the only thing is that's kind of like illegal. So like I could go to jail probably for a long if I get caught, but... ####<iemocap>excited
+It's like I'm really going to get married. We'll have like the whole thing. ####<iemocap>excited
+Oh, good. [LAUGHTER] ####<iemocap>excited
+I know. What do you think I should- ####<iemocap>excited
+Oh good idea. ####<iemocap>excited
+Yeah.  Make her like open the bank account and stuff too. ####<iemocap>neutral
+It's a good idea. ####<iemocap>excited
+I know.  Also I get to like plan the wedding now too. That will be fun. ####<iemocap>excited
+Something blue, something new, something... no I don't know. [LAUGHTER] So yeah, wonder if she's going to pay me up front but do you think it's bad though, do you think they're going to like track the money or something? ####<iemocap>excited
+Just cash hardcore. ####<iemocap>neutral
+What should we do?  Where should we get married? We should have party. ####<iemocap>excited
+Yeah, like a big like- A wedding on the beach, that would be nice. ####<iemocap>excited
+And then we can honeymoon.  I want to go tropical though like Bahamas- --or like Tahiti or something. I just want to like beach and like drink. ####<iemocap>neutral
+I'll make her pay for that.  I hear she's like totally wealthy. She's like royalty- --or something like and- --whatever like removed or something but yeah. ####<iemocap>excited
+I'm going to marry a blue blood. [LAUGHTER] ####<iemocap>excited
+Will you help me plan? ####<iemocap>excited
+You seem kind of down. ####<iemocap>neutral
+What do you mean? ####<iemocap>neutral
+There's a lot of people looking for jobs. ####<iemocap>neutral
+I don't know, I mean, I just don't think... ####<iemocap>neutral
+Did you ever think it might be your attitude that's... ####<iemocap>neutral
+I don't know just sometimes you get kind of... No, I'm not saying that.  I just-- ####<iemocap>neutral
+...has anyone ever just said anything like that to you before? ####<iemocap>neutral
+Right, sure. ####<iemocap>neutral
+But I mean you kind of got to, you got to fake it 'til you feel it, right? ####<iemocap>neutral
+I'm just saying that if I was looking to hire somebody in the--or kind of... No. No. No. ####<iemocap>neutral
+No.  I'm just saying though that if I was a person who was hiring somebody I-- --would not hire someone who was angry or upset. ####<iemocap>neutral
+No. ####<iemocap>neutral
+Well, you know a little.  If you were to listen to-- ####<iemocap>neutral
+I just don't want you to fly off the handle. ####<iemocap>neutral
+You kind of have a short fuse. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Like this, right now we're trying have a conversation. ####<iemocap>neutral
+We're trying to have a conversation and you seem extremely hostile. You keep cutting me off. ####<iemocap>neutral
+I can't finish the sentence with you without you jumping in... ####<iemocap>neutral
+...and you're always right. ####<iemocap>neutral
+You have an excuse for everything. ####<iemocap>neutral
+I'm just saying that maybe you should take in some information before you produce more of your own. ####<iemocap>neutral
+[BREATHING] ####<iemocap>neutral
+That's -. ####<iemocap>frustrated
+Well, what kind of field are you looking to go into? ####<iemocap>neutral
+It's--I've been trying to find this job I can't get any job. ####<iemocap>frustrated
+It's not fair. ####<iemocap>frustrated
+I mean I've been looking for a job for like three years and I can't get a job.  I mean like, it's America, right?  I should be able to get a job. ####<iemocap>frustrated
+I guess.  But three years?  I mean, I like--I went to college even, I mean I didn't finish but I went for like a little bit.  It's not fair, I don't know. ####<iemocap>frustrated
+I mean I've been sending out my resumes and doing everything I can do but nothing is happening.  You know, it's like I can't and I can't keep living on loans anymore like this.  I'm going to--I mean eventually I'm going to have to pay it back. I'm just kind of freaking out, I don't know. ####<iemocap>frustrated
+No, well maybe it's because I'm like frustrated 'cause I can't get a job, you know. ####<iemocap>frustrated
+Like it's really hard to like shake that off when you go into like audition a room or whatever, you know what I mean? ####<iemocap>frustrated
+I guess I just getting really hard to fake, you know. ####<iemocap>frustrated
+Are you hiring? Wait, do you know of a job? Seriously, do you know, like do you know of anything though?  Like, oh please, do you know of anything? ####<iemocap>frustrated
+Yeah. ####<iemocap>frustrated
+I come across angry? ####<iemocap>frustrated
+What? ####<iemocap>angry
+Okay.  You're my friend you can tell me stuff.  You can tell me honestly stuff, okay?  Please. ####<iemocap>frustrated
+Okay, I'm not flying off the handle I don't think I'm flying off the handle here at all. ####<iemocap>frustrated
+I have a short fuse? ####<iemocap>frustrated
+Okay. Okay no, no, no, no okay no, I need to hear this more. Come on, bring it. ####<iemocap>angry
+I'm not always right I'm just-- ####<iemocap>frustrated
+[BREATHING] ####<iemocap>frustrated
+I'm like a sponge I'm like soaked up with all this information for like three years I'm just dying for a job to like put it in to. ####<iemocap>angry
+You know, and like I don't think it's that much to ask. I know. ####<iemocap>frustrated
+That's it. ####<iemocap>neutral
+Can I help you? ####<iemocap>neutral
+I need a little more information. ####<iemocap>neutral
+What- What flight did you come in on? ####<iemocap>neutral
+Georgia? ####<iemocap>neutral
+There's no need for you to raise your voice, sir. ####<iemocap>neutral
+I've been college educated. ####<iemocap>neutral
+I speak your language. ####<iemocap>neutral
+I'm just saying you don't need to talk to me like I- ####<iemocap>neutral
+I'm not a child. ####<iemocap>frustrated
+Details, Details.  Well, anyhow can I-- ####<iemocap>neutral
+so you flew in from Atlanta... ####<iemocap>neutral
+Four...Four hours ago. ####<iemocap>neutral
+Do you have any i-? ####<iemocap>neutral
+I wouldn't let you?   I was not in Atlanta. I was not in Atlanta. ####<iemocap>neutral
+I had nothing to do with the boarding attendance.  I'm sorry that your seat was wherever it was. ####<iemocap>neutral
+I have some unfortunate news, uh, that your bag isn't going to be-- ####<iemocap>neutral
+--arriving any time soon. ####<iemocap>neutral
+I'm really sorry to tell you this but... ####<iemocap>neutral
+It's not.  I can offer you fifty dollars and a reimbursement gift cards for our airline... ####<iemocap>neutral
+...and your future... ####<iemocap>neutral
+No. ####<iemocap>neutral
+Yes. ####<iemocap>neutral
+We've actually... ####<iemocap>neutral
+They do as matter of fact.  We don't like to publicize it because ####<iemocap>neutral
+people wouldn't Fly our airline. ####<iemocap>neutral
+What was that? ####<iemocap>neutral
+That's unfortunate. ####<iemocap>neutral
+That's too bad. ####<iemocap>neutral
+I wish I could give it to you. ####<iemocap>neutral
+I wish I- ####<iemocap>neutral
+That's not - no. ####<iemocap>neutral
+No. ####<iemocap>neutral
+We have plenty of aggressive searching going on it's not there.  Someone's taken it. ####<iemocap>neutral
+You know I don't need to take this sort of abuse. ####<iemocap>frustrated
+Yes, please help me.  Where is my bag? ####<iemocap>frustrated
+Where is my bag?  Come on, I've been here for four hours. ####<iemocap>frustrated
+Okay, I'm coming in from Atlanta. ####<iemocap>frustrated
+Are you insinuating that I don't have a college education and that- for some reason that makes you a better person than I am? ####<iemocap>angry
+Listen, shut your smug mouth, okay?  I don't need that. ####<iemocap>angry
+I've been sitting here for four hours. ####<iemocap>angry
+You people have just been tossing me around like a used hanky. ####<iemocap>angry
+You work here. ####<iemocap>angry
+My bag from Atlanta. ####<iemocap>frustrated
+It's a little black bag with wheels. ####<iemocap>frustrated
+Okay. ####<iemocap>neutral
+Where is it?  Where did it go? ####<iemocap>frustrated
+Probably people that work for your company huh? ####<iemocap>angry
+Do you know what was in that little bag that I could have just easily put in overhead compartment but no I had to check? ####<iemocap>angry
+My computer which has all of my data which I'm collecting right now. ####<iemocap>angry
+Yeah it's really unfortunate you know why because I'm going to get fired if I don't get that.  So I need to have that back. ####<iemocap>angry
+Fifty dollars is not going to cover me for my job, okay? ####<iemocap>angry
+Well you need to find it. Can I just go back there and look through the bags?  Can I just go back there and just go through maybe I'll find it. ####<iemocap>angry
+It'll be a lot more than what you're doing sitting here and just give me lip service.  I'd like to go back at least do some aggressive searching for my stuff. ####<iemocap>angry
+Sure, yeah right you have plenty of aggressive searching going on, aggressive searching, drinking coffee and smoking cigarettes. ####<iemocap>angry
+I know what you guys do when you're not working you're union people; you just sit around on your ass. ####<iemocap>angry
+[BREATHING] ####<iemocap>frustrated
+Thank you very much. ####<iemocap>angry
+You okay? ####<iemocap>neutral
+What's happened? ####<iemocap>neutral
+You don't have to if you don't want to. ####<iemocap>neutral
+I'm sorry to hear that. ####<iemocap>sadness
+You've been taking care of it all? ####<iemocap>sadness
+Oh Jesus. ####<iemocap>sadness
+He sick for awhile? ####<iemocap>sadness
+Was it an accident? ####<iemocap>neutral
+how was sick? ####<iemocap>neutral
+Well, I'm confused.  He was sick or it was an accident? ####<iemocap>neutral
+Oh. Really fast? Oh. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Totally, yeah. ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+Lock ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+The plans you make [GARBAGE]. ####<iemocap>neutral
+It leaves a hole for you too. ####<iemocap>neutral
+It leaves a hole for you too, in your plans together. ####<iemocap>neutral
+It gets better. ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+MMhmm. ####<iemocap>neutral
+Mmhmm. ####<iemocap>neutral
+How long did you know each other? ####<iemocap>neutral
+That's a long time. ####<iemocap>neutral
+It's good that you were there. ####<iemocap>neutral
+Yeah. ####<iemocap>neutral
+Are there things you wish you'd done differently? ####<iemocap>neutral
+Yeah, I'm just-- yeah ####<iemocap>sadness
+Just kind of feel numb, you know. ####<iemocap>sadness
+You didn't even hear? ####<iemocap>sadness
+[BREATHING] Umm. ####<iemocap>sadness
+God I've told this story so many times. Umm. ####<iemocap>sadness
+I just...I just basically lost someone that was really close to me. ####<iemocap>sadness
+And I've kind of been dealing with all of the...the stuff, you know the hospital and people work because... ####<iemocap>sadness
+He kind of didn't have anyone to take care of that for him, so-- ####<iemocap>sadness
+It's just really...really messed up. ####<iemocap>sadness
+No. ####<iemocap>sadness
+Just like it. ####<iemocap>sadness
+No, I mean it just came on really quick, you know I mean it was a [GARBAGE] it was a sickness but it just -- ####<iemocap>sadness
+What? ####<iemocap>sadness
+He was sick. He got sick. He got sick but it happened really, really fast, you know. ####<iemocap>sadness
+It was kind of like boom... done ####<iemocap>sadness
+It's just really weird because he was really young you know and it kind of like... ####<iemocap>sadness
+--it just kind of freaks you out. ####<iemocap>sadness
+So weird you know that like one days it's like you know sounds so stupid but like one day someone's here. And like next day you know they're not here and it just kind of makes you like think about like life and mortality and like that kind of stuff.  You just like used to take for granted--you know. ####<iemocap>sadness
+Exactly, you know, and like he had so many plans and he was going to do... ####<iemocap>sadness
+so many things, you know? ####<iemocap>sadness
+What? ####<iemocap>sadness
+Yeah. ####<iemocap>sadness
+He was a really, really good guy. ####<iemocap>sadness
+A lot of people loved him. ####<iemocap>sadness
+You know, it's like affecting a lot of people it's not just me, you know? ####<iemocap>sadness
+Umm... ####<iemocap>sadness
+For like eight years. ####<iemocap>sadness
+Yeah. ####<iemocap>sadness
+Yeah, I'm glad I was there. Glad I- glad I got to be there. ####<iemocap>sadness
+So weird, ####<iemocap>sadness
+like I can't...it's like you know it's like "pinch me" it's like I can't believe like I'm dealing with this, you know. ####<iemocap>sadness
+Yeah. ####<iemocap>neutral
+[LAUGHTER]. For softball? That's unbelievable. Is it slow pitch? ####<iemocap>excited
+Pinch hitting softball. ####<iemocap>excited
+That is incredible. ####<iemocap>excited
+That's amazing. They pay for everything? ####<iemocap>excited
+Your housing, books, everything? That is incredible. ####<iemocap>excited
+That is incredible. Do you get like a per diem? ####<iemocap>excited
+You should...You should look into that. ####<iemocap>excited
+That is amazing, congratulations. Good for you. ####<iemocap>excited
+Oh. ####<iemocap>neutral
+Yeah, that you probably. You should see one of these Victorian houses around by. ####<iemocap>excited
+Oh. Venice beach. ####<iemocap>neutral
+Oh, you don't like that. You're west-sider? ####<iemocap>excited
+Okay. That would be way too much of a commute you can't do that. Especially- I know especially from--I don't know, what I was going to say, I don't know. ####<iemocap>excited
+I don't know. Commuting from what Malibu that would be ridiculous. ####<iemocap>excited
+Oh yeah. He'd drop you right off at practice? ####<iemocap>excited
+They have those neon--softballs.  They're like day-glow you can see them anywhere. ####<iemocap>excited
+Oh. That is incredible. Is it-- ####<iemocap>neutral
+do they have a--is it a co-ed softball team?  I mean... Really? You know, I didn't even know that they have that. ####<iemocap>excited
+Who do you play? Like do--are you like... nationally ranked? ####<iemocap>excited
+That is unbelievable. ####<iemocap>excited
+I would put that right up there with--ping-pong. ####<iemocap>excited
+I mean not to denigrate what you are doing.  I think that's great. ####<iemocap>excited
+No, no.  I love softball. I played softball all the time. ####<iemocap>excited
+I am not saying you should be. I'm not no. I think it's great I think you should be incredibly proud yourself especially because you're going to U.S.C for free for doing it. For free. ####<iemocap>excited
+You're like the rookie? The new kid. ####<iemocap>joy
+Just watch in five years you'll be like on the force. You carry around donuts in your back pocket... [LAUGHTER] ####<iemocap>joy
+Check this out.  You know how I've told you I've been really into like softball recently? ####<iemocap>excited
+Well, this is totally random, I got this full ride scholarship to go to U.S.C next year to play softball. ####<iemocap>excited
+For softball.  They're going to pay me to go to school. Isn't that awesome? ####<iemocap>excited
+Yeah.  Well, I don't--well yeah I can pitch, I'm not like the pitcher though. I'm like the pinch hitter guy I mostly just hit.  But I guess I'm going to have to... Yeah, and then I play shortstop too but... It's so ex- The good news is I get to stay here. ####<iemocap>excited
+I know. For softball, yeah. ####<iemocap>excited
+Yeah, everything. Every like- free ride and I get to, you know, like be on like a Trojans sports team too. And it's like cool. Isn't it awesome? ####<iemocap>excited
+I don't know. I should ask. Yeah, I will. ####<iemocap>joy
+Thank you. ####<iemocap>excited
+But I don't know I want to live in the housing that they give me though 'cause I think I want to you know like get like a nicer place. ####<iemocap>excited
+Where should I move? ####<iemocap>excited
+That's a really good idea. Or I could go to like Santa Monica. Go beach. Venice beach, yeah a little dirty though. I don't want to go to Venice beach. But - Malibu. All right. ####<iemocap>excited
+Professional softball player Malibu. [LAUGHTER] ####<iemocap>joy
+Oh yeah, that would be.  Well, depends on what type of car you had, though too. I guess it would be worth it. helicopter. Yeah, helicopter.  There is a helipad there, right? Yeah, exactly. ####<iemocap>joy
+They do it's--believe me it's huge. ####<iemocap>joy
+I just got into it. I just kind of fell into it. Literally I was walking around and... ####<iemocap>excited
+It's pretty wild. ####<iemocap>joy
+Yeah, well I doubt [GARBAGE] ping pong [GARBAGE] ####<iemocap>neutral
+Oh you mean it's not really sport that what you're saying? ####<iemocap>neutral
+It's totally a sport. What are you talking about? ####<iemocap>neutral
+For free that's really what it's about. I mean who cares I mean if I have to play softball all the time? ####<iemocap>excited
+Yeah we have like away games and stuff. ####<iemocap>neutral
+But you know I'm like [GARBAGE]. ####<iemocap>neutral
+I'm going to have a mustache...On the force... ####<iemocap>joy
+Pull over.. ####<iemocap>joy
+What he's going to say? ####<iemocap>frustrated
+When? ####<iemocap>neutral
+How could he see it?  I was the first one up and he was still in bed. ####<iemocap>neutral
+What was he doing here at four in the morning? ####<iemocap>neutral
+Did you talk to him? ####<iemocap>sadness
+Cried hard? ####<iemocap>sadness
+[BREATHING] ####<iemocap>sadness
+What is he doing out here at that hour? ####<iemocap>frustrated
+He's dreaming about him again, walking the streets. ####<iemocap>angry
+What? ####<iemocap>neutral
+What do you mean a mistake? ####<iemocap>angry
+What do you want to do, argue with him? ####<iemocap>frustrated
+What, can you prove it?  What proof do you have?  Can you prove it? ####<iemocap>angry
+To you it is, to me it is.  But to your father?  You can talk yourself 'til you're blue in the face but there's was no grave and there is no body.  So where are you? ####<iemocap>angry
+The trouble is those god damn news papers.  Every month some boy comes back missing longer then Larry so-- ####<iemocap>angry
+Why? ####<iemocap>angry
+Well, that's only your business, Chris. ####<iemocap>frustrated
+Well, what do you want me to do?  You're old enough known your own business. ####<iemocap>angry
+I'm just saying. ####<iemocap>frustrated
+I'm sorry.  I ignore what I've got to ignore. That girl is Larry's girl. ####<iemocap>angry
+From father's point of view he is not dead and you have no right to take his girl.  I'm just saying that you can go on from there if you know where to go but I'm saying I don't know where to go.  See, I don't know. ####<iemocap>angry
+You're a considerate fellow.  There's nothing wrong in that. ####<iemocap>neutral
+Did you ask Annie yet? ####<iemocap>neutral
+Well, how do you know she's going to marry you?  Maybe she feels same way your father does. ####<iemocap>frustrated
+The trouble is you don't see enough women, you never did. ####<iemocap>frustrated
+I don't see why it has to be Annie. ####<iemocap>angry
+That's a good answer but it doesn't answer anything.  You haven't seen her since you went away to war, it's been five years. ####<iemocap>angry
+He thinks he's coming back, Chris.  You marry that girl you're pronouncing him dead. ####<iemocap>sadness
+Do you know what that'll do to you, to your father, do you know?  I don't. ####<iemocap>angry
+What the hell is this? ####<iemocap>neutral
+Are you crazy? ####<iemocap>angry
+You have a business here.  I said what the hell is this? ####<iemocap>angry
+Oh, must you be inspired. ####<iemocap>angry
+Well, you don't want to think like that. ####<iemocap>angry
+All right but you don't think like that because what the hell is this all for.  This is all for you, what are we working for Chris? The whole shooting match is for you. ####<iemocap>angry
+Well, you don't think like that. ####<iemocap>angry
+I don't understand you, do I? ####<iemocap>angry
+Well, I can see that. ####<iemocap>angry
+He saw it. ####<iemocap>neutral
+I was out here at four this morning I heard a crack and I looked out the window and he was standing right over there. ####<iemocap>neutral
+I don't know.  But he went back in the kitchen and he cried. ####<iemocap>sadness
+No.  I figured I'd just let it wait. ####<iemocap>sadness
+Yeah, I could hear him crying through the floorboards in my room. ####<iemocap>sadness
+I don't know. ####<iemocap>sadness
+I guess he is. ####<iemocap>sadness
+I don't know the meaning of it.  But I know we've made terrible mistake with father. ####<iemocap>frustrated
+I just--why shouldn't he walk the nights waiting for him, huh?  Do we contradict him do we say we don't have any hope any more that he's not coming back? ####<iemocap>frustrated
+I don't want to argue with him, it's just for God's sake it's time he realized that no one believes with him any more. ####<iemocap>frustrated
+I got to. ####<iemocap>frustrated
+For God's sake, three years?  Nobody comes back after three years. It's insane. ####<iemocap>frustrated
+Okay, all right.  Mom, sit down.  I want to talk to you. ####<iemocap>frustrated
+Yeah, okay all right, all right.  Listen, um, you know why I asked Annie here, right? ####<iemocap>frustrated
+I'm going to ask her to marry me. ####<iemocap>neutral
+You know it's not just my business. ####<iemocap>frustrated
+So it's okay then?  I'm just going to go ahead with it? ####<iemocap>frustrated
+See.  Then it's not just my business. Sometimes you infuriate me, you know that?  You know it's just your business too if I tell father and he throws a fit about it, huh? ####<iemocap>angry
+She is not Larry's girl. ####<iemocap>angry
+I don't know why it is you know every time I reach out for something I have to pull back 'cause I'm afraid it's going to hurt somebody.  All my life... ####<iemocap>frustrated
+To hell with that. ####<iemocap>angry
+No, I wanted to get this all sorted out first. ####<iemocap>sadness
+So what?  I'm just--I'm not fast with women. ####<iemocap>frustrated
+Because it is. ####<iemocap>frustrated
+I don't know, it I think of her, I grew up next to her.  She is what I think of when I think of a wife. ####<iemocap>frustrated
+I've given it lots of thought.  And I keep coming back to the same thing. ####<iemocap>frustrated
+When I think of a family, when I think of my future I see Annie in the center of that and you know and if that can't happen here then I'll go somewhere else. ####<iemocap>frustrated
+I'll leave.  I'll get married and move somewhere else maybe New York. ####<iemocap>frustrated
+Business?  The business doesn't inspire me. ####<iemocap>angry
+Yes, yes I like it for one hour a day.  I don't care if I have to grub for money all day long when I come home I want it nice, I want a family, I want to kids and Annie is in the center of that. ####<iemocap>angry
+If that can't happen here... ####<iemocap>frustrated
+Yes, on this I would. ####<iemocap>neutral
+Then help me stay here mom. ####<iemocap>sadness
+Then help me stay. ####<iemocap>sadness
+I am thinking like that. ####<iemocap>angry
+No, you don't.  I'm a pretty tough guy. ####<iemocap>sadness
+Why did he invite her here? ####<iemocap>angry
+It's been three and a half years.  Why all of a sudden? ####<iemocap>angry
+What is going on here, Joe? ####<iemocap>angry
+The girl is not Larry's.  If the girl is Larry's girl she's not his she know she's not. ####<iemocap>angry
+Nobody in this house dares take away her faith Joe.  Her- strangers might but not her father, not her brother. ####<iemocap>frustrated
+I want you to---act like he is coming back.  Don't think I haven't noticed you, both of you since Chris invited her here.  I won't stand for any nonsense. ####<iemocap>angry
+Oh, laugh at me, laugh all you like but why does this happen to very night she comes back?  She goes to sleep in his room and his memorial breaks in pieces.  Look at it, Joe look. ####<iemocap>angry
+Believe with me Joe, you got to believe. Only last week a boy came back missing longer then Larry you read it yourself. ####<iemocap>angry
+You above all have got to believe. Just don't stop believing. ####<iemocap>angry
+Well, maybe he wanted see her. ####<iemocap>neutral
+Well uh, He grew up next door to the girl, why wouldn't he want to see her? ####<iemocap>neutral
+Don't look at me like that.  He didn't tell me anything he told you. ####<iemocap>frustrated
+How do you know he's even thinking about it? ####<iemocap>frustrated
+Oh so what? ####<iemocap>frustrated
+Okay, now listen, kids... ####<iemocap>frustrated
+Listen. Line. You can't read her mind. ####<iemocap>frustrated
+And how do you know why she's waited. ####<iemocap>neutral
+Okay, look it's a beautiful day.  Why are we arguing? ####<iemocap>frustrated
+What do you want me to do?  What do you want? ####<iemocap>frustrated
+Kate... ####<iemocap>frustrated
+[BREATHING] ####<iemocap>frustrated
+All right, calm yourself. ####<iemocap>frustrated
+Okay, calm yourself. Alright. ####<iemocap>frustrated
+calm yourself. ####<iemocap>frustrated
+What does that mean? Me above all? What does that mean? ####<iemocap>angry
+Look at you. You're shaking. ####<iemocap>angry
+What the hell do you want from me, Kate? ####<iemocap>angry
+The only one I know still love his parents. ####<iemocap>neutral
+Oh it's not bad thing it's good thing. ####<iemocap>neutral
+Not sorry, no.  I can't stay here. ####<iemocap>sadness
+For one thing your mother as much as told me to go. ####<iemocap>neutral
+[BREATHING] And then you've been kind of... ####<iemocap>sadness
+You've been kind of embarrassed ever since I got here. ####<iemocap>sadness
+From her point of view why else would I come? ####<iemocap>neutral
+I almost got married two years ago. ####<iemocap>neutral
+Everyday since. ####<iemocap>excited
+Because I was waiting for you, Chris.  Till then you never wrote me and then when you did, well, you sure can be ambiguous you know. ####<iemocap>excited
+I'll never forgive you for waiting so long.  All I did was sit around and wonder if I was crazy for thinking about you. ####<iemocap>joy
+Chris, what's the matter? ####<iemocap>sadness
+No, what is it?  Is your mother? ####<iemocap>sadness
+You got to tell me. ####<iemocap>sadness
+Wouldn't work like this. ####<iemocap>sadness
+Yeah, sure. ####<iemocap>sadness
+How many? ####<iemocap>sadness
+[BREATHING]. Geez. ####<iemocap>sadness
+Do you still feel that way? ####<iemocap>sadness
+What would I do with a fortune? ####<iemocap>joy
+Yeah, that kind of went out of style didn't it? ####<iemocap>joy
+You're not sorry you came? ####<iemocap>joy
+Why not? ####<iemocap>sadness
+What? ####<iemocap>neutral
+You did? ####<iemocap>neutral
+Yeah-- ####<iemocap>neutral
+Ann, I love you.  I love you. ####<iemocap>joy
+Why didn't you? ####<iemocap>neutral
+why didn't you let me know? ####<iemocap>excited
+I kissed you.  I kissed Annie. ####<iemocap>excited
+I kissed you. ####<iemocap>joy
+Do you want to go somewhere?  Let's go. ####<iemocap>sadness
+No, no, it's nothing like that. ####<iemocap>sadness
+I don't know it's--it's complicated. But it's going from me now. ####<iemocap>sadness
+I don't know. ####<iemocap>sadness
+It's kind of all mixed up with all these other things. ####<iemocap>sadness
+you know over seas I was in command of the company? ####<iemocap>sadness
+Well I lost them. ####<iemocap>sadness
+Pretty much all. ####<iemocap>sadness
+Takes awhile to toss something like that off.  I mean they weren't just men, you know. ####<iemocap>sadness
+For instance, there was this one time when this kid--it had been raining for like several days and he gave me his last pair of dry socks. ####<iemocap>sadness
+He just put it in my pocket that's the kind of guys I had. ####<iemocap>sadness
+They didn't die they killed themselves for each other and I mean that exactly, you know a little more selfish and they'll all be here today... ####<iemocap>sadness
+And I had this idea as I was watching them go down like everything was being destroyed, you know.  But I felt like this one new thing was being made, you know it's kind of like this.  This monument... ####<iemocap>sadness
+You know, that they were bringing something on to this earth, a kind of sacrifice you know. ####<iemocap>sadness
+I thought I would change everything you know, and I got back here and it was- it was like nothing had changed at all... ####<iemocap>sadness
+You know.  I went to work with dad and I started that whole rat race again... ####<iemocap>sadness
+And no one had changed it was just like sort of random bus accident to them. ####<iemocap>sadness
+Driving my new car and I felt guilty you know opening my bank book seeing a new refrigerator. ####<iemocap>sadness
+'Cause you can take those things out of a war.  But you have to realize that those things came out of the love that a man can have for another man... ####<iemocap>sadness
+And if you can't see that then it's just loot and there's blood all over it. ####<iemocap>sadness
+I felt ashamed and I didn't want any part of it.  I guess I included you too. ####<iemocap>sadness
+I want you to know Annie. ####<iemocap>sadness
+I'm going to make a fortune for you. ####<iemocap>joy
+Ugh... ####<iemocap>frustrated
+What flashlight? ####<iemocap>neutral
+You keep saying "my flashlight" like somehow it's just yours. How's that supposed to make me feel? ####<iemocap>angry
+No. ####<iemocap>neutral
+I'm fine. ####<iemocap>neutral
+I wonder if they can hear me talk ####<iemocap>joy
+I'm cold. ####<iemocap>frustrated
+It's after eleven, let's go home. ####<iemocap>frustrated
+There is no point. ####<iemocap>frustrated
+That's my point. ####<iemocap>frustrated
+Then let's go. ####<iemocap>angry
+Pass what up?  These little fish swim out of the ocean, they flop around on the sand then they swim back and then they die. ####<iemocap>angry
+I don't know what you're so excited about.  This isn't a moon landing we're talking about, it's fish, it's a fish nobody even eats. ####<iemocap>frustrated
+Oh, Augie. ####<iemocap>frustrated
+I'm not. ####<iemocap>frustrated
+Yes. ####<iemocap>angry
+Last year, you'll also remember we got--our shoes got wet, I got sand in my panties, you got a sore throat, we got into a big fight and we did not see the grunions. ####<iemocap>angry
+We didn't see them the year before either. ####<iemocap>angry
+What time is it?  God, this is great, isn't it?  I can't believe it. ####<iemocap>excited
+Of course I did want to a little further up the coast you know get away from all the lights and people and everything.  Is it midnight, do they always start at midnight?  Is that what it is midnight?  How you doing, huh? You okay?  That's good. ####<iemocap>excited
+Look, there what's that, what's that?  Is it-- ####<iemocap>excited
+Oh, no I can't tell though.  Although probably if you can't tell it probably isn't them right, yeah.  Probably going to be like unmistakable, right? ####<iemocap>excited
+Gosh, this is great, isn't it?  This is awesome.  Oh, no you know what I forgot? ####<iemocap>excited
+Flashlight the silver one.  There's only one isn't there? ####<iemocap>neutral
+Oh, well, yeah of course. ####<iemocap>neutral
+Of course, our flashlight.  What's your is mine, mi flashlight es su flashlight. ####<iemocap>neutral
+Gosh, I should have brought it. I can't believe I forgot that. ####<iemocap>neutral
+You know what we should've brought a blanket too.  Man, our blanket, our blanket.  Wish I had six-pack too, a six-pack would be just the ticket right about now, huh, six-pack. ####<iemocap>excited
+Oh yeah, I'm so excited right now I'm like a kid. ####<iemocap>excited
+I can't believe I got out of the house without my fly zipped up even. ####<iemocap>excited
