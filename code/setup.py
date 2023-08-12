@@ -73,6 +73,7 @@ def init_args():
     parser.add_argument("--data_gene_none_word_num", default=1, type=int, help="rand word added to generate diverse none examples")
     parser.add_argument("--data_gene_extract_none_remove_ratio", default=0, type=float, help="remove none training sample for extract model training")
     parser.add_argument("--data_gene_same_model", action='store_true', help="extract & gene model share the same model")
+    parser.add_argument("--data_extract_wt_constrained", action='store_true', help="enable constrained decoding during extraction task")
     parser.add_argument("--data_gene_wt_constrained", action='store_true', help="turn off constrained decoding during gene generation")
     parser.add_argument("--use_same_model", action='store_true', help="all stages use the same model")
     parser.add_argument("--model_filter", action='store_true', help="use extract model inference for filtering")

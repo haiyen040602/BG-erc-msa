@@ -20,14 +20,12 @@ python ../code/main.py --task moseii \
             --n_runs 1 \
             --clear_model \
             --save_best \
-            --data_gene \
-            --data_gene_extract \
+            --pseudo \
             --data_gene_extract_epochs 15 \
             --data_gene_epochs 15 \
             --init_tag english \
             --do_train \
             --do_eval \
             --use_same_model \
-            --data_gene_wt_constrained \
             --model_filter \
             --train_by_pair \

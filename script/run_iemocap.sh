@@ -21,7 +21,6 @@ python ../code/main.py --task iemocap \
             --clear_model \
             --save_best \
             --pseudo \
-            --data_gene_extract \
             --data_gene_extract_epochs 10 \
             --data_gene_epochs 10 \
             --init_tag english \

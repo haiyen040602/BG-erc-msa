@@ -4,6 +4,7 @@ import os
 import random
 
 import torch
+import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm, trange
 from transformers import (AdamW, AutoModelForSeq2SeqLM,
@@ -60,7 +61,7 @@ def train(args, tokenizer, model, train_dataset, task, epochs, lr, bs, acc_step=
     )
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=args.warmup_steps, num_training_steps=t_total)
     train_iterator = trange(int(epochs), dynamic_ncols=True, desc="Epoch")
-
+    criterion = nn.CrossEntropyLoss()
     # visualize input
     logger.info(f"Training examples out of {len(train_dataset)}:")
     for i in range(3):
@@ -75,6 +76,7 @@ def train(args, tokenizer, model, train_dataset, task, epochs, lr, bs, acc_step=
         for step, batch in enumerate(epoch_iterator):
             model.train()
 
+            # truth label removed pad tokens
             lm_labels = batch["target_ids"]
             lm_labels[lm_labels[:, :] == tokenizer.pad_token_id] = -100
 
@@ -90,6 +92,11 @@ def train(args, tokenizer, model, train_dataset, task, epochs, lr, bs, acc_step=
             loss.backward()
             epoch_train_loss += loss.item()
 
+            # loss = criterion(outputs, lm_labels)
+            # loss.backward()
+            # epoch_train_loss += loss.item()
+
+            ## Không sử dụng điều kiện dùng loss
             if (step+1) % acc_step == 0:
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 optimizer.step()
@@ -191,6 +198,8 @@ def data_gene(args, tokenizer, model, train_dataset):
     if args.data_gene_extract:
         extract_task = f"extract_{args.task}"
         target_extract_inputs, target_extract_outputs = extract_model(args, tokenizer, model, extract_task)
+    # else:
+    #     target_extract_inputs, target_extract_outputs = get_inputs
 
     # 2. gene train & infer
     target_gene_aug_inputs, target_gene_aug_outputs = gene_model(
@@ -234,9 +243,10 @@ def pseudo_label(args, tokenizer, model, train_dataset):
 
     # 2. inference on target unlabel
     target_dataset = get_dataset(args, task=args.task, data_type="target-unlabel", tokenizer=tokenizer)
+    is_constrained = False if args.data_extract_wt_constrained else True
     target_pseudo_inputs, target_pseudo_outputs, _ = infer(
         args, target_dataset, model, tokenizer, name=f"target_pseudo_{args.task}",
-        is_constrained=False, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
+        is_constrained=is_constrained, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
     )
 
     for i in range(3):
@@ -263,7 +273,7 @@ def pseudo_filter_none(inputs, outputs):
 
 def extract_model(args, tokenizer, model, extract_task):
 
-    # 1. train extract model
+    # 1. train extract model (trong trường hợp không có model sẵn hay sử dụng lại model cũ)
     if args.extract_model:
         model = AutoModelForSeq2SeqLM.from_pretrained(args.extract_model).to(args.device)
         tokenizer = AutoTokenizer.from_pretrained(args.extract_model, use_fast=False)
@@ -281,9 +291,12 @@ def extract_model(args, tokenizer, model, extract_task):
 
     # 2. infer on target domain
     target_extract_dataset = get_dataset(args, task=extract_task, data_type="target-unlabel", tokenizer=tokenizer)
+
+    is_constrained = False if args.data_gene_wt_constrained else True
+
     target_extract_inputs, target_extract_outputs, _ = infer(
         args, target_extract_dataset, model, tokenizer,
-        name=f"target_{extract_task}", is_constrained=False, constrained_vocab=prepare_tag_tokens(args)
+        name=f"target_{extract_task}", is_constrained=is_constrained, constrained_vocab=prepare_tag_tokens(args)
     )
     for i in range(3):
         print("Input of Data Extraction: ", target_extract_inputs[i])
