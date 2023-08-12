@@ -390,7 +390,12 @@ def extract_label_words(inputs):
 
 def prepare_gene_vocab(args):
     # Get target inputs
-    target_inputs = get_inputs(args, data_type_file="target-unlabel")
+    # target_inputs = get_inputs(args, data_type_file="target-unlabel")
+    target_inputs = get_inputs(args, data_type_file="train")
+    # Create a set to avoid duplicates and improve performance
+    target_domain_words = set(" ".join(target_inputs).split())
+    # Extend with tag tokens
+    target_domain_words.update(prepare_tag_tokens(args))
     # Create a set to avoid duplicates and improve performance
     target_domain_words = set(" ".join(target_inputs).split())
     # Extend with tag tokens
