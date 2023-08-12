@@ -17,25 +17,25 @@ def init_args():
     parser.add_argument("--dataset", default='cross_domain', type=str, required=True,
                         help="The name of the dataset, selected from: [cross_domain]")
     parser.add_argument("--data_dir", default=None, type=str, help="args.output_dir/data")
-    parser.add_argument("--model_name_or_path", default='mt5-base', type=str,
+    parser.add_argument("--model_name_or_path", default='t5-base', type=str,
                         help="Path to pre-trained model or shortcut name")
-    parser.add_argument("--paradigm", default='annotation', type=str, required=True,
+    parser.add_argument("--paradigm", default='extraction-universal', type=str, required=True,
                         help="""The way to construct target sentence, selected from:[
                             extraction:             (apple, positive); (banana, negative) //  None
                             extraction-universal:  <pos> apple <pos> orange <neg> banana //   [none]
                             ]""")
-    parser.add_argument("--do_train", action='store_true', help="Whether to run training.")
-    parser.add_argument("--do_eval", action='store_true', help="Whether to run eval on the dev/test set.")
+    parser.add_argument("--do_train", action='store_false', help="Whether to run training.")
+    parser.add_argument("--do_eval", action='store_false', help="Whether to run eval on the dev/test set.")
     parser.add_argument("--name", default='experinments', type=str, help="name of the exp")
     parser.add_argument("--commit", default=None, type=str, help="commit id")
-    parser.add_argument("--save_last_k", default=5, type=int, help="save last k")
-    parser.add_argument("--n_runs", default=5, type=int, help="run with n seeds")
+    parser.add_argument("--save_last_k", default=3, type=int, help="save last k")
+    parser.add_argument("--n_runs", default=1, type=int, help="run with n seeds")
     parser.add_argument("--clear_model", action='store_true', help="remove saved ckpts")
     parser.add_argument("--save_best", action='store_true', help="save best model only")
     parser.add_argument("--nrows", default=None, type=int, help="# of lines to be read")
 
     # basic setting
-    parser.add_argument("--train_by_pair", action='store_true', help="train a model for each pair")
+    parser.add_argument("--train_by_pair", action='store_false', help="train a model for each pair")
     parser.add_argument("--target_domain", default=None, type=str)
 
     # inference
@@ -47,12 +47,12 @@ def init_args():
     parser.add_argument("--n_gpu", default=0)
     parser.add_argument("--train_batch_size", default=16, type=int,
                         help="Batch size per GPU/CPU for training.")
-    parser.add_argument("--eval_batch_size", default=16, type=int,
+    parser.add_argument("--eval_batch_size", default=128, type=int,
                         help="Batch size per GPU/CPU for evaluation.")
-    parser.add_argument('--gradient_accumulation_steps', type=int, default=1,
+    parser.add_argument('--gradient_accumulation_steps', type=int, default=2,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
     parser.add_argument("--learning_rate", default=3e-4, type=float)
-    parser.add_argument("--num_train_epochs", default=20, type=int,
+    parser.add_argument("--num_train_epochs", default=10, type=int,
                         help="Total number of training epochs to perform.")
     parser.add_argument('--seed', type=int, default=42, help="random seed for initialization")
 
@@ -62,20 +62,20 @@ def init_args():
     parser.add_argument("--warmup_steps", default=0.0, type=float)
 
     # template
-    parser.add_argument("--init_tag", default=None, type=str, help="[english]")
+    parser.add_argument("--init_tag", default='english', type=str, help="[english]")
 
     # data genenration
     parser.add_argument("--data_gene", action='store_true', help="enable data generation")
-    parser.add_argument("--data_gene_epochs", default=0, type=int, help="epoch of generation model training")
+    parser.add_argument("--data_gene_epochs", default=10, type=int, help="epoch of generation model training")
     parser.add_argument("--data_gene_extract", action='store_true', help="enable text-to-label stage")
-    parser.add_argument("--data_gene_extract_epochs", default=0, type=int, help="epoch of extract model training")
+    parser.add_argument("--data_gene_extract_epochs", default=10, type=int, help="epoch of extract model training")
     parser.add_argument("--data_gene_none_remove_ratio", default=0, type=float, help="remove none input for gene model")
     parser.add_argument("--data_gene_none_word_num", default=1, type=int, help="rand word added to generate diverse none examples")
     parser.add_argument("--data_gene_extract_none_remove_ratio", default=0, type=float, help="remove none training sample for extract model training")
-    parser.add_argument("--data_gene_same_model", action='store_true', help="extract & gene model share the same model")
+    parser.add_argument("--data_gene_same_model", action='store_false', help="extract & gene model share the same model")
     parser.add_argument("--data_extract_wt_constrained", action='store_true', help="enable constrained decoding during extraction task")
     parser.add_argument("--data_gene_wt_constrained", action='store_true', help="turn off constrained decoding during gene generation")
-    parser.add_argument("--use_same_model", action='store_true', help="all stages use the same model")
+    parser.add_argument("--use_same_model", action='store_false', help="all stages use the same model")
     parser.add_argument("--model_filter", action='store_true', help="use extract model inference for filtering")
     parser.add_argument("--model_filter_skip_none", action='store_true', help="keep the sample if extract model output none")
 
@@ -92,7 +92,7 @@ def init_args():
     parser.add_argument("--data_gene_aug_ratio", default=None, type=float, help="how much ratio of augmentation samples")
 
     # pseudo labelling
-    parser.add_argument("--pseudo", action='store_true', help="data generation")
+    parser.add_argument("--pseudo", action='store_true', help="data extraction")
     parser.add_argument("--pseudo_skip_none", action='store_true', help="use non-none only")
 
     args = parser.parse_args()

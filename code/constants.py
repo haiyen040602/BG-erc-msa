@@ -56,7 +56,7 @@ MELD_TRANSFER_PAIRS = {
 }
 
 MOSEII_TRANSFER_PAIRS = {
-    "moseii": ["meld", "iemocap"]
+    "moseii": ["meld"]
 }
 
 IEMOCAP_TRANSFER_PAIRS = {

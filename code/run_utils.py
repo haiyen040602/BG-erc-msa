@@ -12,7 +12,7 @@ from transformers import (AdamW, AutoModelForSeq2SeqLM,
 
 from constants import *
 from data_utils import (ABSADataset, filter_none, filter_invalid,
-                        get_dataset, get_inputs, normalize_augment)
+                        get_dataset, get_inputs, normalize_augment, get_inputs_and_targets)
 from model_utils import (prepare_constrained_tokens, prepare_tag_tokens)
 
 logger = logging.getLogger(__name__)
@@ -198,8 +198,17 @@ def data_gene(args, tokenizer, model, train_dataset):
     if args.data_gene_extract:
         extract_task = f"extract_{args.task}"
         target_extract_inputs, target_extract_outputs = extract_model(args, tokenizer, model, extract_task)
-    # else:
-    #     target_extract_inputs, target_extract_outputs = get_inputs
+    else:
+        target_extract_inputs = []
+        target_extract_outputs = []
+        for data in train_dataset:
+            input = tokenizer.decode(data['source_ids'], skip_special_tokens=True)
+            label = tokenizer.decode(data['target_ids'], skip_special_tokens=True)
+            target_extract_inputs.append(input)
+            target_extract_outputs.append(label)
+        
+        print('Input data for generation process: ', target_extract_inputs[0])
+        print('Output data for generation process: ', target_extract_outputs[0] )
 
     # 2. gene train & infer
     target_gene_aug_inputs, target_gene_aug_outputs = gene_model(
@@ -326,6 +335,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     logger.info(f"Tokenizer len: {len(tokenizer)}")
 
     # 1. train gene model
+    # change order of input and label
     train_gene_dataset = get_dataset(args, task=f"gene_{args.task}", data_type="train", tokenizer=tokenizer)
     train(args, tokenizer, model, train_gene_dataset, task=f"gene_{args.task}", epochs=args.data_gene_epochs, lr=args.learning_rate, bs=args.train_batch_size, save_ckpt=False, save_last=True)
 
@@ -333,19 +343,6 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     # 2.0 prepare infer dataset
     if args.data_gene_extract:
         target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
-
-        # # ate, uabsa may contain [none] token, need to append rand word to generate diverse output
-        # for idx in range(len(target_gene_inputs)):
-        #     if args.data_gene_none_word_num > 0 and NONE_TOKEN in target_gene_inputs[idx]:
-        #         add_rand = False
-        #         if args.task in ["ate", "uabsa"]:
-        #             add_rand = True
-        #         if add_rand:
-        #             words = target_gene_targets[idx].split()
-        #             sample_num = min(len(words), args.data_gene_none_word_num)
-        #             random_words = " ".join(random.sample(words, sample_num))
-        #             target_gene_inputs[idx] += " " + random_words
-
         target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
 
     # 2.1 constrained decoding, but may not be used depends on args.data_gene_wt_constrained
