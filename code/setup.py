@@ -44,7 +44,7 @@ def init_args():
 
     # Other parameters
     parser.add_argument("--max_seq_length", default=128, type=int)
-    parser.add_argument("--n_gpu", default=0)
+    parser.add_argument("--n_gpu", default='0')
     parser.add_argument("--train_batch_size", default=16, type=int,
                         help="Batch size per GPU/CPU for training.")
     parser.add_argument("--eval_batch_size", default=128, type=int,
