@@ -13,17 +13,17 @@ logger = logging.getLogger(__name__)
 sentiment_word_list = ['positive', 'negative', 'neutral']
 
 def extract_spans_extraction(task, seq, io_format):
-    if task == "moseii":
+    if "moseii" in task:
         if io_format:
             return extract_moseii_from_extraction_universal(seq)
         else:
             raise NotImplementedError
-    elif task == "meld":
+    elif "meld" in task:
         if io_format:
             return extract_meld_from_extraction_universal(seq)
         else:
             raise NotImplementedError
-    elif task == "iemocap":
+    elif "iemocap" in task:
         if io_format:
             return extract_iemocap_from_extraction_universal(seq)
         else:
@@ -39,12 +39,12 @@ def extract_moseii_from_extraction_universal(seq):
 
 def extract_meld_from_extraction_universal(seq):
     pair = []
-    pair.append(seq.removeprefix("<meld>"))
+    pair.append(seq.removeprefix("<meld> "))
     return pair
 
 def extract_iemocap_from_extraction_universal(seq):
     pair = []
-    pair.append(seq.removeprefix("<iemocap>"))
+    pair.append(seq.removeprefix("<iemocap> "))
     return pair
 
 
@@ -152,11 +152,11 @@ def fix_preds_iemocap(all_pairs, sents):
 
 
 def fix_pred_with_editdistance(all_predictions, sents, task):
-    if task == "moseii":
+    if "moseii" in task:
         fixed_preds = fix_preds_moseii(all_predictions, sents)
-    elif task == "meld":
+    elif "meld" in task:
         fixed_preds = fix_preds_meld(all_predictions, sents)
-    elif task == "iemocap":
+    elif "iemocap" in task:
         fixed_preds = fix_preds_iemocap(all_predictions, sents)
     else:
         logger.info("*** Unimplemented Error ***")
@@ -177,6 +177,7 @@ def compute_f1_scores(pred_pt, gold_pt):
     for i in range(len(pred_pt)):
         # n_gold += len(gold_pt[i])
         # n_pred += len(pred_pt[i])
+        
         n_gold += len(gold_pt[i])
         n_pred += len(pred_pt[i])
 
@@ -185,13 +186,14 @@ def compute_f1_scores(pred_pt, gold_pt):
                 # to prevent generate same correct answer and get recall larger than 1
                 gold_pt[i].remove(t)
                 n_tp += 1
-
+    
     precision = float(n_tp) / float(n_pred) if n_pred != 0 else 0
     recall = float(n_tp) / float(n_gold) if n_gold != 0 else 0
     f1 = 2 * precision * recall / (precision + recall) if precision != 0 or recall != 0 else 0
     scores = {'precision': precision, 'recall': recall, 'f1': f1}
 
     return scores
+
 
 
 def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
@@ -202,22 +204,33 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     num_samples = len(gold_seqs)
 
     all_labels, all_predictions = [], []
+    score_truths, score_preds = [], []
 
     for i in range(num_samples):
         if "extraction" in paradigm:
             gold_list = extract_spans_extraction(task, gold_seqs[i], paradigm)
             pred_list = extract_spans_extraction(task, pred_seqs[i], paradigm)
-
+            if "moseii" in task:
+                score_truths.append(float(gold_list[1]))
+                score_preds.append(float(pred_list[1]))
             all_labels.append(gold_list)
             all_predictions.append(pred_list)
 
+    score_preds = np.array(score_preds)
+    score_truths = np.array(score_truths)
+    mae = 0
+    if "moseii" in task:
+        mae = np.mean(np.absolute(score_preds - score_truths))
+
     raw_scores = compute_f1_scores(all_predictions, all_labels)
+    raw_scores["mae"] = mae
     # fix the issues due to generation
     # all_predictions_fixed = fix_pred_with_editdistance(all_predictions, sents, task)
     fixed_scores = compute_f1_scores(all_predictions, all_labels)
+    fixed_scores["mae"] = mae
 
     if verbose:
-        for i in range(3):
+        for i in range(3):   
             logger.info(f"Gold: {gold_seqs[i]}")
             logger.info(f"Gold list: {all_labels[i]}")
             logger.info(f"Pred: {pred_seqs[i]}")
@@ -233,7 +246,7 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
 def avg_n_seeds_by_pair(output_dir, dirs, decode_txt, n_runs):
     score_avg_dict = {}
     score_type_list = ["raw_scores", "fixed_scores"]
-    metric_list = ["precision", "recall", "f1"]
+    metric_list = ["precision", "recall", "f1", "mae"]
     pairs = []
 
     # collect value

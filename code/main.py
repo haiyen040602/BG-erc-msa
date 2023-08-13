@@ -39,7 +39,7 @@ def evaluate(args, tokenizer, dataset, model, paradigm, task, sents, split, is_c
 
     inputs, outputs, targets = infer(
         args, dataset, model, tokenizer, name=f"{split}_{task}",
-        is_constrained=False, constrained_vocab=prepare_constrained_tokens(tokenizer, task, paradigm),
+        is_constrained=is_constrained, constrained_vocab=prepare_constrained_tokens(tokenizer, task, paradigm),
     )
 
     start_idx = 0
@@ -55,7 +55,7 @@ def evaluate(args, tokenizer, dataset, model, paradigm, task, sents, split, is_c
 
     verbose = True if split == "dev" else False
     for l, num in eval_set_count_dict.items():
-        raw_score, fixed_score, label, pred, pred_fixed = compute_scores(
+        raw_score, fixed_score, label, pred, pred_fixed= compute_scores(
                                                 outputs[start_idx: start_idx+num],
                                                 targets[start_idx: start_idx+num],
                                                 sents[start_idx: start_idx+num],
@@ -64,9 +64,11 @@ def evaluate(args, tokenizer, dataset, model, paradigm, task, sents, split, is_c
 
         score_dict["raw_scores"][l] = raw_score
         score_dict["fixed_scores"][l] = fixed_score
+
         pred_dict["labels"][l] = label
         pred_dict["preds"][l] = pred
         pred_dict["preds_fixed"][l] = pred_fixed
+        
 
     """
         score_dict = {
@@ -80,12 +82,15 @@ def evaluate(args, tokenizer, dataset, model, paradigm, task, sents, split, is_c
     """
 
     if not silent:
-        for score_type in ["raw_scores", "fixed_scores"]:
+        for score_type in ["raw_scores", "fixed_scores", "mae"]:
 
             logger.info('='*100)
             logger.info(score_type)
             logger.info('\t'.join(list(score_dict[score_type].keys())))
             f1_list = [i["f1"] for i in list(score_dict[score_type].values())]
+            mae_list = [i["mae"] for i in list(score_dict[score_type].values())]
+            if "moseii" in args.task:
+                logger.info('\t'.join([f"{i:.2f}" for i in mae_list]))
             logger.info('\t'.join([f"{i*100:.2f}" for i in f1_list]))
 
     with open(os.path.join(args.score_dir, f"{split}_{decode_txt}_errors.txt"), "w") as f:
@@ -206,9 +211,9 @@ def main(args):
         dev_dataset = get_dataset(args, task=args.task, data_type="dev", tokenizer=tokenizer)
         test_dataset = get_dataset(args, task=args.task, data_type="test", tokenizer=tokenizer)
 
-        decode_list = [False, True]
-        if args.no_greedy:
-            decode_list = [True]
+        decode_list = [False]
+        # if args.no_greedy:
+        #     decode_list = [True]
         for is_constrained in decode_list:
 
             decode_txt = "constrained" if is_constrained else "greedy"
@@ -284,7 +289,7 @@ def main(args):
 
 
 def collate_seed_results(args, runed_dirs):
-    decode_txt_list = ["constrained"] if args.no_greedy else ["greedy", "constrained"]
+    decode_txt_list = ["constrained"] if args.no_greedy else ["greedy"]
     for decode_txt in decode_txt_list:
         logger.info(f"Averaging {decode_txt}")
         if args.train_by_pair:
