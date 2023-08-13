@@ -211,8 +211,11 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
             if "moseii" in task:
                 score_truths.append(float(gold_list[1]))
                 score_preds.append(float(pred_list[1]))
-            all_labels.append(gold_list[0])
-            all_predictions.append(pred_list[0])
+                all_labels.append(gold_list[0])
+                all_predictions.append(pred_list[0])
+            else:
+                all_labels.append(gold_list)
+                all_predictions.append(pred_list)
 
     score_preds = np.array(score_preds)
     score_truths = np.array(score_truths)
