@@ -201,7 +201,8 @@ def data_gene(args, tokenizer, model, train_dataset):
     else:
         target_extract_inputs = []
         target_extract_outputs = []
-        for data in train_dataset:
+        test_dataset = get_dataset(args, task=args.task, data_type="test", tokenizer=tokenizer)
+        for data in test_dataset:
             input = tokenizer.decode(data['source_ids'], skip_special_tokens=True)
             label = tokenizer.decode(data['target_ids'], skip_special_tokens=True)
             target_extract_inputs.append(input)
@@ -343,9 +344,16 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
 
     # 2. infer gene model
     # 2.0 prepare infer dataset
-    if args.data_gene_extract:
-        target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
-        target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
+    
+    target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
+    target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
+    
+    # if args.data_gene_extract:
+    #     target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
+    #     target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
+    # else:
+    #     target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
+    #     target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
 
     # 2.1 constrained decoding, but may not be used depends on args.data_gene_wt_constrained
     target_domain_words = prepare_gene_vocab(args)
@@ -362,6 +370,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
 
     is_constrained = True if args.data_gene_wt_constrained else False
     print("Data Generation with constrained decoding: ", is_constrained)
+
     target_gene_aug_inputs, target_gene_aug_outputs, _ = infer(
         args, target_gene_dataset, model, tokenizer, name="target_gene",
         is_constrained=is_constrained, constrained_vocab=target_domain_words, **decode_dict

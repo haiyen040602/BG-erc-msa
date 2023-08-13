@@ -237,9 +237,13 @@ def get_extraction_inputs_and_targets(args, task, data_type):
         "moseii": {"extraction": prepare_moseii_extraction, "extraction-universal" : prepare_moseii_extraction},
         "extract_moseii": {"extraction": prepare_moseii_extraction, "extraction-universal" : prepare_moseii_extraction},
         "meld": {"extraction": prepare_meld_extraction, "extraction-universal" : prepare_meld_extraction},
+        "meld_context": {"extraction": prepare_meld_extraction, "extraction-universal" : prepare_meld_extraction},
         "extract_meld": {"extraction": prepare_meld_extraction, "extraction-universal" : prepare_meld_extraction},
+        "extract_meld_context": {"extraction": prepare_meld_extraction, "extraction-universal" : prepare_meld_extraction},
         "iemocap": {"extraction": prepare_iemocap_extraction, "extraction-universal" : prepare_iemocap_extraction},
-        "extract_iemocap": {"extraction": prepare_iemocap_extraction, "extraction-universal" : prepare_iemocap_extraction}
+        "iemocap_context": {"extraction": prepare_iemocap_extraction, "extraction-universal" : prepare_iemocap_extraction},
+        "extract_iemocap": {"extraction": prepare_iemocap_extraction, "extraction-universal" : prepare_iemocap_extraction},
+        "extract_iemocap_context": {"extraction": prepare_iemocap_extraction, "extraction-universal" : prepare_iemocap_extraction}
     }
 
     if task not in task_mapping:

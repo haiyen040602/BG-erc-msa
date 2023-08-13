@@ -9,20 +9,20 @@ logger = logging.getLogger(__name__)
 
 def prepare_constrained_tokens(tokenizer, task, paradigm):
     special_tokens = [tokenizer.eos_token] # add end token
-    if task == "moseii":
+    if "moseii" in task:
         if paradigm == "extraction-universal":
             # note space will affect tokenization, make sure the special tokens align with processed method considering space
             special_tokens += MOSEII_TAGS
         else:
             raise NotImplementedError
-    elif task == "meld":
+    elif "meld" in task:
         if paradigm == "extraction-universal":
             # special_tokens += MELD_TAGS
             special_tokens += MELD_LABELS
             special_tokens += [SEP_TOKEN]
         else:
             raise NotImplementedError
-    elif task == "iemocap":
+    elif "iemocap" in task:
         if paradigm == "extraction-universal":
             # special_tokens += IEMOCAP_TAGS
             special_tokens += IEMOCAP_LABELS
@@ -36,18 +36,18 @@ def prepare_constrained_tokens(tokenizer, task, paradigm):
 ### Chuẩn bị các tag token cho từng task
 def prepare_tag_tokens(args):
     tag_tokens = []
-    if args.task == "moseii":
+    if "moseii" in args.task:
         if "extraction-universal" in args.paradigm:
             tag_tokens += MOSEII_TAGS
         if args.data_gene: ### nếu làm nhiệm vụ generate label
             tag_tokens += MOSEII_TAGS
             tag_tokens += [SEP_TOKEN] 
-    elif args.task == "meld": ### label: <aspect> a
+    elif "meld" in args.task: ### label: <aspect> a
         if args.paradigm == "extraction-universal":
             # tag_tokens += MELD_TAGS
             tag_tokens += MELD_LABELS
             tag_tokens += [SEP_TOKEN] 
-    elif args.task == "iemocap": ### label: <POS> a <opinion> a
+    elif "iemocap" in args.task : ### label: <POS> a <opinion> a
         if "extraction-universal" in args.paradigm:
             # tag_tokens += IEMOCAP_TAGS
             tag_tokens += IEMOCAP_LABELS
