@@ -89,8 +89,7 @@ def evaluate(args, tokenizer, dataset, model, paradigm, task, sents, split, is_c
             logger.info('\t'.join(list(score_dict[score_type].keys())))
             f1_list = [i["f1"] for i in list(score_dict[score_type].values())]
             mae_list = [i["mae"] for i in list(score_dict[score_type].values())]
-            if "moseii" in args.task:
-                logger.info('\t'.join([f"{i:.2f}" for i in mae_list]))
+            logger.info('\t'.join([f"{i:.2f}" for i in mae_list]))
             logger.info('\t'.join([f"{i*100:.2f}" for i in f1_list]))
 
     with open(os.path.join(args.score_dir, f"{split}_{decode_txt}_errors.txt"), "w") as f:
