@@ -119,8 +119,8 @@ def prepare_raw_data(args):
         "moseii": ('moseii',  "../data/cross_domain_small/moseii"),
         "meld": ('meld',  "../data/cross_domain_small/meld"),
         "iemocap": ('iemocap', "../data/cross_domain_small/iemocap"),
-        "meld_context": ('meld',  "../data/cross_domain_small/meld_context"),
-        "iemocap_context": ('iemocap', "../data/cross_domain_small/iemocap_context"),
+        "meld_context": ('meld_context',  "../data/cross_domain_small/meld_context"),
+        "iemocap_context": ('iemocap_context', "../data/cross_domain_small/iemocap_context"),
     }
    
     if args.task in task_map and args.dataset == "cross_domain":

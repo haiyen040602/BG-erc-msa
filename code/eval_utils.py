@@ -175,8 +175,6 @@ def compute_f1_scores(pred_pt, gold_pt):
     gold_pt = copy.deepcopy(gold_pt)
 
     for i in range(len(pred_pt)):
-        # n_gold += len(gold_pt[i])
-        # n_pred += len(pred_pt[i])
         
         n_gold += len(gold_pt[i])
         n_pred += len(pred_pt[i])
