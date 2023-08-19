@@ -36,7 +36,7 @@ def prepare_constrained_tokens(tokenizer, task, paradigm):
 ### Chuẩn bị các tag token cho từng task
 def prepare_tag_tokens(args):
     tag_tokens = []
-    tag_tokens += SPECIAL_TOKEN
+    tag_tokens += [PADDING_TOKEN]
     if "moseii" in args.task:
         if "extraction-universal" in args.paradigm:
             tag_tokens += MOSEII_TAGS
@@ -69,12 +69,12 @@ def init_tag(args, tokenizer, model, tag_tokens):
             for tag_word in tag_tokens:
                 tag_id = tokenizer.encode(tag_word, add_special_tokens=False)[0]
                 init_word = re.sub("\W", "", tag_word).strip()
-                print("tag word: ", tag_word, "init_word: ", init_word)
+                # print("tag word: ", tag_word, "init_word: ", init_word)
                 # map senti
                 if init_word in map_dict:
                     init_word = map_dict[init_word]
                 # skip sep
-                elif init_word == "sep":
+                elif init_word in ["sep", "pad", "eos", "unk"]:
                     continue
                 init_id = tokenizer.encode(init_word, add_special_tokens=False)[0]
                 with torch.no_grad():

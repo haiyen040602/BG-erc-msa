@@ -30,6 +30,7 @@ class Prefix_fn_cls():
     def get(self, batch_id, previous_tokens):
         # get input
         inputs=[]
+        print("Recent task: ", self.task)
         if "extract" in self.task:
             inputs = self.special_ids
         elif "gene" in self.task:
@@ -140,6 +141,7 @@ def infer(args, dataset, model, tokenizer, name, is_constrained=False, constrain
     dataloader = DataLoader(dataset, batch_size=args.eval_batch_size, num_workers=4)
 
     if keep_mask:
+        print("Keep Mask: ", keep_mask)
         # can't skip special directly, will lose extra_id
         unwanted_tokens = [tokenizer.eos_token, tokenizer.unk_token, tokenizer.pad_token]
         unwanted_ids = tokenizer.convert_tokens_to_ids(unwanted_tokens)
