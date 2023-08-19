@@ -246,7 +246,7 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
         logger.info(str(raw_scores))
         logger.info("Results of fixed output")
         logger.info(str(fixed_scores))
-        eval_emotionlines(all_predictions, all_predictions)
+        eval_emotionlines(all_predictions, all_labels)
 
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions
 

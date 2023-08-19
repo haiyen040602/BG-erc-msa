@@ -31,12 +31,10 @@ class Prefix_fn_cls():
         # get input
         inputs=[]
         # print("Recent task: ", self.task)
-        if "extract" in self.task:
-            inputs = self.special_ids
-        elif "pseudo" in self.task:
-            inputs = self.special_ids
-        elif "gene" in self.task:
+        if "gene" in self.task:
             inputs = list(set(self.input_enc_idxs[batch_id].tolist())) + self.special_ids
+        else:
+            inputs = self.special_ids
         return inputs
 
 
