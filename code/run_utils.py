@@ -308,7 +308,7 @@ def extract_model(args, tokenizer, model, extract_task):
 
     target_extract_inputs, target_extract_outputs, _ = infer(
         args, target_extract_dataset, model, tokenizer,
-        name=f"target_{extract_task}", is_constrained=is_constrained, constrained_vocab=prepare_tag_tokens(args)
+        name=f"target_{extract_task}", is_constrained=is_constrained, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm)
     )
     for i in range(3):
         print("Input of Data Extraction: ", target_extract_inputs[i])

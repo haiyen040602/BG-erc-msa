@@ -8,7 +8,7 @@ from constants import *
 logger = logging.getLogger(__name__)
 
 def prepare_constrained_tokens(tokenizer, task, paradigm):
-    special_tokens = [tokenizer.eos_token] # add end token
+    special_tokens = [tokenizer.eos_token, tokenizer.pad_token] # add end token
     if "moseii" in task:
         if paradigm == "extraction-universal":
             # note space will affect tokenization, make sure the special tokens align with processed method considering space
@@ -36,6 +36,7 @@ def prepare_constrained_tokens(tokenizer, task, paradigm):
 ### Chuẩn bị các tag token cho từng task
 def prepare_tag_tokens(args):
     tag_tokens = []
+    tag_tokens += SPECIAL_TOKEN
     if "moseii" in args.task:
         if "extraction-universal" in args.paradigm:
             tag_tokens += MOSEII_TAGS

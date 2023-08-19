@@ -7,6 +7,8 @@ import editdistance
 import numpy as np
 
 from constants import *
+from sklearn.metrics import classification_report
+from itertools import chain
 
 logger = logging.getLogger(__name__)
 
@@ -192,7 +194,11 @@ def compute_f1_scores(pred_pt, gold_pt):
 
     return scores
 
-
+def eval_emotionlines(results, truths):
+    truths = list(chain(*truths))
+    # cm = confusion_matrix(results, truths)
+    report = classification_report(truths, results)
+    print(report)
 
 def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     """
@@ -240,6 +246,7 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
         logger.info(str(raw_scores))
         logger.info("Results of fixed output")
         logger.info(str(fixed_scores))
+        eval_emotionlines(all_predictions, all_predictions)
 
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions
 

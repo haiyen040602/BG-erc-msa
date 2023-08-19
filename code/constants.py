@@ -14,6 +14,8 @@ ASPECT_TOKEN = "<aspect>"
 OPINION_TOKEN = "<opinion>"
 EMPTY_TOKEN = "<empty>"
 SEP_TOKEN = "<sep>"
+PADDING_TOKEN = "<pad>"
+SPECIAL_TOKEN = ["<pad>", "<eos>", "<unk>"]
 TAG_TO_SPECIAL = {"POS": ("<pos>", "</pos>"), "NEG": ("<neg>", "</neg>"), "NEU": ("<neu>", "</neu>")}
 SPECIAL_TO_TAG = {"<pos>": "positive", "<neg>": "negative", "<neu>": "neutral"}
 
