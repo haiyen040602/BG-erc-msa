@@ -53,7 +53,7 @@ def evaluate(args, tokenizer, dataset, model, paradigm, task, sents, split, is_c
         "preds_fixed": {k: 0 for k in eval_set_count_dict.keys()},
     }
 
-    verbose = True if split == "dev" else False
+    verbose = True ###if split == "dev" else False
     for l, num in eval_set_count_dict.items():
         raw_score, fixed_score, label, pred, pred_fixed= compute_scores(
                                                 outputs[start_idx: start_idx+num],
@@ -211,8 +211,9 @@ def main(args):
         test_dataset = get_dataset(args, task=args.task, data_type="test", tokenizer=tokenizer)
 
         decode_list = [False]
-        # if args.no_greedy:
-        #     decode_list = [True]
+        if args.data_extract_wt_constrained:
+            decode_list = [True, False]
+            
         for is_constrained in decode_list:
 
             decode_txt = "constrained" if is_constrained else "greedy"

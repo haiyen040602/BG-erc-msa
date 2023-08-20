@@ -237,15 +237,15 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     fixed_scores["mae"] = mae
 
     if verbose:
-        for i in range(3):   
-            logger.info(f"Gold: {gold_seqs[i]}")
-            logger.info(f"Gold list: {all_labels[i]}")
-            logger.info(f"Pred: {pred_seqs[i]}")
-            logger.info(f"Pred list: {all_predictions[i]}")
-        logger.info("Results of raw output")
-        logger.info(str(raw_scores))
-        logger.info("Results of fixed output")
-        logger.info(str(fixed_scores))
+        # for i in range(3):   
+        #     logger.info(f"Gold: {gold_seqs[i]}")
+        #     logger.info(f"Gold list: {all_labels[i]}")
+        #     logger.info(f"Pred: {pred_seqs[i]}")
+        #     logger.info(f"Pred list: {all_predictions[i]}")
+        logger.info("MAE of raw output")
+        logger.info(str(mae))
+        # logger.info("Results of fixed output")
+        # logger.info(str(fixed_scores))
         eval_emotionlines(all_predictions, all_labels)
 
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions

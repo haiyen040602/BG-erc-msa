@@ -28,7 +28,7 @@ def init_args():
     parser.add_argument("--do_eval", action='store_false', help="Whether to run eval on the dev/test set.")
     parser.add_argument("--name", default='experinments', type=str, help="name of the exp")
     parser.add_argument("--commit", default=None, type=str, help="commit id")
-    parser.add_argument("--save_last_k", default=3, type=int, help="save last k")
+    parser.add_argument("--save_last_k", default=1, type=int, help="save last k")
     parser.add_argument("--n_runs", default=1, type=int, help="run with n seeds")
     parser.add_argument("--clear_model", action='store_true', help="remove saved ckpts")
     parser.add_argument("--save_best", action='store_true', help="save best model only")
