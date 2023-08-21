@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import sys
+import time
 
 from pytorch_lightning import seed_everything
 from transformers import (AutoModelForSeq2SeqLM, AutoTokenizer)
@@ -328,7 +329,10 @@ def run_multiple_seeds(args, seed_list):
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     args = init_args()
     seed_list = prepare_seeds(args.seed, args.n_runs)
     runed_dirs = run_multiple_seeds(args, seed_list)
     collate_seed_results(args, runed_dirs)
+    elapsed_time = time.time() - start_time
+    print('Execution time:', time.strftime("%H:%M:%S", time.gmtime(elapsed_time)))

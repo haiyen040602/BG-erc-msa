@@ -63,108 +63,73 @@ def recover_terms_with_editdistance(original_term, sent):
     return new_term
 
 
-def fix_preds_moseii(all_pairs, sents):
-
-    all_new_pairs = []
-    for i, pairs in enumerate(all_pairs):
-        new_pairs = []
-        if pairs == []:
-            all_new_pairs.append(pairs)
-        else:
-            for pair in pairs:
-                # AT not in the original sentence
-                if pair[0] not in  ' '.join(sents[i]):
-                    # print('Issue')
-                    new_at = recover_terms_with_editdistance(pair[0], sents[i])
-                else:
-                    new_at = pair[0]
-
-                if pair[1] not in TAG_WORD_LIST:
-                    new_sentiment = recover_terms_with_editdistance(pair[1], TAG_WORD_LIST)
-                else:
-                    new_sentiment = pair[1]
-
-                new_pairs.append((new_at, new_sentiment))
-                # print(pair, '>>>>>', word_and_sentiment)
-                # print(all_target_pairs[i])
-            all_new_pairs.append(new_pairs)
-
-    return all_new_pairs
+def fix_preds_moseii(preds, truths):
+    meld_dicts = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+    wrong_cnt = 0
+    new_preds = preds.copy()
+    new_truths = truths.copy()
+    for i in range(len(truths)):
+        if preds[i][0] not in meld_dicts:
+            wrong_cnt = wrong_cnt + 1
+            print("WRONG PREDICTION: ", preds[i])
+            new_preds.pop(i-wrong_cnt+1)
+            new_truths.pop(i-wrong_cnt+1)
+            # print(truths)
+            # print(new_truths)
+            # print(preds)
+            # print(new_preds)
+    return wrong_cnt, new_preds, new_truths
 
 
-def fix_preds_meld(all_pairs, sents):
-
-    all_new_pairs = []
-    for i, pairs in enumerate(all_pairs):
-        new_pairs = []
-        if pairs == []:
-            all_new_pairs.append(pairs)
-        else:
-            for pair in pairs:
-                # AT not in the original sentence
-                if pair not in  ' '.join(sents[i]):
-                    # notice here pair alone is an aspect, no need pair[0]
-                    new_at = recover_terms_with_editdistance(pair, sents[i])
-                else:
-                    new_at = pair
-
-                new_pairs.append((new_at))
-                # print(pair, '>>>>>', word_and_sentiment)
-                # print(all_target_pairs[i])
-            all_new_pairs.append(new_pairs)
-
-    return all_new_pairs
+def fix_preds_meld(preds, truths):
+    meld_dicts = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+    wrong_cnt = 0
+    new_preds = preds.copy()
+    new_truths = truths.copy()
+    for i in range(len(truths)):
+        if preds[i][0] not in meld_dicts:
+            wrong_cnt = wrong_cnt + 1
+            print("WRONG PREDICTION: ", preds[i])
+            new_preds.pop(i-wrong_cnt+1)
+            new_truths.pop(i-wrong_cnt+1)
+            # print(truths)
+            # print(new_truths)
+            # print(preds)
+            # print(new_preds)
+    return wrong_cnt, new_preds, new_truths
 
 
-def fix_preds_iemocap(all_pairs, sents):
+def fix_preds_iemocap(preds, truths):
+    iemocap_dicts = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
+    wrong_cnt = 0
+    new_preds = preds.copy()
+    new_truths = truths.copy()
+    for i in range(len(truths)):
+        if preds[i][0] not in iemocap_dicts:
+            wrong_cnt = wrong_cnt + 1
+            print("WRONG PREDICTION: ", preds[i])
+            new_preds.pop(i-wrong_cnt+1)
+            new_truths.pop(i-wrong_cnt+1)
+            # print(truths)
+            # print(new_truths)
+            # print(preds)
+            # print(new_preds)
+    return wrong_cnt, new_preds, new_truths
 
-    all_new_pairs = []
-
-    for i, pairs in enumerate(all_pairs):
-        new_pairs = []
-        if pairs == []:
-            all_new_pairs.append(pairs)
-        else:
-            for pair in pairs:
-                #print(pair)
-                # AT not in the original sentence
-                if pair[0] not in  ' '.join(sents[i]):
-                    # print('Issue')
-                    new_at = recover_terms_with_editdistance(pair[0], sents[i])
-                else:
-                    new_at = pair[0]
-
-                # OT not in the original sentence
-                ots = pair[1].split(', ')
-                new_ot_list = []
-                for ot in ots:
-                    if ot not in ' '.join(sents[i]):
-                        # print('Issue')
-                        new_ot_list.append(recover_terms_with_editdistance(ot, sents[i]))
-                    else:
-                        new_ot_list.append(ot)
-                new_ot = ', '.join(new_ot_list)
-
-                new_pairs.append((new_at, new_ot))
-                # print(pair, '>>>>>', word_and_sentiment)
-                # print(all_target_pairs[i])
-            all_new_pairs.append(new_pairs)
-
-    return all_new_pairs
-
-
-def fix_pred_with_editdistance(all_predictions, sents, task):
+def remove_error_predictions(all_predictions, all_labels, task):
     if "moseii" in task:
-        fixed_preds = fix_preds_moseii(all_predictions, sents)
+        fixed_preds = fix_preds_moseii(all_predictions, all_labels)
     elif "meld" in task:
-        fixed_preds = fix_preds_meld(all_predictions, sents)
+        wrong_cnt, fixed_preds, fixed_truths = fix_preds_meld(all_predictions, all_labels)
     elif "iemocap" in task:
-        fixed_preds = fix_preds_iemocap(all_predictions, sents)
+        wrong_cnt, fixed_preds, fixed_truths = fix_preds_iemocap(all_predictions, all_labels)
     else:
         logger.info("*** Unimplemented Error ***")
+        wrong_cnt = 0
         fixed_preds = all_predictions
+        fixed_truths = all_labels
 
-    return fixed_preds
+    return wrong_cnt, fixed_preds, fixed_truths
 
 
 def compute_f1_scores(pred_pt, gold_pt):
@@ -232,8 +197,8 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     raw_scores = compute_f1_scores(all_predictions, all_labels)
     raw_scores["mae"] = mae
     # fix the issues due to generation
-    # all_predictions_fixed = fix_pred_with_editdistance(all_predictions, sents, task)
-    fixed_scores = compute_f1_scores(all_predictions, all_labels)
+    wrong_cnt, fixed_preds, fixed_truths = remove_error_predictions(all_predictions, all_labels, task)
+    fixed_scores = compute_f1_scores(fixed_preds, fixed_truths)
     fixed_scores["mae"] = mae
 
     if verbose:
@@ -246,7 +211,10 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
         logger.info(str(mae))
         # logger.info("Results of fixed output")
         # logger.info(str(fixed_scores))
+        logger.info("Number of error predictions: ")
+        logger.info(str(wrong_cnt))
         eval_emotionlines(all_predictions, all_labels)
+        eval_emotionlines(fixed_preds, fixed_truths)
 
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions
 
