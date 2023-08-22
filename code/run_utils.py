@@ -271,7 +271,7 @@ def pseudo_label(args, tokenizer, model, train_dataset):
         target_pseudo_inputs, target_pseudo_outputs = pseudo_filter_none(target_pseudo_inputs, target_pseudo_outputs)
 
     # 3. merge pseudo labelled data
-    target_pseudo_aug_dataset = ABSADataset(args, tokenizer, inputs=target_pseudo_inputs, targets=target_pseudo_outputs, name="target_pseudo_absa")
+    target_pseudo_aug_dataset = ABSADataset(args, tokenizer, inputs=target_pseudo_inputs, targets=target_pseudo_outputs, name=f"target_pseudo_{args.task}")
     train_dataset_merged = ABSADataset(args, tokenizer, dataset_list=[train_dataset, target_pseudo_aug_dataset])
     return train_dataset_merged
 

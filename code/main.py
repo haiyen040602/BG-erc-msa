@@ -8,7 +8,7 @@ from pytorch_lightning import seed_everything
 from transformers import (AutoModelForSeq2SeqLM, AutoTokenizer)
 
 from constants import *
-from data_utils import (read_line_examples_from_file, get_dataset)
+from data_utils import (ABSADataset, read_line_examples_from_file, get_dataset)
 from eval_utils import avg_n_seeds_by_pair, compute_scores
 from preprocess import prepare_raw_data
 from run_utils import (aux_training, train, infer)
@@ -184,6 +184,7 @@ def main(args):
         # official training
         train(args, tokenizer, model, train_dataset, task=args.task, epochs=args.num_train_epochs, lr=args.learning_rate,
         bs=args.train_batch_size, save_ckpt=True)
+        
 
     if args.do_eval:
 
@@ -277,6 +278,15 @@ def main(args):
 
             # print test results over last few steps
             logger.info(f"The best checkpoint is {best_checkpoint}")
+            ## re - extract label of target domain
+            model = AutoModelForSeq2SeqLM.from_pretrained(best_checkpoint)
+            model.to(args.device)
+            target_dataset = get_dataset(args, task=args.task, data_type="target-unlabel", tokenizer=tokenizer)
+            best_target_pseudo_inputs, best_target_pseudo_outputs, _ = infer(
+                args, target_dataset, model, tokenizer, name=f"best_target_pseudo_{args.task}",
+                is_constrained=is_constrained, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
+            )
+            # target_pseudo_aug_dataset = ABSADataset(args, tokenizer, inputs=best_target_pseudo_inputs, targets=best_target_pseudo_outputs, name=f"best_target_pseudo_{args.task}")
 
         # only training's model needs to be deleted
         if args.clear_model and args.do_train:
