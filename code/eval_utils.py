@@ -9,6 +9,9 @@ import numpy as np
 from constants import *
 from sklearn.metrics import classification_report
 from itertools import chain
+from data_utils import (extract_iemocap_from_extraction_universal,
+                        extract_moseii_from_extraction_universal, 
+                        extract_meld_from_extraction_universal)
 
 logger = logging.getLogger(__name__)
 
@@ -31,36 +34,6 @@ def extract_spans_extraction(task, seq, io_format):
         else:
             raise NotImplementedError
 
-
-def extract_moseii_from_extraction_universal(seq):
-    sents = re.findall("(<)(.*?)(?=>|$)", seq)
-    sentiment = sents[0][1].strip()
-    score = seq.split("<score>",1)[1]
-    pairs = [(sentiment), (score)]
-    return pairs
-
-def extract_meld_from_extraction_universal(seq):
-    pair = []
-    pair.append(seq.removeprefix("<meld> "))
-    return pair
-
-def extract_iemocap_from_extraction_universal(seq):
-    pair = []
-    pair.append(seq.removeprefix("<iemocap> "))
-    return pair
-
-
-def recover_terms_with_editdistance(original_term, sent):
-    words = original_term.split(' ')
-    new_words = []
-    for word in words:
-        edit_dis = []
-        for token in sent:
-            edit_dis.append(editdistance.eval(word, token))
-        smallest_idx = edit_dis.index(min(edit_dis))
-        new_words.append(sent[smallest_idx])
-    new_term = ' '.join(new_words)
-    return new_term
 
 
 def fix_preds_moseii(preds, truths):

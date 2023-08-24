@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm, trange
-from transformers import (AdamW, AutoModelForSeq2SeqLM,
+from transformers import (AdamW, AutoModelForSeq2SeqLM, GPT2LMHeadModel, GPT2Tokenizer,
                           AutoTokenizer, get_linear_schedule_with_warmup)
 
 from constants import *
@@ -321,65 +321,76 @@ def extract_model(args, tokenizer, model, extract_task):
 
 def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_outputs):
 
-    if args.gene_model:
-        model = AutoModelForSeq2SeqLM.from_pretrained(args.gene_model).to(args.device)
-        tokenizer = AutoTokenizer.from_pretrained(args.gene_model, use_fast=False)
-        logger.info(f"Model reloaded with {args.gene_model}")
-    elif args.runned_folder:
-        model_path = os.path.join(args.runned_folder, f"seed-{args.seed}",
-        f"{args.source_domain}-{args.target_domain[0]}", f"gene_{args.task}-model")
-        model = AutoModelForSeq2SeqLM.from_pretrained(model_path).to(args.device)
-        tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
-        logger.info(f"Model reloaded with {model_path}")
-    # 0. load a new model
-    elif args.data_gene_same_model or args.use_same_model:
+    if args.data_gene_same_model:
         logger.info(f"Model keep the same.")
-    else:
-        model = AutoModelForSeq2SeqLM.from_pretrained(args.model_name_or_path).to(args.device)
-        model.resize_token_embeddings(len(tokenizer))
-        logger.info(f"Model reloaded with {args.model_name_or_path}")
+    elif args.data_gene_base_model:
+        model_name = args.gene_model
+        tokenizer = GPT2Tokenizer(model_name)
+        model = GPT2LMHeadModel(model_name)
+        logger.info(f"Model reloaded with {model_name}")
+    elif args.data_gene_affective_model:
+        logger.info(f"Affective Model")
+
     logger.info(f"Tokenizer len: {len(tokenizer)}")
 
-    # 1. train gene model
-    # change order of input and label
-    train_gene_dataset = get_dataset(args, task=f"gene_{args.task}", data_type="train", tokenizer=tokenizer)
-    train(args, tokenizer, model, train_gene_dataset, task=f"gene_{args.task}", epochs=args.data_gene_epochs, lr=args.learning_rate, bs=args.train_batch_size, save_ckpt=False, save_last=True)
+    if args.data_gene_same_model:
+        ## training with former model in extraction task
+        train_gene_dataset = get_dataset(args, task=f"gene_{args.task}", data_type="train", tokenizer=tokenizer)
+        train(args, tokenizer, model, train_gene_dataset, task=f"gene_{args.task}", epochs=args.data_gene_epochs, lr=args.learning_rate, bs=args.train_batch_size, save_ckpt=False, save_last=True)
 
-    # 2. infer gene model
-    # 2.0 prepare infer dataset
-    
-    target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
-    target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
-    
-    # if args.data_gene_extract:
-    #     target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
-    #     target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
-    # else:
-    #     target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
-    #     target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
+        ## change order of input and output
+        target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
+        target_gene_dataset = ABSADataset(args, tokenizer, inputs=target_gene_inputs, targets=target_gene_targets, name="target_gene")
 
-    # 2.1 constrained decoding, but may not be used depends on args.data_gene_wt_constrained
-    target_domain_words = prepare_gene_vocab(args)
+        ## prepare vocab for constrained decoding
+        target_domain_words = prepare_gene_vocab(args)
 
-    # 2.2 inference
-    decode_dict = {"min_length": args.data_gene_min_length,}
-    specific_dict = {
-        "greedy": {"do_sample": False},
-        "top_p": {"do_sample": True, "top_p": args.data_gene_top_p},
-        "beam": {"num_beams": args.data_gene_num_beam, "early_stopping": True},
-    }
-    if args.data_gene_decode:
-        decode_dict.update(specific_dict[args.data_gene_decode])
+        ## decoding methods
+        decode_dict = {"min_length": args.data_gene_min_length,}
+        specific_dict = {
+            "greedy": {"do_sample": False},
+            "top_p": {"do_sample": True, "top_p": args.data_gene_top_p},
+            "beam": {"num_beams": args.data_gene_num_beam, "early_stopping": True},
+        }
+        if args.data_gene_decode:
+            decode_dict.update(specific_dict[args.data_gene_decode])
 
-    is_constrained = True if args.data_gene_wt_constrained else False
-    print("Data Generation with constrained decoding: ", is_constrained)
+        is_constrained = True if args.data_gene_wt_constrained else False
+        print("Data Generation with constrained decoding: ", is_constrained)
+        ## inference
+        target_gene_aug_inputs, target_gene_aug_outputs, _ = infer(
+            args, target_gene_dataset, model, tokenizer, name="target_gene",
+            is_constrained=is_constrained, constrained_vocab=target_domain_words, **decode_dict
+        )
+    else:
+        ## Prepare for input prompts  
+        target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
+        prompts = get_input_promts(target_gene_targets, args.num_input_prompt)
 
-    target_gene_aug_inputs, target_gene_aug_outputs, _ = infer(
-        args, target_gene_dataset, model, tokenizer, name="target_gene",
-        is_constrained=is_constrained, constrained_vocab=target_domain_words, **decode_dict
-    )
+        max_length = 128
+        temperature = 0.7
+        target_gene_aug_outputs = []
+        logger.info(f"Starting generating data")
+        for prompt in prompts:
+            input_ids = tokenizer.encode(prompt, return_tensors="pt")
+            ouput = model.generate(input_ids, max_length=max_length, temperature=temperature, num_return_sequences=1)
+            generated_text = tokenizer.decode(ouput[0], skip_special_tokens=True)
+            target_gene_aug_outputs.append(generated_text)
+        
+        for i in range(3):
+            print("Prompt ", i, prompts[i])
+            print("Generated Data: ", generated_text[i])
+        target_gene_aug_inputs = target_gene_inputs
 
     return target_gene_aug_inputs, target_gene_aug_outputs
+
+def get_input_promts(target_gene_targets, num_input_promts):
+    prompts = []
+    for i in range(target_gene_targets):
+        prompt = " ".join(target_gene_targets[0:num_input_promts])
+        prompts.append(prompt)
+    
+    return prompts
 
 
 def postprocess_gene_outputs(args, target_gene_aug_inputs, target_gene_aug_outputs):
@@ -401,7 +412,7 @@ def extract_label_words(inputs):
         i = re.sub("<\w+>", "", i)
         label_words += i.strip().split()
     return label_words
-
+   
 
 def prepare_gene_vocab(args):
     # Get target inputs

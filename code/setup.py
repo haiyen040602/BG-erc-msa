@@ -13,6 +13,8 @@ def init_args():
     # basic settings
     parser.add_argument("--task", default='meld', type=str, required=True,
                         help="The name of the task, selected from: [xabsa]")
+    parser.add_argument("--targets", default=None, type=str,
+                        help="The name of the target of task, selected from: [xabsa]")
     parser.add_argument("--device", default='cuda', type=str, required=False)
     parser.add_argument("--dataset", default='cross_domain', type=str, required=True,
                         help="The name of the dataset, selected from: [cross_domain]")
@@ -72,7 +74,10 @@ def init_args():
     parser.add_argument("--data_gene_none_remove_ratio", default=0, type=float, help="remove none input for gene model")
     parser.add_argument("--data_gene_none_word_num", default=1, type=int, help="rand word added to generate diverse none examples")
     parser.add_argument("--data_gene_extract_none_remove_ratio", default=0, type=float, help="remove none training sample for extract model training")
-    parser.add_argument("--data_gene_same_model", action='store_false', help="extract & gene model share the same model")
+    parser.add_argument("--data_gene_same_model", action='store_true', help="extract & gene model share the same model")
+    parser.add_argument("--data_gene_base_model", action='store_true', help="enable data generation by gpt base model")
+    parser.add_argument("--data_gene_affective_model", action='store_true', help="enable data generation by affective generation")
+    parser.add_argument("--num_input_prompt", default=2, type=int)
     parser.add_argument("--data_extract_wt_constrained", action='store_true', help="enable constrained decoding during extraction task")
     parser.add_argument("--data_gene_wt_constrained", action='store_true', help="turn off constrained decoding during gene generation")
     parser.add_argument("--use_same_model", action='store_false', help="all stages use the same model")
@@ -131,8 +136,26 @@ def prepare_pairs(args):
         "iemocap_context": {"cross_domain": IEMOCAP_CONTEXT_TRANSFER_PAIRS}
     }
 
+    task_dataset_pairs_small = {
+        "moseii": {"cross_domain_small": MOSEII_TRANSFER_PAIRS},
+        "meld": {"cross_domain_small": MELD_TRANSFER_PAIRS},
+        "iemocap": {"cross_domain_small": IEMOCAP_TRANSFER_PAIRS},
+        "meld_context": {"cross_domain_small": MELD_CONTEXT_TRANSFER_PAIRS},
+        "iemocap_context": {"cross_domain_small": IEMOCAP_CONTEXT_TRANSFER_PAIRS}
+    }
+
     # Check if the task and dataset combination is valid and retrieve the corresponding pair
-    pair_dict = task_dataset_pairs.get(args.task, {}).get(args.dataset)
+    task = str(args.task)   
+    datasets = str(args.dataset)
+    if args.targets is not None:
+        ls = []
+        target = str(args.targets)
+        ls.append(target)
+        pair_dict = {task : ls}
+    elif "small" in datasets:
+        pair_dict = task_dataset_pairs_small.get(task, {}).get(datasets)
+    else:
+        pair_dict = task_dataset_pairs.get(task, {}).get(datasets)
     print(pair_dict)
     if pair_dict is None:
         raise NotImplementedError("The task and/or dataset is not implemented.")
