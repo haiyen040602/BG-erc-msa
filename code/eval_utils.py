@@ -37,12 +37,12 @@ def extract_spans_extraction(task, seq, io_format):
 
 
 def fix_preds_moseii(preds, truths):
-    meld_dicts = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+    moseii_dicts = ['neu', 'neg', 'pos']
     wrong_cnt = 0
     new_preds = preds.copy()
     new_truths = truths.copy()
     for i in range(len(truths)):
-        if preds[i][0] not in meld_dicts:
+        if preds[i][0] not in moseii_dicts:
             wrong_cnt = wrong_cnt + 1
             print("WRONG PREDICTION: ", preds[i])
             new_preds.pop(i-wrong_cnt+1)
