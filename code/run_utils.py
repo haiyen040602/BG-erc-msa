@@ -386,7 +386,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
 
 def get_input_promts(target_gene_targets, num_input_promts):
     prompts = []
-    for i in range(target_gene_targets):
+    for i in target_gene_targets:
         prompt = " ".join(target_gene_targets[0:num_input_promts])
         prompts.append(prompt)
     
