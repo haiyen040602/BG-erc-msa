@@ -371,11 +371,15 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         temperature = 0.7
         target_gene_aug_outputs = []
         logger.info(f"Starting generating data")
+        limit = 0
         for prompt in prompts:
+            limit = limit + 1
             input_ids = tokenizer.encode(prompt, return_tensors="pt")
-            ouput = model.generate(input_ids, max_length=max_length, temperature=temperature, num_return_sequences=1)
+            ouput = model.generate(input_ids, max_length=max_length, temperature=temperature, num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
             generated_text = tokenizer.decode(ouput[0], skip_special_tokens=True)
             target_gene_aug_outputs.append(generated_text)
+            if (limit == 100):
+                break
         
         for i in range(3):
             print("Prompt ", i, prompts[i])

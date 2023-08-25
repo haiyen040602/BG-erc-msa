@@ -283,7 +283,7 @@ def main(args):
             model.to(args.device)
             target_dataset = get_dataset(args, task=args.task, data_type="target-unlabel", tokenizer=tokenizer)
             best_target_pseudo_inputs, best_target_pseudo_outputs, _ = infer(
-                args, target_dataset, model, tokenizer, name=f"best_target_pseudo_{args.task}",
+                args, target_dataset, model, tokenizer, name=f"best_target_extract_{args.task}",
                 is_constrained=is_constrained, constrained_vocab=prepare_constrained_tokens(tokenizer, args.task, args.paradigm),
             )
             # target_pseudo_aug_dataset = ABSADataset(args, tokenizer, inputs=best_target_pseudo_inputs, targets=best_target_pseudo_outputs, name=f"best_target_pseudo_{args.task}")
