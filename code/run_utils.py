@@ -325,8 +325,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         logger.info(f"Model keep the same.")
     elif args.data_gene_base_model:
         model_name = args.gene_model
-        tokenizer = GPT2Tokenizer(model_name)
-        model = GPT2LMHeadModel(model_name)
+        tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+        model = GPT2LMHeadModel.from_pretrained(model_name)
         logger.info(f"Model reloaded with {model_name}")
     elif args.data_gene_affective_model:
         logger.info(f"Affective Model")

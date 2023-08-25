@@ -90,7 +90,7 @@ def init_args():
     parser.add_argument("--data_gene_num_beam", default=1, type=int)
     parser.add_argument("--data_gene_min_length", default=0, type=int)
     parser.add_argument("--extract_model", default=None, type=str, help="path to extract model")
-    parser.add_argument("--gene_model", default=None, type=str, help="path to gene model")
+    parser.add_argument("--gene_model", default="gpt2-medium", type=str, help="path to gene model")
 
     parser.add_argument("--runned_folder", default=None, type=str, help="Load previous trained model for aux training")
     parser.add_argument("--data_gene_aug_num", default=None, type=int, help="how many augmentation samples")
