@@ -91,7 +91,7 @@ def fix_preds_iemocap(preds, truths):
 
 def remove_error_predictions(all_predictions, all_labels, task):
     if "moseii" in task:
-        fixed_preds = fix_preds_moseii(all_predictions, all_labels)
+        wrong_cnt, fixed_preds, fixed_truths = fix_preds_moseii(all_predictions, all_labels)
     elif "meld" in task:
         wrong_cnt, fixed_preds, fixed_truths = fix_preds_meld(all_predictions, all_labels)
     elif "iemocap" in task:
