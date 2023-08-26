@@ -365,20 +365,28 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     else:
         ## Prepare for input prompts  
         target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
-        prompts = get_input_promts(target_gene_targets, args.num_input_prompt)
+        num_input_prompt = int( args.num_input_prompt)
+        prompts = get_input_promts(target_gene_targets, num_input_prompt)
 
         max_length = 128
-        temperature = 0.7
+        
         target_gene_aug_outputs = []
         logger.info(f"Starting generating data")
-        limit = 0
-        for prompt in prompts:
-            limit = limit + 1
+        
+        for i, prompt in enumerate(prompts):
             input_ids = tokenizer.encode(prompt, return_tensors="pt")
-            ouput = model.generate(input_ids, max_length=max_length, temperature=temperature, num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
-            generated_text = tokenizer.decode(ouput[0], skip_special_tokens=True)
+            output = model.generate(input_ids, 
+                            max_length=max_length, 
+                            do_sample=True,
+                            pad_token_id=tokenizer.eos_token_id,
+                            top_k=30,                                 
+                            top_p=0.7,        
+                            temperature=0.9,
+                            repetition_penalty=2.0,
+                            num_return_sequences=1)
+            generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
             target_gene_aug_outputs.append(generated_text)
-            if (limit == 100):
+            if (i == 100):
                 break
         
         for i in range(3):
