@@ -16,7 +16,7 @@ def extract_moseii_from_extraction_universal(seq):
     sentiment = sents[0][1].strip()
     score = seq.split("<score>",1)[1]
     score = score.strip()
-    pairs = [(sentiment), (score)]
+    pairs = [[sentiment], [score]]
     return pairs
 
 def extract_meld_from_extraction_universal(seq):
