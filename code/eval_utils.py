@@ -153,8 +153,8 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
             gold_list = extract_spans_extraction(task, gold_seqs[i], paradigm)
             pred_list = extract_spans_extraction(task, pred_seqs[i], paradigm)
             if "moseii" in task:
-                score_truths.append(float(gold_list[1]))
-                score_preds.append(float(pred_list[1]))
+                score_truths.append(float(gold_list[1][0]))
+                score_preds.append(float(pred_list[1][0]))
                 all_labels.append(gold_list[0])
                 all_predictions.append(pred_list[0])
             else:
