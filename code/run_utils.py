@@ -306,7 +306,7 @@ def extract_model(args, tokenizer, model, extract_task):
     # 2. infer on target domain
     target_extract_dataset = get_dataset(args, task=extract_task, data_type="target-unlabel", tokenizer=tokenizer)
 
-    is_constrained = True if args.data_gene_wt_constrained else False
+    is_constrained = True if args.data_extract_wt_constrained else False
     print("Data extraction with constrained decoding: ", is_constrained)
 
     target_extract_inputs, target_extract_outputs, _ = infer(
