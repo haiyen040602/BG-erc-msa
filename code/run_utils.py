@@ -366,7 +366,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         ## Prepare for input prompts  
         target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
         num_input_prompt = int( args.num_input_prompt)
-        prompts = get_input_promts(target_gene_targets, num_input_prompt)
+        prompts = get_input_promts(target_gene_inputs, target_gene_targets, num_input_prompt)
 
         max_length = 128
         
@@ -396,7 +396,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
 
     return target_gene_aug_inputs, target_gene_aug_outputs
 
-def get_input_promts(target_gene_targets, num_input_promts):
+def get_input_promts(target_gene_inputs, target_gene_targets, num_input_promts):
     prompts = []
     for i in target_gene_targets:
         prompt = " ".join(target_gene_targets[0:num_input_promts])
