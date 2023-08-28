@@ -104,6 +104,13 @@ def remove_error_predictions(all_predictions, all_labels, task):
 
     return wrong_cnt, fixed_preds, fixed_truths
 
+def is_float(string):
+    try:
+        float(string)
+        return True
+    except ValueError:
+        return False
+    
 
 def compute_f1_scores(pred_pt, gold_pt):
     """
@@ -148,15 +155,23 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     all_labels, all_predictions = [], []
     score_truths, score_preds = [], []
 
+    error_score = 0
+
     for i in range(num_samples):
         if "extraction" in paradigm:
             gold_list = extract_spans_extraction(task, gold_seqs[i], paradigm)
             pred_list = extract_spans_extraction(task, pred_seqs[i], paradigm)
+
             if "moseii" in task:
-                score_truths.append(float(gold_list[1][0]))
-                score_preds.append(float(pred_list[1][0]))
-                all_labels.append(gold_list[0])
-                all_predictions.append(pred_list[0])
+                
+                if is_float(pred_list[1][0]):
+                    all_labels.append(gold_list[0])
+                    all_predictions.append(pred_list[0])
+                    score_preds.append(float(pred_list[1][0]))
+                    score_truths.append(float(gold_list[1][0]))
+                else:
+                    error_score = error_score + 1 
+                
             else:
                 all_labels.append(gold_list)
                 all_predictions.append(pred_list)
@@ -164,13 +179,14 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     score_preds = np.array(score_preds)
     score_truths = np.array(score_truths)
     mae = 0
-    if "moseii" in task:
-        mae = np.mean(np.absolute(score_preds - score_truths))
-
+    
     raw_scores = compute_f1_scores(all_predictions, all_labels)
-    raw_scores["mae"] = mae
+    
     # fix the issues due to generation
     wrong_cnt, fixed_preds, fixed_truths = remove_error_predictions(all_predictions, all_labels, task)
+    if "moseii" in task:
+        mae = np.mean(np.absolute(score_preds - score_truths))
+        wrong_cnt = wrong_cnt + error_score
     fixed_scores = compute_f1_scores(fixed_preds, fixed_truths)
     fixed_scores["mae"] = mae
 
@@ -180,13 +196,13 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
         #     logger.info(f"Gold list: {all_labels[i]}")
         #     logger.info(f"Pred: {pred_seqs[i]}")
         #     logger.info(f"Pred list: {all_predictions[i]}")
-        logger.info("MAE of raw output")
+        logger.info("MAE of intensity prediction: ")
         logger.info(str(mae))
         # logger.info("Results of fixed output")
         # logger.info(str(fixed_scores))
         logger.info("Number of error predictions: ")
         logger.info(str(wrong_cnt))
-        eval_emotionlines(all_predictions, all_labels)
+        # eval_emotionlines(all_predictions, all_labels)
         eval_emotionlines(fixed_preds, fixed_truths)
 
     return raw_scores, fixed_scores, all_labels, all_predictions, all_predictions
