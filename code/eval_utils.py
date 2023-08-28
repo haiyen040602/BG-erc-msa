@@ -181,13 +181,14 @@ def compute_scores(pred_seqs, gold_seqs, sents, paradigm, task, verbose=False):
     mae = 0
     
     raw_scores = compute_f1_scores(all_predictions, all_labels)
-    
+     
     # fix the issues due to generation
     wrong_cnt, fixed_preds, fixed_truths = remove_error_predictions(all_predictions, all_labels, task)
     if "moseii" in task:
         mae = np.mean(np.absolute(score_preds - score_truths))
         wrong_cnt = wrong_cnt + error_score
     fixed_scores = compute_f1_scores(fixed_preds, fixed_truths)
+    raw_scores["mae"] = mae
     fixed_scores["mae"] = mae
 
     if verbose:
