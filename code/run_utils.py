@@ -386,7 +386,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
                             num_return_sequences=1)
             generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
             target_gene_aug_outputs.append(generated_text)
-            if (i == 100):
+            if (i == 500):
                 break
         
         for i in range(3):
