@@ -391,7 +391,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         
         for i in range(3):
             print("Prompt ", i, prompts[i])
-            print("Generated Data: ", generated_text[i])
+            print("Generated Data: ", target_gene_aug_outputs[i])
         target_gene_aug_inputs = target_gene_inputs
 
     return target_gene_aug_inputs, target_gene_aug_outputs
@@ -399,7 +399,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
 def get_input_promts(target_gene_inputs, target_gene_targets, num_input_promts):
     prompts = []
     for i in target_gene_targets:
-        prompt = " ".join(target_gene_targets[0:num_input_promts])
+        seqs = i.split()
+        prompt = " ".join(seqs[0:num_input_promts])
         prompts.append(prompt)
     
     return prompts
