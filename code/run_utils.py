@@ -427,25 +427,25 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
     meld_dicts = ['surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
     prompts = []
     scores = []
-    # for i in target_gene_inputs:
-    #     sent_score = extract_moseii_from_extraction_universal(i)
-    #     if is_float(sent_score[1][0]):
-    #         scores.append(float(sent_score[1][0]))
-    #     else:
-    #         scores.append(0)
+    for i in target_gene_inputs:
+        sent_score = extract_moseii_from_extraction_universal(i)
+        if is_float(sent_score[1][0]):
+            scores.append(float(sent_score[1][0]))
+        else:
+            scores.append(0)
 
     for i, input in enumerate(target_gene_targets):
         seqs = input.split()
         prompt = " ".join(seqs[0:num_input_promts])
         
-        sent_score = extract_moseii_from_extraction_universal(i)
-        if is_float(sent_score[1][0]):
-            score = float(sent_score[1][0])
-        else:
-            score = 0
-
+        # sent_score = extract_moseii_from_extraction_universal(i)
+        # if is_float(sent_score[1][0]):
+        #     score = float(sent_score[1][0])
+        # else:
+        #     score = 0
+    
         if raw_emotions[i] in meld_dicts:
-            prompts.append([score, prompt, '', raw_emotions[i]])
+            prompts.append([scores[i], prompt, '', raw_emotions[i]])
         else:
             target_gene_inputs.pop(i)
 
