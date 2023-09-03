@@ -401,7 +401,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         #     if (i == 500):
         #         break
 
-        for i, prompt in prompts:
+        for prompt in prompts:
             print("prompt: ", prompt)
             generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
             print("generated text: ", generated_text)
