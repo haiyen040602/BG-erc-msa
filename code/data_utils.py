@@ -206,7 +206,7 @@ def get_targets(args, data_type_file="train"):
     extract_targets = []
     for t in targets:
         temp = extract_meld_from_extraction_universal(t)
-        extract_targets.append(temp)
+        extract_targets.append(temp[0])
     return extract_targets
 
 def prepare_moseii_gene(args, data_type_file):
