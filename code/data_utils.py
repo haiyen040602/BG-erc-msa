@@ -12,12 +12,17 @@ logger = logging.getLogger(__name__)
 senttag2word = {'POS': 'positive', 'NEG': 'negative', 'NEU': 'neutral'}
 
 def extract_moseii_from_extraction_universal(seq):
-    sents = re.findall("(<)(.*?)(?=>|$)", seq)
-    sentiment = sents[0][1].strip()
-    score = seq.split("<score>",1)[1]
-    score = score.strip()
-    pairs = [[sentiment], [score]]
-    return pairs
+    try: 
+        sents = re.findall("(<)(.*?)(?=>|$)", seq)
+        sentiment = sents[0][1].strip()
+        score = seq.split("<score>",1)[1]
+        score = score.strip()
+        pairs = [[sentiment], [score]]
+        return pairs
+    except IndexError:
+        print("ERROR PREDICTION: ", seq)
+        pairs = [[''], ['']]
+        return pairs
 
 def extract_meld_from_extraction_universal(seq):
     pair = []

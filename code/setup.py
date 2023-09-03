@@ -78,6 +78,7 @@ def init_args():
     parser.add_argument("--data_gene_base_model", action='store_true', help="enable data generation by gpt base model")
     parser.add_argument("--data_gene_affective_model", action='store_true', help="enable data generation by affective generation")
     parser.add_argument("--num_input_prompt", default=2, type=int)
+    parser.add_argument("--max_gene_length", default=50, type=int)
     parser.add_argument("--data_extract_wt_constrained", action='store_true', help="enable constrained decoding during extraction task")
     parser.add_argument("--data_gene_wt_constrained", action='store_true', help="turn off constrained decoding during gene generation")
     parser.add_argument("--use_same_model", action='store_false', help="all stages use the same model")

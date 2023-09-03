@@ -12,7 +12,9 @@ from transformers import (AdamW, AutoModelForSeq2SeqLM, GPT2LMHeadModel, GPT2Tok
 
 from constants import *
 from data_utils import (ABSADataset, filter_none, filter_invalid,
-                        get_dataset, get_inputs, normalize_augment, get_inputs_and_targets)
+                        get_dataset, get_inputs, normalize_augment, get_inputs_and_targets,
+                        extract_meld_from_extraction_universal, extract_iemocap_from_extraction_universal,
+                        extract_moseii_from_extraction_universal)
 from model_utils import (prepare_constrained_tokens, prepare_tag_tokens)
 
 logger = logging.getLogger(__name__)
@@ -366,11 +368,12 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         ## Prepare for input prompts  
         target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
         num_input_prompt = int( args.num_input_prompt)
-        prompts = get_input_promts(target_gene_inputs, target_gene_targets, num_input_prompt)
+        prompts = get_input_promts(args.task, target_gene_inputs, target_gene_targets, num_input_prompt)
 
-        max_length = 128
+        max_length = int(args.max_gene_length)
         
         target_gene_aug_outputs = []
+        target_gene_aug_inputs = []
         logger.info(f"Starting generating data")
         
         for i, prompt in enumerate(prompts):
@@ -386,24 +389,43 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
                             num_return_sequences=1)
             generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
             target_gene_aug_outputs.append(generated_text)
+            target_gene_aug_inputs.append(target_gene_inputs[i])
             if (i == 500):
                 break
-        
+        # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
+        #     for i, o in enumerate(target_gene_aug_outputs):
+        #         f.write(f"{inputs[i]} ===> {o}\n")
         for i in range(3):
             print("Prompt ", i, prompts[i])
             print("Generated Data: ", target_gene_aug_outputs[i])
-        target_gene_aug_inputs = target_gene_inputs
+        # target_gene_aug_inputs = target_gene_inputs
 
     return target_gene_aug_inputs, target_gene_aug_outputs
 
-def get_input_promts(target_gene_inputs, target_gene_targets, num_input_promts):
+def get_input_promts(task, target_gene_inputs, target_gene_targets, num_input_promts):
     prompts = []
     for i in target_gene_targets:
         seqs = i.split()
         prompt = " ".join(seqs[0:num_input_promts])
         prompts.append(prompt)
-    
-    return prompts
+    meld_dicts = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+    iemocap_dicts = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
+    emotions = []
+    new_target_gene_inputs = target_gene_inputs.copy()
+    for i, input in enumerate(new_target_gene_inputs):
+        if "meld" in task:
+            e = extract_meld_from_extraction_universal(input)
+        elif "iemocap" in task:
+            e = extract_iemocap_from_extraction_universal(input)   
+        
+        e = e[0]
+        if ("meld" in task and e not in meld_dicts) or ("iemocap" in task and e not in iemocap_dicts):
+            new_target_gene_inputs.pop(i)
+            prompts.pop(i)
+        else:
+            emotions.append(e)
+        
+    return prompts, emotions, 
 
 
 def postprocess_gene_outputs(args, target_gene_aug_inputs, target_gene_aug_outputs):
