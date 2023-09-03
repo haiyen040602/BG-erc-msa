@@ -375,12 +375,12 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         
 
         num_input_prompt = int( args.num_input_prompt)
-        prompts = get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_prompt)
+        prompts, target_gene_aug_inputs = get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_prompt)
 
         max_length = int(args.max_gene_length)
         
         target_gene_aug_outputs = []
-        target_gene_aug_inputs = []
+        
         logger.info(f"Starting generating data.")
         
 
@@ -404,7 +404,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         for i, prompt in prompts:
             generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
             target_gene_aug_outputs.append(generated_text)
-            target_gene_aug_inputs.append(target_gene_inputs[i])
+            
             if i == 10:
                 break
 
@@ -414,7 +414,9 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         #         f.write(f"{inputs[i]} ===> {o}\n")
         for i in range(3):
             print("Prompt ", i, prompts[i])
-            print("Generated Data: ", target_gene_aug_outputs[i])
+            print("Generated Data Input: ", target_gene_aug_inputs[i])
+            print("Generated Data Output: ", target_gene_aug_outputs[i])
+
         # target_gene_aug_inputs = target_gene_inputs
 
     return target_gene_aug_inputs, target_gene_aug_outputs
@@ -434,6 +436,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
         else:
             scores.append(0)
 
+    target_gene_aug_inputs = []
     for i, input in enumerate(target_gene_targets):
         seqs = input.split()
         prompt = " ".join(seqs[0:num_input_promts])
@@ -443,11 +446,11 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
         #     score = float(sent_score[1][0])
         # else:
         #     score = 0
-    
+
         if raw_emotions[i] in meld_dicts:
             prompts.append([scores[i], prompt, '', raw_emotions[i]])
-        else:
-            target_gene_inputs.pop(i)
+            target_gene_aug_inputs.append(target_gene_inputs[i])
+            
 
         
     
@@ -467,7 +470,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
     #     else:
     #         emotions.append(e)
         
-    return prompts
+    return prompts, target_gene_aug_inputs
 
 
 def postprocess_gene_outputs(args, target_gene_aug_inputs, target_gene_aug_outputs):

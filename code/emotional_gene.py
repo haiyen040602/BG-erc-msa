@@ -949,7 +949,7 @@ def emotional_gene(Knob, Prompt, Topic, Affect):
           num_samples=1,
           bag_of_words=Topic,
           bag_of_words_affect=Affect,
-          length=128,
+          length=50,
           stepsize=0.01,
           sample=True,
           num_iterations=3,
