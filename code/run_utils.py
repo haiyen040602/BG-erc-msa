@@ -14,8 +14,11 @@ from constants import *
 from data_utils import (ABSADataset, filter_none, filter_invalid,
                         get_dataset, get_inputs, normalize_augment, get_inputs_and_targets,
                         extract_meld_from_extraction_universal, extract_iemocap_from_extraction_universal,
-                        extract_moseii_from_extraction_universal)
+                        extract_moseii_from_extraction_universal,
+                        get_targets)
 from model_utils import (prepare_constrained_tokens, prepare_tag_tokens)
+from eval_utils import is_float
+from emotional_gene import emotional_gene
 
 logger = logging.getLogger(__name__)
 
@@ -326,12 +329,14 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     if args.data_gene_same_model:
         logger.info(f"Model keep the same.")
     elif args.data_gene_base_model:
-        model_name = args.gene_model
-        tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-        model = GPT2LMHeadModel.from_pretrained(model_name)
-        logger.info(f"Model reloaded with {model_name}")
+        # model_name = args.gene_model
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
+        model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
+        logger.info(f"Model reloaded with gpt2-medium")
     elif args.data_gene_affective_model:
-        logger.info(f"Affective Model")
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
+        model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
+        logger.info(f"Model reloaded with gpt2-medium")
 
     logger.info(f"Tokenizer len: {len(tokenizer)}")
 
@@ -364,34 +369,46 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
             args, target_gene_dataset, model, tokenizer, name="target_gene",
             is_constrained=is_constrained, constrained_vocab=target_domain_words, **decode_dict
         )
-    else:
+    elif args.data_gene_affective_model:
         ## Prepare for input prompts  
         target_gene_inputs, target_gene_targets = target_extract_outputs, target_extract_inputs
+        
+
         num_input_prompt = int( args.num_input_prompt)
-        prompts = get_input_promts(args.task, target_gene_inputs, target_gene_targets, num_input_prompt)
+        prompts = get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_prompt)
 
         max_length = int(args.max_gene_length)
         
         target_gene_aug_outputs = []
         target_gene_aug_inputs = []
-        logger.info(f"Starting generating data")
+        logger.info(f"Starting generating data.")
         
-        for i, prompt in enumerate(prompts):
-            input_ids = tokenizer.encode(prompt, return_tensors="pt")
-            output = model.generate(input_ids, 
-                            max_length=max_length, 
-                            do_sample=True,
-                            pad_token_id=tokenizer.eos_token_id,
-                            top_k=30,                                 
-                            top_p=0.7,        
-                            temperature=0.9,
-                            repetition_penalty=2.0,
-                            num_return_sequences=1)
-            generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+        # for i, prompt in enumerate(prompts):
+        #     input_ids = tokenizer.encode(prompt, return_tensors="pt")
+        #     output = model.generate(input_ids, 
+        #                     max_length=max_length, 
+        #                     do_sample=True,
+        #                     pad_token_id=tokenizer.eos_token_id,
+        #                     top_k=30,                                 
+        #                     top_p=0.7,        
+        #                     temperature=0.9,
+        #                     repetition_penalty=2.0,
+        #                     num_return_sequences=1)
+        #     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+        #     target_gene_aug_outputs.append(generated_text)
+        #     target_gene_aug_inputs.append(target_gene_inputs[i])
+        #     if (i == 500):
+        #         break
+
+        for i, prompt in prompts:
+            generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
             target_gene_aug_outputs.append(generated_text)
             target_gene_aug_inputs.append(target_gene_inputs[i])
-            if (i == 500):
+            if i == 10:
                 break
+
+        logger.info("Ending generating data.")
         # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
         #     for i, o in enumerate(target_gene_aug_outputs):
         #         f.write(f"{inputs[i]} ===> {o}\n")
@@ -402,30 +419,55 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
 
     return target_gene_aug_inputs, target_gene_aug_outputs
 
-def get_input_promts(task, target_gene_inputs, target_gene_targets, num_input_promts):
+
+    
+
+def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_promts):
+    raw_emotions = get_targets(args=args, data_type_file="target-unlabel")
+    meld_dicts = ['surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
     prompts = []
-    for i in target_gene_targets:
-        seqs = i.split()
+    scores = []
+    # for i in target_gene_inputs:
+    #     sent_score = extract_moseii_from_extraction_universal(i)
+    #     if is_float(sent_score[1][0]):
+    #         scores.append(float(sent_score[1][0]))
+    #     else:
+    #         scores.append(0)
+
+    for i, input in enumerate(target_gene_targets):
+        seqs = input.split()
         prompt = " ".join(seqs[0:num_input_promts])
-        prompts.append(prompt)
-    meld_dicts = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
-    iemocap_dicts = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
-    emotions = []
-    new_target_gene_inputs = target_gene_inputs.copy()
-    for i, input in enumerate(new_target_gene_inputs):
-        if "meld" in task:
-            e = extract_meld_from_extraction_universal(input)
-        elif "iemocap" in task:
-            e = extract_iemocap_from_extraction_universal(input)   
         
-        e = e[0]
-        if ("meld" in task and e not in meld_dicts) or ("iemocap" in task and e not in iemocap_dicts):
-            new_target_gene_inputs.pop(i)
-            prompts.pop(i)
+        sent_score = extract_moseii_from_extraction_universal(i)
+        if is_float(sent_score[1][0]):
+            score = float(sent_score[1][0])
         else:
-            emotions.append(e)
+            score = 0
+
+        if raw_emotions[i] in meld_dicts:
+            prompts.append([score, prompt, '', raw_emotions[i]])
+        else:
+            target_gene_inputs.pop(i)
+
         
-    return prompts, emotions, 
+    
+    iemocap_dicts = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
+    # emotions = []
+    # new_target_gene_inputs = target_gene_inputs.copy()
+    # for i, input in enumerate(new_target_gene_inputs):
+    #     if "meld" in args.task:
+    #         e = extract_meld_from_extraction_universal(input)
+    #     elif "iemocap" in args.task:
+    #         e = extract_iemocap_from_extraction_universal(input)   
+        
+    #     e = e[0]
+    #     if ("meld" in args.task and e not in meld_dicts) or ("iemocap" in args.task and e not in iemocap_dicts):
+    #         new_target_gene_inputs.pop(i)
+    #         prompts.pop(i)
+    #     else:
+    #         emotions.append(e)
+        
+    return prompts
 
 
 def postprocess_gene_outputs(args, target_gene_aug_inputs, target_gene_aug_outputs):

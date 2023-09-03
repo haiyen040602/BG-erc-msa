@@ -45,7 +45,7 @@ def init_args():
     parser.add_argument("--beam", default=1, type=int)
 
     # Other parameters
-    parser.add_argument("--max_seq_length", default=128, type=int)
+    parser.add_argument("--max_seq_length", default=50, type=int)
     parser.add_argument("--n_gpu", default='0')
     parser.add_argument("--train_batch_size", default=16, type=int,
                         help="Batch size per GPU/CPU for training.")

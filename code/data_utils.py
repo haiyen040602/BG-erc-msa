@@ -197,6 +197,17 @@ def get_inputs(args, data_type_file="train"):
     inputs = [" ".join(i) for i in inputs]
     return inputs
 
+def get_targets(args, data_type_file="train"):
+    """
+        train_inputs: ["hi", "I love apples."],
+    """
+    data_path = f"{args.data_dir}/{data_type_file}.txt"
+    _, targets = read_line_examples_from_file(data_path)
+    extract_targets = []
+    for t in targets:
+        temp = extract_meld_from_extraction_universal(t)
+        extract_targets.append(temp)
+    return extract_targets
 
 def prepare_moseii_gene(args, data_type_file):
     targets, inputs = prepare_moseii_extraction(args, data_type_file=data_type_file)
