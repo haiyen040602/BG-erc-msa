@@ -213,7 +213,7 @@ def get_targets(args, data_type_file="train"):
             extract_targets.append(temp[0])
         elif "moseii" in args.task:
             temp = extract_moseii_from_extraction_universal(t)
-            extract_targets.append(float[temp[1][0]])
+            extract_targets.append(float(temp[1][0]))
     return extract_targets
 
 def prepare_moseii_gene(args, data_type_file):
