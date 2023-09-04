@@ -407,8 +407,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
             # print("generated text: ", generated_text)
             target_gene_aug_outputs.append(generated_text)
             
-            # if i == 10:
-            #     break
+            if i == 10:
+                break
 
         logger.info("Ending generating data.")
         # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
