@@ -205,13 +205,10 @@ def get_targets(args, data_type_file="train"):
     _, targets = read_line_examples_from_file(data_path)
     extract_targets = []
     for t in targets:
-        if "meld" in args.task:
+        if "moseii" in args.task:
             temp = extract_meld_from_extraction_universal(t)
             extract_targets.append(temp[0])
-        elif "iemocap" in args.task:
-            temp = extract_iemocap_from_extraction_universal(t)
-            extract_targets.append(temp[0])
-        elif "moseii" in args.task:
+        elif "meld" in args.task:
             temp = extract_moseii_from_extraction_universal(t)
             extract_targets.append(float(temp[1][0]))
     return extract_targets
