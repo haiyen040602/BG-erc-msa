@@ -645,15 +645,15 @@ def generate_text_pplm(
             last if output_so_far is None
             else torch.cat((output_so_far, last), dim=1)
         )
-        if verbosity_level >= REGULAR:
-            print(tokenizer.decode(output_so_far.tolist()[0]))
+        # if verbosity_level >= REGULAR:
+        #     print(tokenizer.decode(output_so_far.tolist()[0]))
         if(tokenizer.decode(output_so_far.tolist()[0])[-1] == '.' ):
           count = count+1
         if bow_indices_affect is not None and [output_so_far.tolist()[0][-1]] in bow_indices_affect[0]:
           int_word = affect_int_orig[bow_indices_affect[0].index([output_so_far.tolist()[0][-1]])]
-          print(tokenizer.decode(output_so_far.tolist()[0][-1]), int_word)
+        #   print(tokenizer.decode(output_so_far.tolist()[0][-1]), int_word)
           int_score = int_score + int_word
-    print("int_score: ", int_score)
+    # print("int_score: ", int_score)
     # print("int.. " , output_so_far.tolist()[0][-1])
     return output_so_far, unpert_discrim_loss, loss_in_time
 
@@ -910,10 +910,10 @@ def run_pplm_example(
     for i, pert_gen_tok_text in enumerate(pert_gen_tok_texts):
         try:
             # untokenize unperturbed text
-            pert_gen_text = tokenizer.decode(pert_gen_tok_text.tolist()[0])
-            print("= Perturbed generated text {} =".format(i + 1))
-            print(pert_gen_text)
-            print()
+            pert_gen_text = tokenizer.decode(pert_gen_tok_text.tolist()[0], skip_special_tokens = True)
+            # print("= Perturbed generated text {} =".format(i + 1))
+            # print(pert_gen_text)
+            # print()
         except:
             pass
 

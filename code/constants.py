@@ -32,13 +32,13 @@ STOP_WORDS = ['about', 'itself', 'so', 'further', 'against', "don't", 'shouldn',
 
 
 MOSEII_TAGS = ["<pos>", "<neg>", "<neu>", "<score>", "</score>"]
-
+MOSEII_DICT = ['neu', 'neg', 'pos']
 # MELD_TAGS = ["<emotion>"]
 MELD_LABELS = ['<meld>', 'joy', 'sadness', 'fear', 'anger', 'surprise', 'disgust', 'neutral']
-
+MELD_DICT = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
 # IEMOCAP_TAGS =["<emotion>"]
 IEMOCAP_LABELS = ['<iemocap>', 'joy', 'sadness', 'angry', 'neutral', 'excited', 'frustrated']
-
+IEMOCAP_DICT = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
 MELD_TRANSFER_PAIRS = {
     "meld": ["iemocap", "iemocap_context", "moseii"]
 }

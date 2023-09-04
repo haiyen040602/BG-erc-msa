@@ -37,12 +37,12 @@ def extract_spans_extraction(task, seq, io_format):
 
 
 def fix_preds_moseii(preds, truths):
-    moseii_dicts = ['neu', 'neg', 'pos']
+    
     wrong_cnt = 0
     new_preds = preds.copy()
     new_truths = truths.copy()
     for i in range(len(truths)):
-        if preds[i][0] not in moseii_dicts:
+        if preds[i][0] not in MOSEII_DICT:
             wrong_cnt = wrong_cnt + 1
             print("WRONG PREDICTION: ", preds[i])
             new_preds.pop(i-wrong_cnt+1)
@@ -55,12 +55,11 @@ def fix_preds_moseii(preds, truths):
 
 
 def fix_preds_meld(preds, truths):
-    meld_dicts = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
     wrong_cnt = 0
     new_preds = preds.copy()
     new_truths = truths.copy()
     for i in range(len(truths)):
-        if preds[i][0] not in meld_dicts:
+        if preds[i][0] not in MELD_DICT:
             wrong_cnt = wrong_cnt + 1
             print("WRONG PREDICTION: ", preds[i])
             new_preds.pop(i-wrong_cnt+1)
@@ -73,12 +72,11 @@ def fix_preds_meld(preds, truths):
 
 
 def fix_preds_iemocap(preds, truths):
-    iemocap_dicts = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
     wrong_cnt = 0
     new_preds = preds.copy()
     new_truths = truths.copy()
     for i in range(len(truths)):
-        if preds[i][0] not in iemocap_dicts:
+        if preds[i][0] not in IEMOCAP_DICT:
             wrong_cnt = wrong_cnt + 1
             print("WRONG PREDICTION: ", preds[i])
             new_preds.pop(i-wrong_cnt+1)

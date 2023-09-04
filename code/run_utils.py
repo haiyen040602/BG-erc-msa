@@ -402,22 +402,22 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         #         break
 
         for i, prompt in enumerate(prompts):
-            print("prompt: ", prompt)
+            # print("prompt: ", prompt)
             generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
-            print("generated text: ", generated_text)
+            # print("generated text: ", generated_text)
             target_gene_aug_outputs.append(generated_text)
             
-            if i == 10:
-                break
+            # if i == 10:
+            #     break
 
         logger.info("Ending generating data.")
         # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
         #     for i, o in enumerate(target_gene_aug_outputs):
         #         f.write(f"{inputs[i]} ===> {o}\n")
-        # for i in range(3):
-        #     print("Prompt ", i, prompts[i])
-        #     print("Generated Data Input: ", target_gene_aug_inputs[i])
-        #     print("Generated Data Output: ", target_gene_aug_outputs[i])
+        for i in range(3):
+            print("Prompt ", i, prompts[i])
+            print("Generated Data Input: ", target_gene_aug_inputs[i])
+            print("Generated Data Output: ", target_gene_aug_outputs[i])
 
         # target_gene_aug_inputs = target_gene_inputs
 
@@ -427,51 +427,34 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     
 
 def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_promts):
-    raw_emotions = get_targets(args=args, data_type_file="target-unlabel")
-    print(raw_emotions)
-    meld_dicts = ['surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+    if "meld" in args.task:
+        emotions = []
+        scores = get_targets(args=args, data_type_file="target-unlabel")
+        print(scores)
+        for i in target_gene_inputs:
+            emo = extract_meld_from_extraction_universal(i)
+            emotions.append(emo[0])
+    elif "moseii" in args.task:
+        emotions = get_targets(args=args, data_type_file="target-unlabel")
+        print(emotions)
+        scores = []
+        for i in target_gene_inputs:
+            sent_score = extract_moseii_from_extraction_universal(i)
+            if is_float(sent_score[1][0]):
+                scores.append(float(sent_score[1][0]))
+            else:
+                scores.append(0)
+    
     prompts = []
-    scores = []
-    for i in target_gene_inputs:
-        sent_score = extract_moseii_from_extraction_universal(i)
-        if is_float(sent_score[1][0]):
-            scores.append(float(sent_score[1][0]))
-        else:
-            scores.append(0)
-
     target_gene_aug_inputs = []
+    
     for i, input in enumerate(target_gene_targets):
         seqs = input.split()
         prompt = " ".join(seqs[0:num_input_promts])
         
-        # sent_score = extract_moseii_from_extraction_universal(i)
-        # if is_float(sent_score[1][0]):
-        #     score = float(sent_score[1][0])
-        # else:
-        #     score = 0
-
-        if raw_emotions[i] in meld_dicts:
-            prompts.append([scores[i], prompt, '', raw_emotions[i]])
+        if emotions[i] in MELD_DICT and emotions[i] != 'neutral':
+            prompts.append([scores[i], prompt, '', emotions[i]])
             target_gene_aug_inputs.append(target_gene_inputs[i])
-            
-
-        
-    
-    iemocap_dicts = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']
-    # emotions = []
-    # new_target_gene_inputs = target_gene_inputs.copy()
-    # for i, input in enumerate(new_target_gene_inputs):
-    #     if "meld" in args.task:
-    #         e = extract_meld_from_extraction_universal(input)
-    #     elif "iemocap" in args.task:
-    #         e = extract_iemocap_from_extraction_universal(input)   
-        
-    #     e = e[0]
-    #     if ("meld" in args.task and e not in meld_dicts) or ("iemocap" in args.task and e not in iemocap_dicts):
-    #         new_target_gene_inputs.pop(i)
-    #         prompts.pop(i)
-    #     else:
-    #         emotions.append(e)
         
     return prompts, target_gene_aug_inputs
 
