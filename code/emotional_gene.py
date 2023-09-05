@@ -921,6 +921,7 @@ def run_pplm_example(
         # generated_texts.append(
         #     (tokenized_cond_text, pert_gen_tok_text, unpert_gen_tok_text)
         # )
+        
 
     return pert_gen_text
 
@@ -959,4 +960,5 @@ def emotional_gene(Knob, Prompt, Topic, Affect):
           kl_scale=0.01,
           verbosity='quiet'
       )
-    return generated_text
+    joined_generated_text = ' '.join(generated_text.splitlines())
+    return joined_generated_text

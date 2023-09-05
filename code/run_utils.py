@@ -420,6 +420,9 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
             print("Generated Data Input: ", target_gene_aug_inputs[i])
             print("Generated Data Output: ", target_gene_aug_outputs[i])
 
+        with open(os.path.join(args.inference_dir, f"emotional_gene_output.txt"), "w") as f:
+            for i, o in enumerate(target_extract_outputs):
+                f.write(f"{target_gene_aug_inputs[i]} ===> {o}\n")
         # target_gene_aug_inputs = target_gene_inputs
 
     return target_gene_aug_inputs, target_gene_aug_outputs
