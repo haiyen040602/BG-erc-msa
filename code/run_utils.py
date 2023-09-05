@@ -402,9 +402,9 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         #         break
 
         for i, prompt in enumerate(prompts):
-            # print("prompt: ", prompt)
+            print("prompt: ", prompt)
             generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
-            # print("generated text: ", generated_text)
+            print("generated text: ", generated_text)
             target_gene_aug_outputs.append(generated_text)
             
             if i == 10:
