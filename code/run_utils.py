@@ -443,7 +443,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
             sent_score = extract_moseii_from_extraction_universal(i)
             if is_float(sent_score[1][0]):
                 score = float(sent_score[1][0])
-                score = round(score, 1)
+                # score = round(score, 1)
                 scores.append(score)
             else:
                 scores.append(0)
