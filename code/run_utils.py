@@ -2,6 +2,7 @@ import logging
 import re
 import os
 import random
+import numpy as np
 
 import torch
 import torch.nn as nn
@@ -445,6 +446,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
             else:
                 scores.append(0)
 
+    scores = np.array(scores)
     nor_scores = (scores-min(scores))/(max(scores)-min(scores))
     prompts = []
     target_gene_aug_inputs = []
