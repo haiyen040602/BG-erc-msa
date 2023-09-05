@@ -405,8 +405,8 @@ def get_bag_of_words_indices(bag_of_words_ids_or_paths: List[str], tokenizer) ->
     return bow_indices
 
 def get_affect_words_and_int (affect_class):
-  emotions = "https://raw.githubusercontent.com/ishikasingh/Affective-text-gen/master/NRC-Emotion-Intensity-Lexicon-v1.txt"
-  filepath = get_file(emotions)
+  filepath = "../raw_data/emotions/NRC-Emotion-Intensity-Lexicon-v1.txt"
+#   filepath = get_file(emotions)
 #   print(filepath)
   with open(filepath, "r") as f:
       words = f.read().strip().split("\n")[1:]
