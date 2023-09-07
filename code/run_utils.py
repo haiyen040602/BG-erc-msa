@@ -455,7 +455,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
             sent = 'negative'
         else:
             sent = None
-        if emotions[i] == 'neutral' and neu_count < (args.data_gene_num_samples / 2):
+        if emotions[i] == 'neutral' and neu_count < (args.data_gene_num_samples / 5):
             prompts.append([nor_scores[i], prompt, sent, None])
             target_gene_aug_inputs.append(target_gene_inputs[i])
             neu_count = neu_count + 1
