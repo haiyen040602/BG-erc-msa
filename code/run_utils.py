@@ -448,17 +448,17 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
         else:
             prompt = " ".join(seqs[0:len_seqs])
         
+        if scores[i] > 0:
+            sent = 'positive'
+        elif scores[i] < 0:
+            sent = 'negative'
+        else:
+            sent = None
         if emotions[i] == 'neutral':
-            if scores[i] > 0:
-                sent = 'positive'
-            elif scores[i] < 0:
-                sent = 'negative'
-            else:
-                sent = None
             prompts.append([nor_scores[i], prompt, sent, None])
             target_gene_aug_inputs.append(target_gene_inputs[i])
         elif emotions[i] in MELD_DICT and emotions[i] != 'neutral':
-            prompts.append([nor_scores[i], prompt, '', emotions[i]])
+            prompts.append([nor_scores[i], prompt, sent, emotions[i]])
             target_gene_aug_inputs.append(target_gene_inputs[i])
         
     return prompts, target_gene_aug_inputs
