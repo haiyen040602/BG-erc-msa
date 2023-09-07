@@ -74,6 +74,8 @@ BAG_OF_WORDS_ARCHIVE_MAP = {
     'science': "https://s3.amazonaws.com/models.huggingface.co/bert/pplm/bow/science.txt",
     'space': "https://s3.amazonaws.com/models.huggingface.co/bert/pplm/bow/space.txt",
     'technology': "https://s3.amazonaws.com/models.huggingface.co/bert/pplm/bow/technology.txt",
+    'positive' : "../raw_data/emotions/positive.txt",
+    'negative' : "../raw_data/emotions/negative.txt"
 }
 
 DISCRIMINATOR_MODELS_PARAMS = {
@@ -94,6 +96,11 @@ DISCRIMINATOR_MODELS_PARAMS = {
         "pretrained_model": "gpt2-medium",
     },
 }
+
+import random
+
+def generate_random_seed():
+    return random.randint(1, 10000)
 
 def to_var(x, requires_grad=False, volatile=False, device='cuda'):
     if torch.cuda.is_available() and device == 'cuda':
@@ -391,7 +398,9 @@ def get_bag_of_words_indices(bag_of_words_ids_or_paths: List[str], tokenizer) ->
         List[List[List[int]]]:
     bow_indices = []
     for id_or_path in bag_of_words_ids_or_paths:
-        if id_or_path in BAG_OF_WORDS_ARCHIVE_MAP:
+        if id_or_path == 'negative' or id_or_path == 'positive': 
+            filepath = BAG_OF_WORDS_ARCHIVE_MAP[id_or_path]
+        elif id_or_path in BAG_OF_WORDS_ARCHIVE_MAP:
             filepath = get_file(BAG_OF_WORDS_ARCHIVE_MAP[id_or_path])
         else:
             filepath = id_or_path
@@ -458,7 +467,7 @@ def generate_text_pplm(
         context=None,
         past=None,
         device="cuda",
-        perturb=True,
+        perturb=False,
         bow_indices=None,
         bow_indices_affect=None,
         affect_int = None,
@@ -502,6 +511,7 @@ def generate_text_pplm(
         range_func = trange(length, ascii=True)
     else:
         range_func = range(length)
+
     count = 0
     int_score = 0
     for i in range_func:
@@ -520,29 +530,19 @@ def generate_text_pplm(
             last = output_so_far[:, -1:]
           # if output_so_far.shape[1] > 1:
           #     _, past, _ = model(output_so_far[:, :-1])
-
-
-        # print("Output so far shape: ", output_so_far.shape)
-        # print("Last shape: ", len(last))
-        # # print("Output so far: ", output_so_far)
-        # print("Past shape: ", (past[0][0].shape))
-        # # print(past[0][0].size(-2))
-
+        
         unpert_outputs = model(output_so_far)
         unpert_logits = unpert_outputs.logits
         unpert_past = unpert_outputs.past_key_values
         unpert_all_hidden = unpert_outputs.hidden_states
         unpert_last_hidden = unpert_all_hidden[-1]
-
+    
         # check if we are abowe grad max length
         if i >= grad_length:
             current_stepsize = stepsize * 0
         else:
             current_stepsize = stepsize
 
-        # modify the past if necessary
-        # print("IS PERTURB: ", perturb)
-        # print("NUM ITERAION: ", num_iterations)
         if not perturb or num_iterations == 0:
             pert_past = past
             # print("PAST: ", past)
@@ -551,11 +551,6 @@ def generate_text_pplm(
             accumulated_hidden = unpert_last_hidden[:, :-1, :]
             accumulated_hidden = torch.sum(accumulated_hidden, dim=1)
 
-            # print("Number of self-attention: ", len(past))
-            # for i in range(len(past)):
-            #   print("Number of H in ", i, "layer is ", len(past[i]))
-            # if past is None:
-            #   print("Past is none")
             if past is not None:
                 pert_past, _, grad_norms, loss_this_iter = perturb_past(
                     past,
@@ -602,7 +597,9 @@ def generate_text_pplm(
 
         if classifier is not None:
             ce_loss = torch.nn.CrossEntropyLoss()
+            
             prediction = classifier(torch.mean(unpert_last_hidden, dim=1))
+            print("Discriminator pred: ", prediction, "Truth label: ", label)
             label = torch.tensor([class_label], device=device,
                                  dtype=torch.long)
             unpert_discrim_loss = ce_loss(prediction, label)
@@ -698,6 +695,7 @@ def full_text_generation(
         gm_scale=0.9,
         kl_scale=0.01,
         verbosity_level=REGULAR,
+        perturb = False,
         **kwargs
 ):
     classifier, class_id = get_classifier(discrim, class_label, device)
@@ -706,74 +704,78 @@ def full_text_generation(
     # print("classifier id: ", class_id)
     bow_indices = []
     bow_indices_affect = []
+    
     if bag_of_words:
-      bow_indices = get_bag_of_words_indices(bag_of_words.split(";"), tokenizer)
+        bow_indices = get_bag_of_words_indices(bag_of_words.split(";"), tokenizer)
     if bag_of_words_affect:
-      affect_words, affect_int = get_affect_words_and_int(bag_of_words_affect)
-      bow_indices_affect.append([tokenizer.encode(word.strip(),add_prefix_space=True, add_special_tokens=False)for word in affect_words])
+        affect_words, affect_int = get_affect_words_and_int(bag_of_words_affect)
+        bow_indices_affect.append([tokenizer.encode(word.strip(),add_prefix_space=True, add_special_tokens=False)for word in affect_words])
+    else:
+        affect_words = None
+        affect_int = None
     # print("aff1", affect_int)
     loss_type = PPLM_BOW
     if bag_of_words_affect:
-      loss_type = BOW_AFFECT
-
-    # unpert_gen_tok_text, _, _ = generate_text_pplm(
-    #     model=model,
-    #     tokenizer=tokenizer,
-    #     context=context,
-    #     device=device,
-    #     length=length,
-    #     sample=sample,
-    #     perturb=False,
-    #     verbosity_level=verbosity_level
-    # )
-
-    if device == 'cuda':
-        torch.cuda.empty_cache()
-
+        loss_type = BOW_AFFECT
+    
+    unpert_gen_tok_text = None
     pert_gen_tok_texts = []
     discrim_losses = []
     losses_in_time = []
-    # print("After Perturbation")
-    for i in range(num_samples):
-        pert_gen_tok_text, discrim_loss, loss_in_time = generate_text_pplm(
+    if not perturb:
+        unpert_gen_tok_text, _, _ = generate_text_pplm(
             model=model,
             tokenizer=tokenizer,
-            affect_weight=affect_weight,
             context=context,
             device=device,
-            perturb=True,
-            bow_indices=bow_indices,
-            bow_indices_affect=bow_indices_affect,
-            affect_int = affect_int,
-            knob = knob,
-            classifier=classifier,
-            class_label=class_id,
-            loss_type=loss_type,
             length=length,
-            stepsize=stepsize,
-            temperature=temperature,
-            top_k=top_k,
             sample=sample,
-            num_iterations=num_iterations,
-            grad_length=grad_length,
-            horizon_length=horizon_length,
-            window_length=window_length,
-            decay=decay,
-            gamma=gamma,
-            gm_scale=gm_scale,
-            kl_scale=kl_scale,
+            perturb=perturb,
             verbosity_level=verbosity_level
         )
-        pert_gen_tok_texts.append(pert_gen_tok_text)
-        if classifier is not None:
-            discrim_losses.append(discrim_loss.data.cpu().numpy())
-        losses_in_time.append(loss_in_time)
+
+    else:   
+        # print("After Perturbation")
+        for i in range(num_samples):
+            pert_gen_tok_text, discrim_loss, loss_in_time = generate_text_pplm(
+                model=model,
+                tokenizer=tokenizer,
+                affect_weight=affect_weight,
+                context=context,
+                device=device,
+                perturb=perturb,
+                bow_indices=bow_indices,
+                bow_indices_affect=bow_indices_affect,
+                affect_int = affect_int,
+                knob = knob,
+                classifier=classifier,
+                class_label=class_id,
+                loss_type=loss_type,
+                length=length,
+                stepsize=stepsize,
+                temperature=temperature,
+                top_k=top_k,
+                sample=sample,
+                num_iterations=num_iterations,
+                grad_length=grad_length,
+                horizon_length=horizon_length,
+                window_length=window_length,
+                decay=decay,
+                gamma=gamma,
+                gm_scale=gm_scale,
+                kl_scale=kl_scale,
+                verbosity_level=verbosity_level
+            )
+            pert_gen_tok_texts.append(pert_gen_tok_text)
+            if classifier is not None:
+                discrim_losses.append(discrim_loss.data.cpu().numpy())
+            losses_in_time.append(loss_in_time)
 
     if device == 'cuda':
         torch.cuda.empty_cache()
 
     # return unpert_gen_tok_text, pert_gen_tok_texts, discrim_losses, losses_in_time
-    return None, pert_gen_tok_texts, discrim_losses, losses_in_time
+    return unpert_gen_tok_text, pert_gen_tok_texts, discrim_losses, losses_in_time
 
 
 def get_affect_words_and_int1 (affect_class):
@@ -813,9 +815,11 @@ def run_pplm_example(
         seed=0,
         no_cuda=False,
         colorama=False,
-        verbosity='regular'
+        verbosity='regular',
+        perturb = False
 ):
     # set Random seed
+    seed = generate_random_seed()
     torch.manual_seed(seed)
     np.random.seed(seed)
 
@@ -892,7 +896,8 @@ def run_pplm_example(
         gamma=gamma,
         gm_scale=gm_scale,
         kl_scale=kl_scale,
-        verbosity_level=verbosity_level
+        verbosity_level=verbosity_level,
+        perturb = perturb
     )
 
     # untokenize unperturbed text
@@ -907,15 +912,18 @@ def run_pplm_example(
     # generated_texts = []
 
     # iterate through the perturbed texts
-    for i, pert_gen_tok_text in enumerate(pert_gen_tok_texts):
-        try:
-            # untokenize unperturbed text
-            pert_gen_text = tokenizer.decode(pert_gen_tok_text.tolist()[0], skip_special_tokens = True)
-            # print("= Perturbed generated text {} =".format(i + 1))
-            # print(pert_gen_text)
-            # print()
-        except:
-            pass
+    if perturb:
+        for i, pert_gen_tok_text in enumerate(pert_gen_tok_texts):
+            try:
+                # untokenize unperturbed text
+                generated_text = tokenizer.decode(pert_gen_tok_text.tolist()[0], skip_special_tokens = True)
+                # print("= Perturbed generated text {} =".format(i + 1))
+                # print(pert_gen_text)
+                # print()
+            except:
+                pass
+    else:
+        generated_text = tokenizer.decode(unpert_gen_tok_text.tolist()[0], skip_special_tokens = True)
 
         # keep the prefix, perturbed seq, original seq for each index
         # generated_texts.append(
@@ -923,7 +931,7 @@ def run_pplm_example(
         # )
         
 
-    return pert_gen_text
+    return generated_text
 
 
 
@@ -943,6 +951,11 @@ model.eval()
 tokenizer = GPT2Tokenizer.from_pretrained(pretrained_model)
 
 def emotional_gene(Knob, Prompt, Topic, Affect):
+    if Topic is None and Affect is None:
+        perturb = False
+    else:
+        perturb = True
+
     generated_text = run_pplm_example(
           affect_weight=1,  # it is the convergence rate of affect loss, don't change it :-p
           knob = Knob, # 0-1, play with it as much as you want
@@ -958,7 +971,8 @@ def emotional_gene(Knob, Prompt, Topic, Affect):
           gamma=1.5,
           gm_scale=0.95,
           kl_scale=0.01,
-          verbosity='quiet'
+          verbosity='quiet',
+          perturb = perturb
       )
     joined_generated_text = ' '.join(generated_text.splitlines())
     return joined_generated_text

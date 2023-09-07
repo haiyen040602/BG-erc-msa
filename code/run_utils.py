@@ -385,23 +385,6 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         logger.info(f"Starting generating data.")
         
 
-        # for i, prompt in enumerate(prompts):
-        #     input_ids = tokenizer.encode(prompt, return_tensors="pt")
-        #     output = model.generate(input_ids, 
-        #                     max_length=max_length, 
-        #                     do_sample=True,
-        #                     pad_token_id=tokenizer.eos_token_id,
-        #                     top_k=30,                                 
-        #                     top_p=0.7,        
-        #                     temperature=0.9,
-        #                     repetition_penalty=2.0,
-        #                     num_return_sequences=1)
-        #     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-        #     target_gene_aug_outputs.append(generated_text)
-        #     target_gene_aug_inputs.append(target_gene_inputs[i])
-        #     if (i == 500):
-        #         break
-
         for i, prompt in enumerate(prompts):
             generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
             target_gene_aug_outputs.append(generated_text)
@@ -409,6 +392,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
             if i < 5:
                 print("prompt: ", prompt)
                 print("generated text: ", generated_text)
+            if (i + 1) == args.data_gene_num_samples:
+                break
 
         logger.info("Ending generating data.")
         # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
@@ -433,7 +418,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
     if "meld" in args.task:
         emotions = []
         scores = get_targets(args=args, data_type_file="target-unlabel")
-        print(scores)
+        # print(scores)
         for i in target_gene_inputs:
             emo = extract_meld_from_extraction_universal(i)
             emotions.append(emo[0])
@@ -457,9 +442,22 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
     
     for i, input in enumerate(target_gene_targets):
         seqs = input.split()
-        prompt = " ".join(seqs[0:num_input_promts])
+        len_seqs = len(seqs)
+        if num_input_promts <= len_seqs:
+            prompt = " ".join(seqs[0:num_input_promts])
+        else:
+            prompt = " ".join(seqs[0:len_seqs])
         
-        if emotions[i] in MELD_DICT and emotions[i] != 'neutral':
+        if emotions[i] == 'neutral':
+            if scores[i] > 0:
+                sent = 'positive'
+            elif scores[i] < 0:
+                sent = 'negative'
+            else:
+                sent = None
+            prompts.append([nor_scores[i], prompt, sent, None])
+            target_gene_aug_inputs.append(target_gene_inputs[i])
+        elif emotions[i] in MELD_DICT and emotions[i] != 'neutral':
             prompts.append([nor_scores[i], prompt, '', emotions[i]])
             target_gene_aug_inputs.append(target_gene_inputs[i])
         

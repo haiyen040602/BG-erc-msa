@@ -69,6 +69,7 @@ def init_args():
     # data genenration
     parser.add_argument("--data_gene", action='store_true', help="enable data generation")
     parser.add_argument("--data_gene_epochs", default=10, type=int, help="epoch of generation model training")
+    parser.add_argument("--data_gene_num_samples", default=10, type=int, help="number of samples generated in generation phrase")
     parser.add_argument("--data_gene_extract", action='store_true', help="enable text-to-label stage")
     parser.add_argument("--data_gene_extract_epochs", default=10, type=int, help="epoch of extract model training")
     parser.add_argument("--data_gene_none_remove_ratio", default=0, type=float, help="remove none input for gene model")
