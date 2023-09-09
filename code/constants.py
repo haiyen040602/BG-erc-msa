@@ -30,12 +30,12 @@ STOP_WORDS = ['about', 'itself', 'so', 'further', 'against', "don't", 'shouldn',
 # STOP_WORDS = []
 
 
-IEMOCAP_POS = ['joy', 'excited', 'surprise']
-IEMOCAP_NEG = ['sadness', 'angry', 'frustrated', 'surprise', 'anger', 'disgust', 'fear']
+IEMOCAP_POS = ['joy', 'excited', 'surprise', 'neutral']
+IEMOCAP_NEG = ['sadness', 'angry', 'frustrated', 'surprise', 'anger', 'disgust', 'fear', 'neutral']
 IEMOCAP_NEU = ['neutral', 'surprise']
 
-MELD_POS = ['joy', 'surprise', 'neutral']
-MELD_NEG = ['sadness', 'angry', 'surprise', 'disgust', 'fear', 'neutral']
+MELD_POS = ['joy', 'surprise']
+MELD_NEG = ['sadness', 'angry', 'surprise', 'disgust', 'fear']
 MELD_NEU = ['surprise']
 
 MELD_IEMOCAP = ['neutral', 'joy', 'sadness']
