@@ -468,6 +468,10 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
             prompts.append([nor_scores[i], prompt, sent, emotions[i]])
             target_gene_aug_inputs.append(target_gene_inputs[i])
         
+    with open(os.path.join(args.data_dir, f"gene_input_and_prompt.txt"), "w") as f:
+        for i, p in enumerate(prompts):
+            f.write(f"{target_gene_aug_inputs[i]} ===> {p}\n")
+    # target_gene_aug_inputs = target_gene_inputs
     return prompts, target_gene_aug_inputs
 
 
