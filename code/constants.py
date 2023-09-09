@@ -30,12 +30,23 @@ STOP_WORDS = ['about', 'itself', 'so', 'further', 'against', "don't", 'shouldn',
 # STOP_WORDS = []
 
 
+IEMOCAP_POS = ['joy', 'excited', 'surprise', 'neutral']
+IEMOCAP_NEG = ['sadness', 'angry', 'frustrated', 'surprise', 'anger', 'disgust', 'fear', 'neutral']
+IEMOCAP_NEU = ['neutral', 'surprise']
+
+MELD_POS = ['joy', 'surprise', 'neutral']
+MELD_NEG = ['sadness', 'angry', 'surprise', 'disgust', 'fear', 'neutral']
+MELD_NEU = ['surprise']
+
+MELD_IEMOCAP = ['neutral', 'joy', 'sadness']
 
 MOSEII_TAGS = ["<pos>", "<neg>", "<neu>", "<score>", "</score>"]
 MOSEII_DICT = ['neu', 'neg', 'pos']
 # MELD_TAGS = ["<emotion>"]
 MELD_LABELS = ['<meld>', 'joy', 'sadness', 'fear', 'anger', 'surprise', 'disgust', 'neutral']
 MELD_DICT = ['neutral', 'surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+MELD_DICT_WO_NEUTRAL = ['surprise', 'anger', 'disgust', 'fear', 'joy', 'sadness']
+
 # IEMOCAP_TAGS =["<emotion>"]
 IEMOCAP_LABELS = ['<iemocap>', 'joy', 'sadness', 'angry', 'neutral', 'excited', 'frustrated']
 IEMOCAP_DICT = ['neutral', 'excited', 'angry', 'joy', 'sadness', 'frustrated']

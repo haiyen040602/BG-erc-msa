@@ -383,6 +383,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         target_gene_aug_outputs = []
         
         logger.info(f"Starting generating data.")
+        logger.info(f"Number of generated prompts: ")
+        logger.info(str(len(prompts)))
         
 
         for i, prompt in enumerate(prompts):
@@ -449,17 +451,20 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
         else:
             prompt = " ".join(seqs[0:len_seqs])
         
-        if scores[i] > 0:
+        if scores[i] > 0 and emotions[i] in MELD_POS:
             sent = 'positive'
-        elif scores[i] < 0:
+        elif scores[i] < 0 and emotions[i] in MELD_NEG:
             sent = 'negative'
-        else:
+        elif scores[i] == 0 and emotions[i] in MELD_DICT_WO_NEUTRAL:
             sent = None
-        if emotions[i] == 'neutral' and neu_count < (args.data_gene_num_samples / 5):
+        else:
+            continue
+
+        if emotions[i] == 'neutral' and (sent is not None): #and neu_count < (args.data_gene_num_samples / 5)
             prompts.append([nor_scores[i], prompt, sent, None])
             target_gene_aug_inputs.append(target_gene_inputs[i])
             neu_count = neu_count + 1
-        elif emotions[i] in MELD_DICT and emotions[i] != 'neutral':
+        elif emotions[i] in MELD_DICT_WO_NEUTRAL:
             prompts.append([nor_scores[i], prompt, sent, emotions[i]])
             target_gene_aug_inputs.append(target_gene_inputs[i])
         
