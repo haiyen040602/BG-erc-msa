@@ -394,8 +394,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
             if i < 5:
                 print("prompt: ", prompt)
                 print("generated text: ", generated_text)
-            if (i + 1) == args.data_gene_num_samples:
-                break
+            # if (i + 1) == args.data_gene_num_samples:
+            #     break
 
         logger.info("Ending generating data.")
         # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
