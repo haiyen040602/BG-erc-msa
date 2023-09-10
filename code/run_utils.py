@@ -417,28 +417,42 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
     
 
 def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_promts):
+    sents = []
+    scores = []
     if "meld" in args.task:
         emotions = []
-        scores = get_targets(args=args, data_type_file="target-unlabel")
+        sent_score = get_targets(args=args, data_type_file="target-unlabel")
         # print(scores)
         for i in target_gene_inputs:
             emo = extract_meld_from_extraction_universal(i)
             emotions.append(emo[0])
+
     elif "moseii" in args.task:
         emotions = get_targets(args=args, data_type_file="target-unlabel")
-        print(emotions)
-        scores = []
+        
         for i in target_gene_inputs:
             sent_score = extract_moseii_from_extraction_universal(i)
-            if is_float(sent_score[1][0]):
-                score = float(sent_score[1][0])
-                # score = round(score, 1)
-                scores.append(score)
-            else:
-                scores.append(0)
+    
+    error_score_index = []
+    for i in range(len(sent_score)):
+        if is_float(sent_score[1][0]):
+            score = float(sent_score[1][0])
+            scores.append(score)
+        else:
+            scores.append(0)
+            error_score_index.append(i)
+        
+        if sent_score[0][0] in MOSEII_DICT:
+                sents.append(sent_score[0][0])
+        else:
+            sents.append(None)
 
+
+    ##TODO: normalize score from [-3, 3] to [0, 1]
     scores = np.array(scores)
+    scores = list(map(abs, scores))
     nor_scores = (scores-min(scores))/(max(scores)-min(scores))
+
     prompts = []
     target_gene_aug_inputs = []
     
@@ -451,20 +465,19 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
         else:
             prompt = " ".join(seqs[0:len_seqs])
         
-        if scores[i] > 0 and emotions[i] in MELD_POS:
+        if i in error_score_index:
+            continue
+        
+        if scores[i] >= 0 and sents[i] == 'pos' and emotions[i] in MELD_POS:
             sent = 'positive'
-        elif scores[i] < 0 and emotions[i] in MELD_NEG:
+        elif scores[i] <= 0 and sents[i] == 'neg' and emotions[i] in MELD_NEG:
             sent = 'negative'
-        elif scores[i] == 0 and emotions[i] in MELD_DICT_WO_NEUTRAL:
+        elif sents[i] == 'neu' and emotions[i] in MELD_DICT_WO_NEUTRAL:
             sent = None
         else:
             continue
 
-        # if emotions[i] == 'neutral' and (sent is not None): #and neu_count < (args.data_gene_num_samples / 5)
-        #     prompts.append([nor_scores[i], prompt, sent, None])
-        #     target_gene_aug_inputs.append(target_gene_inputs[i])
-        #     neu_count = neu_count + 1
-        # elif emotions[i] in MELD_DICT_WO_NEUTRAL:
+
         prompts.append([nor_scores[i], prompt, sent, emotions[i]])
         target_gene_aug_inputs.append(target_gene_inputs[i])
         
