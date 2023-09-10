@@ -1,4 +1,5 @@
 import torch
+import os
 import torch.distributed as dist
 import torch.multiprocessing as mp
 from emotional_gene import emotional_gene
@@ -10,7 +11,9 @@ model = GPT2LMHeadModel.from_pretrained(model_name, output_hidden_states=True)
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
 def run_inference(rank, world_size):
-    dist.init_process_group("gloo", init_method='env://', rank=rank, world_size=world_size)
+    os.environ['MASTER_ADDR'] = 'localhost'
+    os.environ['MASTER_PORT'] = '5554'
+    dist.init_process_group("gloo", rank=rank, world_size=world_size)
 
     model.to(rank)
     model.eval()
