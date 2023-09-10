@@ -816,7 +816,8 @@ def run_pplm_example(
         no_cuda=False,
         colorama=False,
         verbosity='regular',
-        perturb = False
+        perturb = False,
+        model = None
 ):
     # set Random seed
     seed = generate_random_seed()
@@ -940,12 +941,43 @@ device = "cuda" #if torch.cuda.is_available() and not no_cuda else "cpu"
 
  # load pretrained model
 pretrained_model="gpt2-medium"
-model = GPT2LMHeadModel.from_pretrained(
-    pretrained_model,
-    output_hidden_states=True
-)
-model.to(device)
-model.eval()
+# model = GPT2LMHeadModel.from_pretrained(
+#     pretrained_model,
+#     output_hidden_states=True
+# )
+# model.to(device)
+# model.eval()
+
+if torch.cuda.is_available() and torch.cuda.device_count() == 2:
+    device1 = torch.device("cuda:0")
+    device2 = torch.device("cuda:1")
+
+    # Tạo và nạp mô hình GPT lên từng GPU
+    model1 = GPT2LMHeadModel.from_pretrained(
+        pretrained_model,
+        output_hidden_states=True
+    )
+
+
+    model2 = GPT2LMHeadModel.from_pretrained(
+        pretrained_model,
+        output_hidden_states=True
+    )
+
+    model1 = model1.to(device1)
+    model2 = model2.to(device2)
+
+# Đặt mô hình vào chế độ inference
+    model1.eval()
+    model2.eval()
+
+else:
+    model = GPT2LMHeadModel.from_pretrained(
+        pretrained_model,
+        output_hidden_states=True
+    )
+    model.to(device)
+    model.eval()
 
 # load tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained(pretrained_model)
@@ -956,13 +988,13 @@ def emotional_gene(Knob, Prompt, Topic, Affect):
     else:
         perturb = True
 
-    generated_text = run_pplm_example(
+    generated_text1 = run_pplm_example(
           affect_weight=1,  # it is the convergence rate of affect loss, don't change it :-p
-          knob = Knob, # 0-1, play with it as much as you want
-          cond_text=Prompt,
+          knob = Knob[0], # 0-1, play with it as much as you want
+          cond_text=Prompt[0],
           num_samples=1,
-          bag_of_words=Topic,
-          bag_of_words_affect=Affect,
+          bag_of_words=Topic[0],
+          bag_of_words_affect=Affect[0],
           length=50,
           stepsize=0.01,
           sample=True,
@@ -972,7 +1004,29 @@ def emotional_gene(Knob, Prompt, Topic, Affect):
           gm_scale=0.95,
           kl_scale=0.01,
           verbosity='quiet',
-          perturb = perturb
+          perturb = perturb,
+          model = model1
       )
-    joined_generated_text = ' '.join(generated_text.splitlines())
-    return joined_generated_text
+    
+    generated_text2 = run_pplm_example(
+          affect_weight=1,  # it is the convergence rate of affect loss, don't change it :-p
+          knob = Knob[1], # 0-1, play with it as much as you want
+          cond_text=Prompt[1],
+          num_samples=1,
+          bag_of_words=Topic[1],
+          bag_of_words_affect=Affect[1],
+          length=50,
+          stepsize=0.01,
+          sample=True,
+          num_iterations=3,
+          window_length=5,
+          gamma=1.5,
+          gm_scale=0.95,
+          kl_scale=0.01,
+          verbosity='quiet',
+          perturb = perturb,
+          model = model2
+      )
+    joined_generated_text1 = ' '.join(generated_text1.splitlines())
+    joined_generated_text2 = ' '.join(generated_text2.splitlines())
+    return [joined_generated_text1, joined_generated_text2]

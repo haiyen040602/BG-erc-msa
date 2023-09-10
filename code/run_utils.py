@@ -335,8 +335,8 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
         logger.info(f"Model reloaded with gpt2-medium")
     elif args.data_gene_affective_model:
-        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
-        model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
+        # tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
+        # model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
         logger.info(f"Model reloaded with gpt2-medium")
 
     logger.info(f"Tokenizer len: {len(tokenizer)}")

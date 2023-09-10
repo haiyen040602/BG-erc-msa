@@ -1,5 +1,7 @@
 from emotional_gene import emotional_gene
-    
-generated_text = emotional_gene(Knob=0.5, Prompt="also I", Topic='negative', Affect=None)
 
-print(generated_text)
+gene = []
+generated_text1 = emotional_gene(Knob=[0.5, 0.6], Prompt=["also I", "there is"], Topic=['negative', 'positive'], Affect=[None, 'joy'])
+
+gene.extend(generated_text1)
+print(gene)
