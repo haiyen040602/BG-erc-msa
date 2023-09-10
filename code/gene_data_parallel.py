@@ -29,7 +29,7 @@ def run_inference(rank, world_size):
         topic = 'negative'
         knob = 0.4
     
-    generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer)
+    generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = rank)
     print(generated_text)
 
 def main():

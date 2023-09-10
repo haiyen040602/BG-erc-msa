@@ -818,7 +818,8 @@ def run_pplm_example(
         verbosity='regular',
         perturb = False,
         model = None,
-        tokenizer = None
+        tokenizer = None,
+        device = None
 ):
     # set Random seed
     seed = generate_random_seed()
@@ -938,7 +939,7 @@ def run_pplm_example(
 
 
 # # set the device
-device = "cuda" #if torch.cuda.is_available() and not no_cuda else "cpu"
+# device = "cuda" #if torch.cuda.is_available() and not no_cuda else "cpu"
 
 #  # load pretrained model
 # pretrained_model="gpt2-medium"
@@ -983,7 +984,7 @@ device = "cuda" #if torch.cuda.is_available() and not no_cuda else "cpu"
 # # load tokenizer
 # tokenizer = GPT2Tokenizer.from_pretrained(pretrained_model)
 
-def emotional_gene(Knob, Prompt, Topic, Affect, model, tokenizer):
+def emotional_gene(Knob, Prompt, Topic, Affect, model, tokenizer, device):
     if Topic is None and Affect is None:
         perturb = False
     else:
@@ -1007,7 +1008,8 @@ def emotional_gene(Knob, Prompt, Topic, Affect, model, tokenizer):
           verbosity='quiet',
           perturb = perturb,
           model = model,
-          tokenizer = tokenizer
+          tokenizer = tokenizer, 
+          device = device
       )
     
     # generated_text2 = run_pplm_example(
