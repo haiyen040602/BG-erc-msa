@@ -13,6 +13,7 @@ def run_inference(rank, world_size):
     dist.init_process_group("gloo", rank=rank, world_size=world_size)
 
     model.to(rank)
+    model.eval()
 
     if dist.get_rank() == 0:
         prompt = "also I"
