@@ -41,6 +41,8 @@ def run_emo_gene(knobs=[0.4, 0.5], prompts=['There are', 'also I'], topics=[None
         join=True
     )
 
+run_emo_gene()
+
 # if __name__ == "__main__":
 #     main()
 
