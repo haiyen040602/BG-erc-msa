@@ -493,9 +493,9 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
             sent = 'positive'
         elif scores[i] <= 0 and sents[i] == 'neg' and emotions[i] in MELD_NEG:
             sent = 'negative'
-        elif sent[i] == 'pos' and emotions[i] == 'neutral':
+        elif sents[i] == 'pos' and emotions[i] == 'neutral':
             sent = 'positive'
-        elif sent[i] == 'neg' and emotions[i] == 'neutral':
+        elif sents[i] == 'neg' and emotions[i] == 'neutral':
             sent = 'negative'
         elif sents[i] == 'neu' and emotions[i] in MELD_DICT_WO_NEUTRAL:
             sent = None
