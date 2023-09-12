@@ -25,7 +25,9 @@ def run_inference(rank, knobs, prompts, topics, affects, model, tokenizer, resul
         topic = topics[1]
         knob = knobs[1]
     
-    generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = rank)
+    device = torch.device("cuda", dist.get_rank())
+    
+    generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = device)
     # print(generated_text)
     result_queue.put((generated_text))
 
