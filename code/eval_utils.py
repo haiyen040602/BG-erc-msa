@@ -3,7 +3,7 @@ import logging
 import re
 import copy
 
-import editdistance
+# import editdistance
 import numpy as np
 
 from constants import *
