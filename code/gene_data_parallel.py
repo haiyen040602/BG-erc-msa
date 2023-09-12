@@ -10,7 +10,10 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 def run_inference(rank, knobs, prompts, topics, affects, model, tokenizer, result_queue, world_size):
 
     # dist.init_process_group("gloo", rank=rank, world_size=world_size)
-
+    if model is None or tokenizer is None:
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
+        model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
+    
 
     if rank == 0:
         prompt = prompts[0]
@@ -24,6 +27,7 @@ def run_inference(rank, knobs, prompts, topics, affects, model, tokenizer, resul
         knob = knobs[1]
     
     device = torch.device("cuda", rank)
+    print(device)
     model.to(device)
     model.eval()
 
@@ -46,7 +50,7 @@ def run_emo_gene_parallel(
 
     if model is None or tokenizer is None:
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
-        model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
+        model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
     
     result_queue = mp.Queue()
     for rank in range(world_size):
