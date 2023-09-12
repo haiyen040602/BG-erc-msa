@@ -450,9 +450,10 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
 
     elif "moseii" in args.task:
         emotions = get_targets(args=args, data_type_file="target-unlabel")
-        
+        sent_score = []
         for i in target_gene_inputs:
-            sent_score = extract_moseii_from_extraction_universal(i)
+            extr = extract_moseii_from_extraction_universal(i)
+            sent_score.append(extr)
     
     error_score_index = []
     for i in range(len(sent_score)):
