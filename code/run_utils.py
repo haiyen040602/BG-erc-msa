@@ -442,7 +442,7 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
     scores = []
     if "meld" in args.task:
         emotions = []
-        sent_score = get_targets(args=args, data_type_file="target-unlabel")
+        sent_scores = get_targets(args=args, data_type_file="target-unlabel")
         # print(scores)
         for i in target_gene_inputs:
             emo = extract_meld_from_extraction_universal(i)
@@ -450,13 +450,13 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
 
     elif "moseii" in args.task:
         emotions = get_targets(args=args, data_type_file="target-unlabel")
-        sent_score = []
+        sent_scores = []
         for i in target_gene_inputs:
             extr = extract_moseii_from_extraction_universal(i)
-            sent_score.append(extr)
+            sent_scores.append(extr)
     
     error_score_index = []
-    for i in range(len(sent_score)):
+    for i, sent_score in enumerate(sent_scores):
         if is_float(sent_score[1][0]):
             score = float(sent_score[1][0])
             scores.append(score)
