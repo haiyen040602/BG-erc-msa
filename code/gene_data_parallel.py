@@ -62,7 +62,8 @@ def run_emo_gene_parallel(
         generated_texts.append(temp_res)
         del temp_res
 
-    print(generated_texts)
+    print(generated_texts[0])
+    print(generated_texts[1])
     return generated_texts
 
 run_emo_gene_parallel()
