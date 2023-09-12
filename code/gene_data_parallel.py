@@ -14,20 +14,25 @@ def run_inference(rank, knobs, prompts, topics, affects, model, tokenizer, resul
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
         model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
     
-
-    if rank == 0:
+    if len(knobs) == 2:
+        if rank == 0:
+            prompt = prompts[0]
+            affect = affects[0]
+            topic = topics[0]
+            knob = knobs[0]
+        elif rank == 1:
+            prompt = prompts[1]
+            affect = affects[1]
+            topic = topics[1]
+            knob = knobs[1]
+    elif len(knobs) == 1:
         prompt = prompts[0]
         affect = affects[0]
         topic = topics[0]
         knob = knobs[0]
-    elif rank == 1:
-        prompt = prompts[1]
-        affect = affects[1]
-        topic = topics[1]
-        knob = knobs[1]
     
     device = torch.device("cuda", rank)
-    print(device)
+    # print(device)
     model.to(device)
     model.eval()
 
@@ -62,9 +67,9 @@ def run_emo_gene_parallel(
         generated_texts.append(temp_res)
         del temp_res
 
-    print(generated_texts[0])
-    print(generated_texts[1])
+    # print(generated_texts[0])
+    # print(generated_texts[1])
     return generated_texts
 
-run_emo_gene_parallel()
+# run_emo_gene_parallel()
     

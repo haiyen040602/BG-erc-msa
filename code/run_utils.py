@@ -20,6 +20,7 @@ from data_utils import (ABSADataset, filter_none, filter_invalid,
 from model_utils import (prepare_constrained_tokens, prepare_tag_tokens)
 from eval_utils import is_float
 from emotional_gene import emotional_gene
+from gene_data_parallel import run_emo_gene_parallel
 
 logger = logging.getLogger(__name__)
 
@@ -336,7 +337,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         logger.info(f"Model reloaded with gpt2-medium")
     elif args.data_gene_affective_model:
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
-        model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
+        model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
         logger.info(f"Model reloaded with gpt2-medium")
 
     logger.info(f"Tokenizer len: {len(tokenizer)}")
@@ -384,16 +385,38 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
         logger.info(f"Number of generated prompts: ")
         logger.info(str(len(prompts)))
         
+        device = 'cuda'
 
-        for i, prompt in enumerate(prompts):
-            generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3])
-            target_gene_aug_outputs.append(generated_text)
-            
-            if i < 5:
-                print("prompt: ", prompt)
-                print("generated text: ", generated_text)
-            # if (i + 1) == args.data_gene_num_samples:
-            #     break
+        if torch.cuda.device_count() == 1:
+            for i, prompt in enumerate(prompts):
+                # generated_texts = run_emo_gene_parallel(knobs=[])
+                model.to(device)
+                model.eval()
+                generated_text = emotional_gene(Knob=prompt[0], Prompt=prompt[1], Topic=prompt[2], Affect=prompt[3], model=model, tokenizer=tokenizer, device=device)
+                target_gene_aug_outputs.append(generated_text)
+                
+                if i < 5:
+                    print("prompt: ", prompt)
+                    print("generated text: ", generated_text)
+                if (i + 1) == args.data_gene_num_samples:
+                    break
+
+        elif torch.cuda.device_count() == 2:
+            for i in range(0, len(prompts) - 1, 2):
+                knobs = [prompts[i][0], prompts[i+1][0]]
+                prompt = [prompts[i][1], prompts[i+1][1]]
+                topics = [prompts[i][2], prompts[i+1][2]]
+                affects = [prompts[i][3], prompts[i+1][3]]
+                generated_texts = run_emo_gene_parallel(knobs=knobs, prompts=prompt, topics=topics, affects=affects, model=model, tokenizer=tokenizer)
+                target_gene_aug_outputs.extend(generated_texts)
+
+                if i < 5:
+                    print("prompt: ", prompts[i])
+                    print("generated text 1: ", generated_texts[0])
+                    print("generated text 2: ", generated_texts[1])
+                if (i + 1) == args.data_gene_num_samples:
+                    break
+
 
         logger.info("Ending generating data.")
         # with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
@@ -470,13 +493,20 @@ def get_input_promts(args, target_gene_inputs, target_gene_targets, num_input_pr
             sent = 'positive'
         elif scores[i] <= 0 and sents[i] == 'neg' and emotions[i] in MELD_NEG:
             sent = 'negative'
+        elif sent[i] == 'pos' and emotions[i] == 'neutral':
+            sent = 'positive'
+        elif sent[i] == 'neg' and emotions[i] == 'neutral':
+            sent = 'negative'
         elif sents[i] == 'neu' and emotions[i] in MELD_DICT_WO_NEUTRAL:
             sent = None
         else:
             continue
+            
 
-
-        prompts.append([nor_scores[i], prompt, sent, emotions[i]])
+        if emotions[i] == 'neutral':
+            prompts.append([nor_scores[i], prompt, sent, None])
+        else:
+            prompts.append([nor_scores[i], prompt, sent, emotions[i]])
         target_gene_aug_inputs.append(target_gene_inputs[i])
         
     with open(os.path.join(args.data_dir, f"gene_input_and_prompt.txt"), "w") as f:
