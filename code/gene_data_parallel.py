@@ -59,7 +59,7 @@ def run_emo_gene_parallel(
     generated_texts = []
     for _ in range(world_size):
         temp_res = result_queue.get()
-        generated_texts.append(temp_res[0])
+        generated_texts.append(temp_res)
         del temp_res
 
     print(generated_texts)
