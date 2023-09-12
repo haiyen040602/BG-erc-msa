@@ -48,7 +48,7 @@ def run_emo_gene_parallel(
     
     result_queue = mp.Queue()
     for rank in range(world_size):
-        mp.Process(target=run_inference, args=(rank,knobs, prompts, topics, affects, model, tokenizer, result_queue,)).start()
+        mp.Process(target=run_inference, args=(rank,knobs, prompts, topics, affects, model, tokenizer, result_queue, world_size)).start()
 
     generated_texts = []
     for _ in range(world_size):
