@@ -9,25 +9,24 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 def run_inference(rank, knobs, prompts, topics, affects, model, tokenizer, result_queue, world_size):
 
-    dist.init_process_group("gloo", rank=rank, world_size=world_size)
+    # dist.init_process_group("gloo", rank=rank, world_size=world_size)
 
-    
 
-    if dist.get_rank() == 0:
+    if rank == 0:
         prompt = prompts[0]
         affect = affects[0]
         topic = topics[0]
         knob = knobs[0]
-    elif dist.get_rank() == 1:
+    elif rank == 1:
         prompt = prompts[1]
         affect = affects[1]
         topic = topics[1]
         knob = knobs[1]
     
-    device = torch.device("cuda", dist.get_rank())
+    device = torch.device("cuda", rank)
     model.to(device)
     model.eval()
-    
+
     generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = device)
     # print(generated_text)
     result_queue.put((generated_text))
