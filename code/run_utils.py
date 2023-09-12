@@ -195,7 +195,7 @@ def infer(args, dataset, model, tokenizer, name, is_constrained=False, constrain
             targets.extend(target)
 
     decode_txt = "constrained" if is_constrained else "greedy"
-    with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w") as f:
+    with open(os.path.join(args.inference_dir, f"{name}_{decode_txt}_output.txt"), "w", encoding='utf-8') as f:
         for i, o in enumerate(outputs):
             f.write(f"{inputs[i]} ===> {o}\n")
 
@@ -427,7 +427,7 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
             print("Generated Data Input: ", target_gene_aug_inputs[i])
             print("Generated Data Output: ", target_gene_aug_outputs[i])
 
-        with open(os.path.join(args.inference_dir, f"emotional_gene_output.txt"), "w") as f:
+        with open(os.path.join(args.inference_dir, f"emotional_gene_output.txt"), "w", encoding='utf-8') as f:
             for i, o in enumerate(target_gene_aug_outputs):
                 f.write(f"{target_gene_aug_inputs[i]} ===> {o}\n")
         # target_gene_aug_inputs = target_gene_inputs
