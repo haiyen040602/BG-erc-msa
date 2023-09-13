@@ -37,7 +37,7 @@ def run_inference(rank, prompts, model, tokenizer, result_queue, world_size):
     #     topic = topics[0]
     #     knob = knobs[0]
     device  = torch.device('cuda', rank)
-    model.to(rank)
+    model.to(device)
     model.eval()
     
     prompts0 = prompts[0: len(prompts) // 2]
