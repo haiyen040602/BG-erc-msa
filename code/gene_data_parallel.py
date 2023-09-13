@@ -100,5 +100,5 @@ def run_emo_gene_parallel(
     # print(generated_texts[1])
     return generated_texts
 
-# run_emo_gene_parallel()
+run_emo_gene_parallel()
     
