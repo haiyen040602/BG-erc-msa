@@ -36,7 +36,7 @@ def run_inference(rank, knobs, prompts, topics, affects, model, tokenizer, resul
     #     affect = affects[0]
     #     topic = topics[0]
     #     knob = knobs[0]
-    device  = torch.cuda.device('cuda', rank)
+    device  = torch.device('cuda', rank)
     model.to(rank)
     model.eval()
     for i in range(len(prompts) - 1):
