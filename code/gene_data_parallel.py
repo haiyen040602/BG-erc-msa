@@ -89,7 +89,11 @@ def run_emo_gene_parallel(
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
         model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
     
-    
+    try:
+        mp.set_start_method('spawn')
+    except Exception as e:
+        pass
+
     result_queue = mp.Queue()
     for rank in range(world_size):
         mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size)).start()
