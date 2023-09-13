@@ -61,7 +61,14 @@ def run_inference(rank, prompts, model, tokenizer, result_queue, world_size):
 
 
 def run_emo_gene_parallel(
-        prompts=['There are', 'also I', 'business case', 'project objectives'], 
+        prompts = [[0.4, 'there are', 'negative', 'anger'], 
+               [0, 'also I', None, 'joy'], 
+               [0.6, 'objectives', 'positive', 'surprise'], 
+               [0.7, 'negative speech', 'negative', 'sadness'],
+               [0.7, 'positive speech', 'positive', 'trust'],
+               [0.9, 'the hospital', 'negative', 'sadness'],
+               [0.3, 'I dont know', 'negative', 'anger'],
+               [1, 'negative speech', 'negative', 'sadness']], 
         model = None, 
         tokenizer = None):
     
@@ -73,16 +80,7 @@ def run_emo_gene_parallel(
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
         model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
     
-    ## Dataset
-    # prompts = [[0.4, 'there are', 'negative', 'anger'], 
-    #            [0, 'also I', None, 'joy'], 
-    #            [0.6, 'objectives', 'positive', 'surprise'], 
-    #            [0.7, 'negative speech', 'negative', 'sadness'],
-    #            [0.7, 'positive speech', 'positive', 'trust'],
-    #            [0.9, 'the hospital', 'negative', 'sadness'],
-    #            [0.3, 'I dont know', 'negative', 'anger'],
-    #            [1, 'negative speech', 'negative', 'sadness']]
-
+    
     result_queue = mp.Queue()
     for rank in range(world_size):
         mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size)).start()
@@ -97,5 +95,6 @@ def run_emo_gene_parallel(
     # print(generated_texts[1])
     return generated_texts
 
-# run_emo_gene_parallel()
+generated_texts = run_emo_gene_parallel()
+print(generated_texts)
     
