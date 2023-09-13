@@ -79,7 +79,7 @@ def run_emo_gene_parallel(
     ## Dataset
     prompts = [[0.4, 'there are', 'negative', 'anger'], 
                [0, 'also I', None, 'joy'], 
-               [0.6, 'objectives', 'posotive', 'surprise'], 
+               [0.6, 'objectives', 'positive', 'surprise'], 
                [0.7, 'negative speech', 'negative', 'sadness'],
                [0.7, 'positive speech', 'positive', 'trust'],
                [0.9, 'the hospital', 'negative', 'sadness'],
