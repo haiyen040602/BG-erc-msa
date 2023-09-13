@@ -106,7 +106,7 @@ def run_emo_gene_parallel(
     # processes = []
     mp.spawn(
         run_inference,
-        args= (world_size, prompts, model, tokenizer, result_queue, world_size),
+        args= (prompts, model, tokenizer, result_queue, world_size),
         nprocs=world_size,
         join=True
     )
