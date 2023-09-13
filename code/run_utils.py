@@ -402,20 +402,20 @@ def gene_model(args, tokenizer, model, target_extract_inputs, target_extract_out
                     break
 
         elif torch.cuda.device_count() == 2:
-            for i in range(0, len(prompts) - 1, 2):
-                knobs = [prompts[i][0], prompts[i+1][0]]
-                prompt = [prompts[i][1], prompts[i+1][1]]
-                topics = [prompts[i][2], prompts[i+1][2]]
-                affects = [prompts[i][3], prompts[i+1][3]]
-                generated_texts = run_emo_gene_parallel(knobs=knobs, prompts=prompt, topics=topics, affects=affects, model=model, tokenizer=tokenizer)
-                target_gene_aug_outputs.extend(generated_texts)
-
-                if i < 5:
-                    print("prompt: ", prompts[i])
-                    print("generated text 1: ", generated_texts[0])
-                    print("generated text 2: ", generated_texts[1])
-                if (i + 1) == args.data_gene_num_samples:
-                    break
+            # for i in range(0, len(prompts) - 1, 2):
+            #     knobs = [prompts[i][0], prompts[i+1][0]]
+            #     prompt = [prompts[i][1], prompts[i+1][1]]
+            #     topics = [prompts[i][2], prompts[i+1][2]]
+            #     affects = [prompts[i][3], prompts[i+1][3]]
+            #     generated_texts = run_emo_gene_parallel(knobs=knobs, prompts=prompt, topics=topics, affects=affects, model=model, tokenizer=tokenizer)
+            prompts = prompts[: args.data_gene_num_samples]
+            target_gene_aug_outputs = run_emo_gene_parallel(prompts=prompts, model=model, tokenizer=tokenizer)
+            
+            for i in range(args.data_gene_num_samples):
+                print("prompt: ", prompts[i])
+                print("generated text 1: ", target_gene_aug_outputs[0])
+                print("generated text 2: ", target_gene_aug_outputs[1])
+            
 
 
         logger.info("Ending generating data.")
