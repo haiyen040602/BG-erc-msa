@@ -39,15 +39,22 @@ def run_inference(rank, prompts, model, tokenizer, result_queue, world_size):
     #     topic = topics[0]
     #     knob = knobs[0]
     device  = torch.device('cuda', rank)
-    model.to(device)
+    model.to(rank)
     model.eval()
     
     prompts0 = prompts[0: len(prompts) // 2]
     prompts1 = prompts[len(prompts) // 2 :]
-    if rank == 0:
+
+    if dist.get_rank() == 0:
         input = prompts0
-    elif rank == 1:
+    elif dist.get_rank() == 1:
         input = prompts1
+        
+
+    # if rank == 0:
+    #     input = prompts0
+    # elif rank == 1:
+    #     input = prompts1
     # for i in range(len(prompts) - 1):
     #     if rank == 0:
     #         knob = prompts[i][0]
@@ -90,20 +97,26 @@ def run_emo_gene_parallel(
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
         model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
     
-    try:
-        mp.set_start_method('spawn')
-    except Exception as e:
-        pass
+    # try:
+    #     mp.set_start_method('spawn')
+    # except Exception as e:
+        # pass
 
     result_queue = mp.Queue()
-    processes = []
-    for rank in range(world_size):
-        p = mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size))
-        p.start()
-        processes.append(p)
+    # processes = []
+    mp.spawn(
+        run_inference,
+        args= (world_size, prompts, model, tokenizer, result_queue, world_size),
+        nprocs=world_size,
+        join=True
+    )
+    # for rank in range(world_size):
+    #     p = mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size))
+    #     p.start()
+    #     processes.append(p)
 
-    for p in processes:
-        p.join()
+    # for p in processes:
+    #     p.join()
     
     generated_texts = []
     for _ in range(world_size):
