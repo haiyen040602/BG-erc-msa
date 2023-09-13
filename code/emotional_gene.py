@@ -1012,26 +1012,20 @@ def emotional_gene(Knob, Prompt, Topic, Affect, model, tokenizer, device):
           device = device
       )
     
-    # generated_text2 = run_pplm_example(
-    #       affect_weight=1,  # it is the convergence rate of affect loss, don't change it :-p
-    #       knob = Knob[1], # 0-1, play with it as much as you want
-    #       cond_text=Prompt[1],
-    #       num_samples=1,
-    #       bag_of_words=Topic[1],
-    #       bag_of_words_affect=Affect[1],
-    #       length=50,
-    #       stepsize=0.01,
-    #       sample=True,
-    #       num_iterations=3,
-    #       window_length=5,
-    #       gamma=1.5,
-    #       gm_scale=0.95,
-    #       kl_scale=0.01,
-    #       verbosity='quiet',
-    #       perturb = perturb,
-    #       model = model2
-    #   )
+    
     joined_generated_text = ' '.join(generated_text.splitlines())
-    # joined_generated_text2 = ' '.join(generated_text2.splitlines())
-    # return [joined_generated_text1, joined_generated_text2]
+    
     return joined_generated_text
+
+def run_multiple_gene(prompts, model, tokenizer, device):
+    gene_texts = []
+    for p in prompts:
+        knob = p[0]
+        prompt = p[1]
+        topic = p[2]
+        affect = p[3]
+
+        generated_text = emotional_gene(knob, prompt, topic, affect, model, tokenizer, device)
+        gene_texts.append(generated_text)
+
+    return gene_texts

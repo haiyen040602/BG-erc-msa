@@ -2,7 +2,7 @@ import torch
 import os
 import torch.distributed as dist
 import torch.multiprocessing as mp
-from emotional_gene import emotional_gene
+from emotional_gene import emotional_gene, run_multiple_gene
 # from data_utils import get_targets, extract_moseii_from_extraction_universal, extract_meld_from_extraction_universal
 # from constants import * 
 # from eval_utils import is_float
@@ -39,24 +39,33 @@ def run_inference(rank, prompts, model, tokenizer, result_queue, world_size):
     device  = torch.device('cuda', rank)
     model.to(rank)
     model.eval()
-    for i in range(len(prompts) - 1):
-        if rank == 0:
-            knob = prompts[i][0]
-            prompt = prompts[i][1]
-            topic = prompts[i][2]
-            affect = prompts[i][3]  
-        elif rank == 1:
-            knob = prompts[i+1][0]
-            prompt = prompts[i+1][1]
-            topic = prompts[i+1][2]
-            affect = prompts[i+1][3] 
+    
+    prompts0 = prompts[0: len(prompts) // 2]
+    prompts1 = prompts[len(prompts) // 2 :]
+    if rank == 0:
+        input = prompts0
+    elif rank == 1:
+        input = prompts1
+    # for i in range(len(prompts) - 1):
+    #     if rank == 0:
+    #         knob = prompts[i][0]
+    #         prompt = prompts[i][1]
+    #         topic = prompts[i][2]
+    #         affect = prompts[i][3]  
+    #         prompts0.append([knob])
+    #     elif rank == 1:
+    #         knob = prompts[i+1][0]
+    #         prompt = prompts[i+1][1]
+    #         topic = prompts[i+1][2]
+    #         affect = prompts[i+1][3] 
 
         
     # print(device)
 
-        generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = device)
-        print(generated_text)
-        result_queue.put((generated_text))
+    # generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = device)
+    generated_texts = run_multiple_gene(prompts=input, model= model, tokenizer=tokenizer, device=device)
+    print(generated_texts)
+    result_queue.put((generated_texts))
 
 
 
@@ -85,10 +94,11 @@ def run_emo_gene_parallel(
     for rank in range(world_size):
         mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size)).start()
 
+    
     generated_texts = []
     for _ in range(world_size):
         temp_res = result_queue.get()
-        generated_texts.append(temp_res)
+        generated_texts.extend(temp_res)
         del temp_res
 
     # print(generated_texts[0])
