@@ -15,7 +15,9 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 def run_inference(rank, prompts, model, tokenizer, result_queue, world_size):
 
-    # dist.init_process_group("nccl", rank=rank, world_size=world_size)
+    os.environ['MASTER_ADDR'] = 'localhost'
+    os.environ['MASTER_PORT'] = '5554'
+    dist.init_process_group("gloo", rank=rank, world_size=world_size)
     if model is None or tokenizer is None:
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
         model = GPT2LMHeadModel.from_pretrained("gpt2-medium", output_hidden_states=True)
@@ -81,8 +83,7 @@ def run_emo_gene_parallel(
         model = None, 
         tokenizer = None):
     
-    os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '5554'
+    
     world_size = torch.cuda.device_count()
 
     if model is None or tokenizer is None:
@@ -95,9 +96,14 @@ def run_emo_gene_parallel(
         pass
 
     result_queue = mp.Queue()
+    processes = []
     for rank in range(world_size):
-        mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size)).start()
+        p = mp.Process(target=run_inference, args=(rank, prompts, model, tokenizer, result_queue, world_size))
+        p.start()
+        processes.append(p)
 
+    for p in processes:
+        p.join()
     
     generated_texts = []
     for _ in range(world_size):
@@ -107,6 +113,7 @@ def run_emo_gene_parallel(
 
     # print(generated_texts[0])
     # print(generated_texts[1])
+    print("Number of generated data: ", len(generated_texts))
     return generated_texts
 
 if __name__ == '__main__':
