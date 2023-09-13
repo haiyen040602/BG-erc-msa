@@ -64,7 +64,7 @@ def run_inference(rank, prompts, model, tokenizer, result_queue, world_size):
 
     # generated_text = emotional_gene(Knob=knob, Prompt=prompt, Topic=topic, Affect=affect, model = model, tokenizer=tokenizer, device = device)
     generated_texts = run_multiple_gene(prompts=input, model= model, tokenizer=tokenizer, device=device)
-    print(generated_texts)
+    # print(generated_texts)
     result_queue.put((generated_texts))
 
 
@@ -105,6 +105,6 @@ def run_emo_gene_parallel(
     # print(generated_texts[1])
     return generated_texts
 
-generated_texts = run_emo_gene_parallel()
-print(generated_texts)
+# generated_texts = run_emo_gene_parallel()
+# print(generated_texts)
     
